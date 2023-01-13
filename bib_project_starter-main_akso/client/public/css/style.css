@@ -1,0 +1,60 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background-color: #f4f4f7;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+}
+/*code added by akso start here*/
+h2{
+  text-align: center;
+}
+.pet {
+  width: 20%;
+  display: inline-block;
+  margin-right: 20px;
+}
+.pet img{
+  width: 100%;
+}
+.pet p{
+  width: 100%;
+  text-align: center;
+
+}
+section {
+  height: 80vh;
+  margin-top: 20px;
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+img{
+  width: 200px;
+  height: 200px;
+}
+.pet-form,.pet-update-form-2{
+  margin-left: 190px;
+  margin-top: 40px;
+}
+.error{
+  margin: 10px 4px;
+  font-size: 13px;
+  color: #e00909;
+}
+.needed{
+  margin: 10px 4px;
+  font-size: 13px;
+  color: #e00909;
+}
