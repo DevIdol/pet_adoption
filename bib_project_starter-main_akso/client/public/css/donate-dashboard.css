@@ -1,0 +1,23 @@
+.donation-con p{
+ width: 10%;
+ display: inline-block;
+}
+.donation-con p.description{
+  width:35%
+}
+.donation-row{
+  border-bottom: 1px solid #433d3d;
+  width: 80%;
+  margin-left: 250px;
+  margin-top: 30px;
+  padding-bottom: 20px;
+
+}
+.donation-title p{
+  width: 10%;
+  display: inline-block;
+  font-weight: bold;
+}
+.donation-title p.description{
+  width:35%
+}

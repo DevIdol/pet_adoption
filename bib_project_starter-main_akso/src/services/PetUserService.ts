@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import PetModel from "../models/PetModel.js";
+import DonateModel from "../models/donationModel.js";
 import mongoose from "mongoose";
 import { logger } from "../logger/Logger.js";
 export const homePageUserService = async(
@@ -74,4 +75,14 @@ export const dogTrainingTipService = async(
   next:NextFunction
 ) => {
   res.render("training-tip-dog")
+}
+
+export const donationUserService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const requests =await DonateModel.find({});
+  console.log(requests);
+  return res.render("request-donation-user", { requests: requests });
 }

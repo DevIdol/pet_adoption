@@ -15,7 +15,7 @@
   top: 0;
   left: 0;
   z-index: 1;
-  width: 160px;
+  width: 220px;
   height: 100%;
   padding-top: 20px;
   background-color: #111;
@@ -34,8 +34,8 @@
   color: #f1f1f1;
 }
 
-.main {
-  margin-left: 160px;
+.main-pet {
+  margin-left: 250px;
   /* Same as the width of the sidenav */
   padding: 0px 10px;
 }

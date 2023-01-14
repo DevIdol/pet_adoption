@@ -5,7 +5,8 @@ import {
   petDetailUser,
   petCareTip,
   catTrainingTip,
-  dogTrainingTip
+  dogTrainingTip,
+  donationUser
 } from "../controllers/PetUserController.js";
 const router = express.Router();
 
@@ -16,6 +17,10 @@ router.route("/all-pets")
   .get(allPets);
 router.route("/petcare-tips")
   .get(petCareTip)
+
+router.route("/donation-requests")
+.get(donationUser)
+  
 
 router.route("/training-tips/dog-training-tips")
   .get(dogTrainingTip)

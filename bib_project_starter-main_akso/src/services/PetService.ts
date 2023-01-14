@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
 import fs from "fs";
 import Pet from "../models/PetModel.js";
+import Donate from "../models/donationModel.js";
 import { logger } from "../logger/Logger.js";
 import { validationResult } from "express-validator";
 import cookieParser from "cookie-parser";
@@ -45,7 +46,6 @@ export const petUploadService = async(
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       let pet = {
-     
         name: req.body.name,
         breed: req.body.breed,
         age: req.body.age,
@@ -292,3 +292,103 @@ export const petUpdateService = async(
     res.redirect("/admin/pets/" + pet._id + "/update");
   }
 }
+// Donation section
+export const donateRequestService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const donations =await Donate.find({});
+  res.render("donation-request",{errors:"",donation:donations});
+}
+export const donateRequestDashboardService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const donations =await Donate.find({});
+  res.render("donate-dashboard", { donations: donations });
+}
+
+export const donateRequestCreateService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) { 
+      let donation = {
+        itemName: req.body.itemName,
+        quantity:req.body.quantity,
+        description:req.body.description
+      }
+      return res.render("donation-request", {
+        errors: errors.array(),
+        donation: donation
+      });
+    }
+    const donationCreate = {
+      itemName: req.body.itemName,
+      quantity: req.body.quantity,
+      description:req.body.description
+    }
+    const newDonate = new Donate(donationCreate);
+    await newDonate.save();
+    res.redirect("/admin/pets/donate-dashboard");
+  } catch (err: any) {
+    res.redirect("/admin/pets/donate-request")
+}
+}
+
+//delete
+
+export const donationDeleteService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const requestedId = req.params.id;
+  Donate.deleteOne({ _id: requestedId }, (err) => {
+    if (!err) {
+      res.redirect("/admin/pets/donate-dashboard");
+    }
+  })
+}
+
+// update
+export const donationUpdateFormService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const donation = await Donate.findById(req.params.id);
+  if (!donation) {
+    res.render("error");
+  }
+  res.render("donate-update-form", {
+    errors: "",
+    donation:donation
+  })
+}
+
+export const donationUpdateService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const donation = await Donate.findById(req.params.id);
+   
+  if (!donation) {
+    const error: any = new Error("Not Found!");
+    error.statusCode = 404;
+    throw error;
+  }
+  donation.itemName = req.body.itemName;
+  donation.quantity = req.body.quantity;
+  donation.description = req.body.description;
+  let newDonation = new Donate(donation);
+  newDonation.save();
+  return res.redirect("/admin/pets/donate-dashboard");
+}
+

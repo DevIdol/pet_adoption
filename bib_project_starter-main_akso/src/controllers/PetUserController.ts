@@ -5,7 +5,8 @@ import {
   petDetailUserService,
   petCareTipService,
   catTrainingTipService,
-  dogTrainingTipService
+  dogTrainingTipService,
+  donationUserService
 } from "../services/PetUserService.js";
 
 export const homePageUser = async(
@@ -54,4 +55,12 @@ export const dogTrainingTip = async(
   next:NextFunction
 ) => {
   dogTrainingTipService(req, res, next);
+}
+
+export const donationUser = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  donationUserService(req, res, next);
 }
