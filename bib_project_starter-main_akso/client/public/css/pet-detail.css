@@ -1,40 +1,47 @@
-.pet-detail{
+.pet-detail {
   width: 60%;
   margin: 20px auto;
-  text-align: center;
   margin-top: 30px;
+  text-align: center;
 }
-.pet-detail img{
+
+.pet-detail img {
   width: 50%;
   height: 400px;
 }
-.pet-detail h2{
+
+.pet-detail h2 {
   font-size: 20px;
 }
+
 .pet-delete-form,
-.pet-update-form{
+.pet-update-form {
   display: inline-block;
   margin-left: 10px;
 }
+
 .btn-pet-delete,
-.btn-pet-update{
-  color: #ffffff;
-  padding: 10px 15px;
-  border-radius: 5px;
+.btn-pet-update {
   margin-top: 5px;
+  padding: 10px 15px;
 
   border: none;
+  color: #ffffff;
+  border-radius: 5px;
 
 }
-.btn-pet-delete{
+
+.btn-pet-delete {
   background-color: #d10909;
 }
-.btn-pet-update{
+
+.btn-pet-update {
   background-color: #91ab27;
 }
 
 
 .main {
-  margin-left: 160px; /* Same as the width of the sidenav */
+  margin-left: 160px;
+  /* Same as the width of the sidenav */
   padding: 0px 10px;
 }

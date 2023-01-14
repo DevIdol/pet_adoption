@@ -59,3 +59,19 @@ export const petCareTipService = async(
 ) => {
   res.render("petcare-tips");
 }
+
+export const catTrainingTipService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  res.render("training-tip-cat")
+}
+
+export const dogTrainingTipService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  res.render("training-tip-dog")
+}

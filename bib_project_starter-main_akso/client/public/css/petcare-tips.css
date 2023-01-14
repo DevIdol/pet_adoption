@@ -42,3 +42,29 @@ color: #130bb6;
   height: 200px;
   margin-top: 50px;
 }
+
+/*from pet training tips*/
+.cat-training-tips-btn,
+.dog-training-tips-btn{
+  width: 20%;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  color: #645e5e;
+  font-size: 18px;
+  margin:20px auto;
+  display: block;
+  text-align: center;
+}
+
+iframe{
+  width: 60%;
+  height: 415px;
+  margin: 10px auto;
+  text-align: center;
+  display: block;
+}
+h4.side-h4{
+  text-align: left;
+  margin-left: 20%;
+}

@@ -3,7 +3,9 @@ import {
   homePageUserService,
   allPetsService,
   petDetailUserService,
-  petCareTipService
+  petCareTipService,
+  catTrainingTipService,
+  dogTrainingTipService
 } from "../services/PetUserService.js";
 
 export const homePageUser = async(
@@ -36,4 +38,20 @@ export const petCareTip = async(
   next:NextFunction
 ) => {
   petCareTipService(req, res, next);
+}
+
+export const catTrainingTip = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  catTrainingTipService(req, res, next);
+}
+
+export const dogTrainingTip = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  dogTrainingTipService(req, res, next);
 }

@@ -1,68 +1,70 @@
 /*akso added start*/
 @font-face {
   font-family: 'Helvetica';
-  src: url('../font/Helvetica.ttf');
   font-weight: 400;
+  src: url('../font/Helvetica.ttf');
 }
 
 @font-face {
   font-family: 'Helvetica';
+  font-weight: 700;
   src: url('../font/Helvetica-Bold.ttf');
-  font-weight: 700;
 }
 
 @font-face {
   font-family: 'Roboto';
-  src: url('../font/Roboto-Regular.ttf');
   font-weight: 400;
+  src: url('../font/Roboto-Regular.ttf');
 }
 
 @font-face {
   font-family: 'Roboto';
-  src: url('../font/Roboto-Bold.ttf');
   font-weight: 700;
+  src: url('../font/Roboto-Bold.ttf');
 }
+
 .clearfix {
-  content: "";
   display: block;
   clear: both;
+  content: "";
 }
+
 /*akso added end*/
 body {
-  font-family: 'HelvRetica', sans-serif;
+  margin: 0 auto;
+  background-color: #e0e0e0;
   color: #0f0f0f;
+  font-family: 'HelvRetica', sans-serif;
   font-size: 16px;
   font-weight: 400;
   max-width: 1920px;
-  margin: 0 auto;
-  background-color: #e0e0e0;
 }
 
 
 .l-inner {
-  max-width: 100%;
   margin: 0 auto;
+  max-width: 100%;
 }
 
 /*sidebar*/
 .sidenav {
-  height: 100%;
-  width: 160px;
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
+  z-index: 1;
+  width: 160px;
+  height: 100%;
+  padding-top: 20px;
   background-color: #111;
   overflow-x: hidden;
-  padding-top: 20px;
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #818181;
   display: block;
+  padding: 6px 8px 6px 16px;
+  color: #818181;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .sidenav a:hover {
