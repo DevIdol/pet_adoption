@@ -57,6 +57,12 @@ color: #130bb6;
   text-align: center;
 }
 
+.cat-training-tips-btn:hover,
+.dog-training-tips-btn:hover{
+ background-color:#645e5e;
+ color: #ffffff;
+}
+
 iframe{
   width: 60%;
   height: 415px;
@@ -67,4 +73,13 @@ iframe{
 h4.side-h4{
   text-align: left;
   margin-left: 20%;
+}
+
+.easy-h3{
+  color: #e95f15;
+  text-align: center;
+  width: 60%;
+  margin: 50px auto;
+  font-size: 28px;
+  line-height: 1.3;
 }
