@@ -30,43 +30,43 @@
 }
 
 /*akso added end*/
+:root {
+  --font-color: #111;
+  --btn-color: #882939;
+  --btn-hover: #64111f;
+  --btn-font: #fff;
+  --background: #e5e2e2;
+  --transition: 0.6s ease;
+  --error-color: #ff6347;
+  --success-color: #008080;
+}
+
 body {
-  margin: 0 auto;
-  background-color: #e0e0e0;
-  color: #0f0f0f;
-  font-family: 'HelvRetica', sans-serif;
+  font-family: "Roboto", sans-serif;
+  color: var(--font-color);
   font-size: 16px;
   font-weight: 400;
   max-width: 1920px;
+  margin: 0 auto;
 }
-
 
 .l-inner {
+  max-width: 1400px;
   margin: 0 auto;
-  max-width: 100%;
 }
 
-/*sidebar*/
-.sidenav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 160px;
-  height: 100%;
-  padding-top: 20px;
-  background-color: #111;
-  overflow-x: hidden;
-}
-
-.sidenav a {
-  display: block;
-  padding: 6px 8px 6px 16px;
-  color: #818181;
+.btn {
+  width: 100%;
+  padding: 10px 0;
+  background-color: var(--btn-color)  !important;
+  color: var(--btn-font);
+  font-weight: 600;
   font-size: 18px;
-  text-decoration: none;
+  border-radius: 6px;
+  border: none !important;
+  cursor: pointer;
 }
-
-.sidenav a:hover {
-  color: #f1f1f1;
+.btn:hover {
+  background-color: var(--btn-hover) !important;
+  transition: var(--transition);
 }
