@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body>
+  <header>
+    <div class="l-inner"><%- include('./partials/header.ejs') %></div>
+  </header>
+  <div class="pet-article-main">
+    <h1>Dog adoption</h1>
+    <div class="lr-con">
+      <div class="left-dog-article">
+        <img src="/image/dog-first.jpg" alt="left-arti-dog">
+        <h3>Why Are Dogs Given Up?</h3>
+        <p>
+          Pet owners may lose their job, get divorced, move into a rental property that does not allow pets, have a
+          baby, or develop health problems (allergies is one of the most common reasons people have for giving up their pet).
+        </p>
+      </div>
+      <div class="right-dog-article">
+        <img src="/image/give-dog.jpg" alt="right-arti-dog">
+        <h3>First 30 Days With A New Dog</h3>
+        <p>
+          The first few days in your home are special and critical for a pet. 
+          Your new dog will be confused about where he is and what to expect from you. Setting up some clear structure with your family for your dog will be paramount in making.
+        </p>
+      </div>
+    </div>
+    
+    <div class="dogie-main">
+      <% articles.forEach(function(article){ %>
+        <div class="center-main">
+          <div class="left-img">
+            <img src="" alt="" class="random-image">
+          </div>
+          <div class="right-text">
+            <p class="dog-adoption">Dog Adoption</p>
+            <h3><%= article.title %></h3>
+            <p>
+             <%= article.description %>
+            </p>
+          </div>
+        </div>
+      <% });%>
+    </div>
+  </div>
+ 
+  
+  <footer>
+    <div class="l-inner"><%- include('./partials/footer.ejs') %></div>
+  </footer>
+  
+  <script>
+    const images=[
+      "random1.jpg",
+      "random2.jpg",
+      "random3.jpg",
+      "random4.jpg",
+      "random5.jpg",
+      "random6.jpg",
+      "random7.jpg",
+      "random8.jpg",
+      "random9.jpg",
+      "random10.jpg",
+      "random11.jpg",
+    ];
+    const randomImageElements = document.querySelectorAll(".random-image");
+    randomImageElements.forEach(function(image) {
+      const randomIndex=Math.floor(Math.random()*images.length);
+      image.src = "/image/" + images[randomIndex];
+    });
+  </script>
+</body>
+</html>

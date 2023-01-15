@@ -12,7 +12,13 @@ import {
   donateRequestDashboardService,
   donationDeleteService,
   donationUpdateFormService,
-  donationUpdateService
+  donationUpdateService,
+  petArticleFormService,
+  petArticleService,
+  petArticleDashboardService,
+  petArticleDeleteService,
+  petArticelUpdateFormService,
+  petArticleUpdateService
 
 } from "../services/PetService.js";
 
@@ -118,4 +124,54 @@ export const donationUpdate = async(
   next:NextFunction
 ) => {
   donationUpdateService(req, res, next);
+}
+
+
+//pet Article
+export const petArticleForm = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  petArticleFormService(req, res, next);
+}
+
+export const petArticle = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  petArticleService(req, res, next);
+}
+
+export const petArticleDashboard = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  petArticleDashboardService(req, res, next);
+}
+
+export const petArticleDelete = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  petArticleDeleteService(req, res, next);
+}
+
+export const petArticelUpdateForm = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  petArticelUpdateFormService(req, res, next);
+}
+
+export const petArticleUpdate = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  petArticleUpdateService(req, res, next);
 }

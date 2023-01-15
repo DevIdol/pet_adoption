@@ -1,4 +1,4 @@
-# BIB OJT Tuto 7
+# BIB OJT PJ
 - **URL**
 ```
 http://localhost:38000/
@@ -15,7 +15,7 @@ git clone https://github.com/AungKyawSoeOo/BIB_PJ.git
 cd bib_project_starter-main_akso
 npm install (to install node modules)
 npm run build (to compile typescript files to js)
-npm run dev (to run on localhost:3000 using nodemon)
+npm run dev (to run on localhost:8000 using nodemon)
 
 open http://localhost:8000/ in the browser
 ```

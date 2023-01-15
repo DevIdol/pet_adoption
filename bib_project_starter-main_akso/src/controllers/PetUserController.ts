@@ -6,7 +6,9 @@ import {
   petCareTipService,
   catTrainingTipService,
   dogTrainingTipService,
-  donationUserService
+  donationUserService,
+  dogApodtArticleService,
+  catAdoptArticleService
 } from "../services/PetUserService.js";
 
 export const homePageUser = async(
@@ -63,4 +65,20 @@ export const donationUser = async(
   next:NextFunction
 ) => {
   donationUserService(req, res, next);
+}
+
+export const dogApodtArticle = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  dogApodtArticleService(req, res, next);
+}
+
+export const catAdoptArticle = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  catAdoptArticleService(req, res, next);
 }

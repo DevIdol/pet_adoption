@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('./partials/head.ejs') %>
+  <title>Document</title>
+</head>
+<body>
+  <%- include('./partials/sidebar.ejs') %>
+  <form action="/admin/pets/article-dashboard/<%= article._id %>?_method=PUT" class="pet-form"  method="post">
+    <% if (errors) { %>
+      <% errors.forEach(function(error) { %>
+        <div class="error">
+          <%= error.msg %>
+        </div>
+      <% }); %>
+    <% } %>
+    
+    <label for="category"></label>
+    <select name="category">
+      <% if (article.category==="cat") { %>
+      <option value="cat" selected>Cat</option>
+      <option value="dog">Dog</option>
+      <% } %>
+      <% if (article.category==="dog") { %>
+        <option value="cat">Cat</option>
+        <option value="dog" selected>Dog</option>
+        <% } %>
+    </select><br><br>
+    <input type="text" name="title" placeholder="title" value="<%= article.title %>"><br><br>
+    <textarea name="description"  cols="30" rows="10" value=""><%= article.description %></textarea><br><br>
+    <button type="submit" name="submit-button">Update Article</button>
+  </form>
+</body>
+</html>

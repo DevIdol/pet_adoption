@@ -14,7 +14,13 @@ import {
   donateRequestDashboard,
   donationDelete,
   donationUpdateForm,
-  donationUpdate
+  donationUpdate,
+  petArticleForm,
+  petArticle,
+  petArticleDashboard,
+  petArticleDelete,
+  petArticelUpdateForm,
+  petArticleUpdate
 } from "../controllers/PetController.js";
 //import { body, check } from "express-validator";
 
@@ -40,6 +46,24 @@ router.route("/donate-dashboard")
 
 router.route("/donate-dashboard/:id/update")
   .get(donationUpdateForm)
+
+// pet-article routes
+router.route("/article-dashboard")
+.get(petArticleDashboard)
+router.route("/petarticle-create")
+  .get(petArticleForm)
+  .post([
+    check("category").notEmpty().withMessage("Category can't be empty"),
+    check("title").notEmpty().withMessage("Title can't be empty"),
+    check("description").notEmpty().withMessage("Description can't be empty")
+  ], petArticle)
+
+router.route("/article-dashboard/:id")
+  .delete(petArticleDelete)
+.put(petArticleUpdate)
+
+router.route("/article-dashboard/:id/update")
+.get(petArticelUpdateForm)
   
   
 // pet routes

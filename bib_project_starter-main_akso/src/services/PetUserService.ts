@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import PetModel from "../models/PetModel.js";
 import DonateModel from "../models/donationModel.js";
+import PetArticleModel from "../models/PetArticleModel.js";
 import mongoose from "mongoose";
 import { logger } from "../logger/Logger.js";
 export const homePageUserService = async(
@@ -85,4 +86,27 @@ export const donationUserService = async(
   const requests =await DonateModel.find({});
   console.log(requests);
   return res.render("request-donation-user", { requests: requests });
+}
+
+export const dogApodtArticleService = async(
+  req:Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const articles = await PetArticleModel.find({ category: { $in: ['dog'] } });
+  res.render("dog-article-user", {
+    articles:articles
+  })
+
+}
+
+export const catAdoptArticleService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const articles = await PetArticleModel.find({ category: { $in: ['cat'] } });
+  res.render("cat-article-user", {
+    articles:articles
+  })
 }

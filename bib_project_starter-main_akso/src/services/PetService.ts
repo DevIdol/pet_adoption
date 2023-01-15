@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import fs from "fs";
 import Pet from "../models/PetModel.js";
 import Donate from "../models/donationModel.js";
+import PetArticle from "../models/PetArticleModel.js";
 import { logger } from "../logger/Logger.js";
 import { validationResult } from "express-validator";
 import cookieParser from "cookie-parser";
@@ -392,3 +393,104 @@ export const donationUpdateService = async(
   return res.redirect("/admin/pets/donate-dashboard");
 }
 
+
+
+// Pet adoption article
+export const petArticleFormService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const article = PetArticle.find({});
+  res.render("petarticle-admin-form", {
+    errors: "",
+    article:article
+  })
+}
+
+export const petArticleDashboardService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const articles = await PetArticle.find({});
+  res.render("article-dashboard", { articles: articles });
+}
+
+export const petArticleService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) { 
+      let article = {
+        category: req.body.category,
+        title:req.body.title,
+        description:req.body.description
+      }
+      return res.render("petarticle-admin-form", {
+        errors: errors.array(),
+        article: article
+      });
+    }
+    const article = {
+      category: req.body.category,
+      title:req.body.title,
+      description:req.body.description
+    }
+    const newArticle = new PetArticle(article);
+    await newArticle.save();
+    res.redirect("/admin/pets/article-dashboard");
+  } catch (err: any) {
+    res.redirect("/admin/pets/petarticle-create");
+  }
+}
+
+export const petArticleDeleteService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const requestedId = req.params.id;
+  PetArticle.deleteOne({ _id: requestedId }, (err) => {
+    if (!err) {
+      res.redirect("/admin/pets/article-dashboard");
+    }
+  })
+}
+
+export const petArticelUpdateFormService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const article = await PetArticle.findById(req.params.id);
+  if (!article) {
+    res.render("error");
+  }
+  res.render("article-update-form", {
+    errors: "",
+    article:article
+  })
+}
+
+export const petArticleUpdateService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => { 
+  const article = await PetArticle.findById(req.params.id);
+  if (!article) {
+    const error: any = new Error("Not Found!");
+    error.statusCode = 404;
+    throw error;
+  }
+  article.category = req.body.category;
+  article.title = req.body.title;
+  article.description = req.body.description;
+  let newArticle = new PetArticle(article);
+  newArticle.save();
+  res.redirect("/admin/pets/article-dashboard");
+}

@@ -1,0 +1,40 @@
+:root {
+  --font-color: #111;
+  --btn-color: #882939;
+  --btn-hover: #64111f;
+  --btn-font: #fff;
+  --background: #e5e2e2;
+  --transition: 0.6s ease;
+  --error-color: #ff6347;
+  --success-color: #008080;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--font-color);
+  font-size: 16px;
+  font-weight: 400;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.l-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px 0;
+  background-color: var(--btn-color)  !important;
+  color: var(--btn-font);
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 6px;
+  border: none !important;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: var(--btn-hover) !important;
+  transition: var(--transition);
+}
