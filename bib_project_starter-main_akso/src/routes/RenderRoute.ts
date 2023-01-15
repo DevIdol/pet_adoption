@@ -4,10 +4,10 @@ import { isAdmin, isUser } from "../middlewares/IsAuth";
 const renderRoute: Router = express.Router();
 
 //show home
-renderRoute.get("/", (req: Request, res: Response, next: NextFunction) => {
-  let token = req.cookies.access_token;
-  res.render("index", { token });
-});
+//renderRoute.get("/", (req: Request, res: Response, next: NextFunction) => {
+//  let token = req.cookies.access_token;
+//  res.render("index", { token });
+//});
 
 renderRoute.get("/pets", (req: Request, res: Response, next: NextFunction) => {
   let token = req.cookies.access_token;
