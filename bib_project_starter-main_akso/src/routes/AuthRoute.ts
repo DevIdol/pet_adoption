@@ -5,7 +5,7 @@ import { isUser } from "../middlewares/IsAuth";
 const authRoute: Router = express.Router();
 
 //register
-authRoute.post("/user/register", register);
+authRoute.post("/register", register);
 
 //login
 authRoute.post("/login", login);

@@ -52,7 +52,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 //render route
-app.use("/user/", renderRoute);
+app.use("/", renderRoute);
 
 app.use("/admin/pets/", pet_route);
 app.use("/", authRoute);
