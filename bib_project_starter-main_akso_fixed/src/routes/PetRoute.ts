@@ -82,7 +82,7 @@ router.route("/create")
 router.route("/:id")
   .get(petDetail)
   .delete(petDelete)
-  .put(store.array("images", 12), [
+  .put(store.array("images", 1200), [
       check("name").notEmpty().withMessage("name can't be empty"),
       check("breed").notEmpty().withMessage("breed can't be empty"),
       check("age").notEmpty().withMessage("age can't be empty"),

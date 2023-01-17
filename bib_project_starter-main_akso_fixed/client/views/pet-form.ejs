@@ -23,6 +23,7 @@
       <input type="file" name="images" id="images" multiple>
      
       <br><br>
+      <img id="image" src='' class="img-update-pet-form">
       <input type="text" name="name" id="name" placeholder="name" value="<%= pet.name %>"> <br><br>
 
       <input type="text" name="breed" id="breed" placeholder="breed" value="<%= pet.breed %>"><br><br>
@@ -69,7 +70,20 @@
       <button type="submit" name="submit-button">Add Pet</button>
 
     </form>
-    
+    <script>
+      const fileInput = document.getElementById("images");
+      const image = document.getElementById("image");
+      fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+          image.src = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      });
+    </script>
       
 </body>
 </html>
