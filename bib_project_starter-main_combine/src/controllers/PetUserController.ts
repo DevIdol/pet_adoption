@@ -8,7 +8,10 @@ import {
   dogTrainingTipService,
   donationUserService,
   dogApodtArticleService,
-  catAdoptArticleService
+  catAdoptArticleService,
+  allCatsService,
+  allDogsService,
+  allOtherService
 } from "../services/PetUserService.js";
 
 export const homePageUser = async(
@@ -81,4 +84,29 @@ export const catAdoptArticle = async(
   next:NextFunction
 ) => {
   catAdoptArticleService(req, res, next);
+}
+
+//added
+export const allCats = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  allCatsService(req, res, next);
+}
+
+export const allDogs = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  allDogsService(req, res, next);
+}
+
+export const allOther = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  allOtherService(req, res, next);
 }

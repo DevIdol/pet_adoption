@@ -8,15 +8,26 @@ import {
   dogTrainingTip,
   donationUser,
   dogApodtArticle,
-  catAdoptArticle
+  catAdoptArticle,
+  allCats,
+  allDogs,
+  allOther
 } from "../controllers/PetUserController.js";
 const router = express.Router();
 
 router.route("/")
   .get(homePageUser);
 
-router.route("/all-pets")
+
+  router.route("/all-pets")
   .get(allPets);
+router.route("/cats")
+  .get(allCats)
+router.route("/dogs")
+  .get(allDogs)
+router.route("/other")
+.get(allOther)
+
 router.route("/petcare-tips")
   .get(petCareTip)
 

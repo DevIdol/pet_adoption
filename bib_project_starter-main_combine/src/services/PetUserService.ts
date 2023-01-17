@@ -110,3 +110,31 @@ export const catAdoptArticleService = async(
     articles:articles
   })
 }
+
+//add
+
+
+export const allCatsService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const pets = await PetModel.find({ kind: { $in: ['cat'] } })
+  res.render("all-cats", { pets: pets });
+}
+export const allDogsService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const pets = await PetModel.find({ kind: { $in: ['dog'] } })
+  res.render("all-dogs", { pets: pets });
+}
+export const allOtherService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const pets = await PetModel.find({ kind: { $in: ['other'] } })
+  res.render("all-other", { pets: pets });
+}
