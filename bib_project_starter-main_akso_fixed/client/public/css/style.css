@@ -46,6 +46,9 @@ margin:1px auto;
 padding:10px;
 display: block;
 }
+.pet-form input[type="file"]{
+  padding: 0;
+}
 .pet-form button,
 .pet-update-form-2 button,
 .donation-form button{

@@ -3,15 +3,25 @@
   margin: 20px auto;
   margin-top: 30px;
   text-align: center;
+  background-color: #ffffff;
+  padding: 30px 20px;
+  border-radius: 10px;
 }
 
 .pet-detail img {
   width: 50%;
   height: 400px;
 }
+.pet-detail p{
+  color: #6e6464;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
 
 .pet-detail h2 {
-  font-size: 20px;
+  font-size: 25px;
+  margin: 10px 0;
 }
 
 .pet-delete-form,
@@ -23,7 +33,7 @@
 .btn-pet-delete,
 .btn-pet-update {
   margin-top: 5px;
-  padding: 10px 15px;
+  padding: 12px 18px;
 
   border: none;
   color: #ffffff;
