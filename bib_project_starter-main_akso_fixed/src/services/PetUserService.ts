@@ -84,7 +84,6 @@ export const donationUserService = async(
   next:NextFunction
 ) => {
   const requests =await DonateModel.find({});
-  console.log(requests);
   return res.render("request-donation-user", { requests: requests });
 }
 

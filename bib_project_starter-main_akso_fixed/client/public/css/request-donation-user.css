@@ -43,3 +43,8 @@
   display: block;
   border-radius: 10px;
 }
+.contact-us-user a{
+  display: block;
+  color: #5f5d58;
+  line-height: 1.6;
+}

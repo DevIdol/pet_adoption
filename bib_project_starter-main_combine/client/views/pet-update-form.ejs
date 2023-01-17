@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('./partials/head.ejs') %>
+    <title>Document</title>
+</head>
+
+<body>
+
+  <%- include('./partials/sidebar.ejs') %>
+    <h2>Pet Form</h2>
+    <form action="/admin/pets/<%= pet.id %>?_method=PUT" class="pet-update-form-2" enctype="multipart/form-data" method="post">
+      <% if (errors) { %>
+        <% errors.forEach(function(error) { %>
+          <div class="error">
+            <%= error.msg %>
+          </div>
+          <% }); %>
+            <% } %>
+              <input type="file" name="images" id="images" multiple class="fileField">
+              <br><br>
+                <img id="image" src='data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>' class="img-update-pet-form">
+                <input type="text" name="name" id="name" placeholder="name" value="<%= pet.name %>"> <br><br>
+
+                <input type="text" name="breed" id="breed" placeholder="breed" value="<%= pet.breed %>"><br><br>
+
+                <input type="text" name="age" id="age" placeholder="age" value="<%= pet.age %>"><br><br>
+
+                <label for="size">size</label>
+                <select name="size">
+                  <% if (pet.size==="small" ) { %>
+                    <option value="small" selected>Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="big">Big</option>
+                    <% }%>
+                      <% if (pet.size==="medium" ){ %>
+                        <option value="small">Small</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="big">Big</option>
+                        <% } %>
+                          <% if (pet.size==="big" ){ %>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="big" selected>Big</option>
+                            <% } %>
+                </select> <br><br>
+
+                <label for="sex">Sex</label>
+                <select name="sex">
+                  <% if (pet.sex==="male" ) { %>
+                    <option value="male" selected>male</option>
+                    <option value="female">female</option>
+                    <% }%>
+                      <% if (pet.sex==="female" ){ %>
+                        <option value="male">male</option>
+                        <option value="female" selected>female</option>
+                        <% } %>
+                </select> <br><br>
+
+                <label for="kind">kind</label>
+                <select name="kind">
+                  <% if (pet.kind==="cat" ) { %>
+                    <option value="cat" selected>cat</option>
+                    <option value="dog">dog</option>
+                    <option value="other">other</option>
+                    <% }%>
+                      <% if (pet.kind==="dog" ){ %>
+                        <option value="cat">cat</option>
+                        <option value="dog" selected>dog</option>
+                        <option value="other">other</option>
+                        <% } %>
+                          <% if (pet.kind==="other" ){ %>
+                            <option value="cat">cat</option>
+                            <option value="dog">dog</option>
+                            <option value="other" selected>other</option>
+                            <% } %>
+                </select> <br><br>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="des">
+      <%= pet.description %>
+    </textarea><br><br>
+                <label for="ava">Available</label>
+                <select name="ava">
+                  <% if (pet.isAvailable===true) { %>
+                    <option value="true" selected>true</option>
+                    <option value="false">false</option>
+                    <% }%>
+                      <% if (pet.isAvailable===false){ %>
+                        <option value="true">true</option>
+                        <option value="false" selected>false</option>
+                        <% } %>
+                </select> <br><br>
+                <button type="submit" name="submit-button">Update Pet</button>
+
+    </form>
+    <script>
+      const fileInput = document.getElementById("images");
+      const image = document.getElementById("image");
+      fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+          image.src = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      });
+    </script>
+</body>
+
+</html>

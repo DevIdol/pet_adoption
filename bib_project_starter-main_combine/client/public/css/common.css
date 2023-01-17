@@ -1,0 +1,92 @@
+/*akso added start*/
+@font-face {
+  font-family: 'Helvetica';
+  font-weight: 400;
+  src: url('../font/Helvetica.ttf');
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  font-weight: 700;
+  src: url('../font/Helvetica-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  src: url('../font/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 700;
+  src: url('../font/Roboto-Bold.ttf');
+}
+
+.clearfix {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.pet-categories-all{
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+.pet-categories-all a{
+  padding: 20px 30px;
+  background-color: var(--btn-font);
+  width: 20%;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+  color: var(--success-color);
+  font-size: 20px;
+  margin: 10px auto;
+  margin-right: 15px;
+}
+
+/*akso added end*/
+:root {
+  --font-color: #111;
+  --btn-color: #882939;
+  --btn-hover: #64111f;
+  --btn-font: #fff;
+  --background: #efeef1 ;
+  --background-nav:#f6f6f6;
+  --transition: 0.6s ease;
+  --error-color: #ff6347;
+  --success-color: #008080;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--font-color);
+  font-size: 16px;
+  font-weight: 400;
+  background-color:var(--background) ;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.l-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px 0;
+  background-color: var(--btn-color)  !important;
+  color: var(--btn-font);
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 6px;
+  border: none !important;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: var(--btn-hover) !important;
+  transition: var(--transition);
+}
