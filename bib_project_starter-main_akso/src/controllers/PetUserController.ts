@@ -1,7 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import {
   homePageUserService,
-  allPetsService,
+  allPetsService, 
+  allCatsService,
+  allDogsService,
+  allOtherService,
   petDetailUserService,
   petCareTipService,
   catTrainingTipService,
@@ -81,4 +84,28 @@ export const catAdoptArticle = async(
   next:NextFunction
 ) => {
   catAdoptArticleService(req, res, next);
+}
+
+export const allCats = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  allCatsService(req, res, next);
+}
+
+export const allDogs = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  allDogsService(req, res, next);
+}
+
+export const allOther = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  allOtherService(req, res, next);
 }

@@ -1,0 +1,47 @@
+.pet-detail {
+  width: 60%;
+  margin: 20px auto;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.pet-detail img {
+  width: 50%;
+  height: 400px;
+}
+
+.pet-detail h2 {
+  font-size: 20px;
+}
+
+.pet-delete-form,
+.pet-update-form {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.btn-pet-delete,
+.btn-pet-update {
+  margin-top: 5px;
+  padding: 10px 15px;
+
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+
+}
+
+.btn-pet-delete {
+  background-color: #d10909;
+}
+
+.btn-pet-update {
+  background-color: #91ab27;
+}
+
+
+.main {
+  margin-left: 160px;
+  /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}

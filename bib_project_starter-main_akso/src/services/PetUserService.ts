@@ -27,6 +27,31 @@ export const allPetsService = async(
   res.render("all-pets", { pets: pets });
 }
 
+export const allCatsService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const pets = await PetModel.find({ kind: { $in: ['cat'] } })
+  res.render("all-cats", { pets: pets });
+}
+export const allDogsService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const pets = await PetModel.find({ kind: { $in: ['dog'] } })
+  res.render("all-dogs", { pets: pets });
+}
+export const allOtherService = async(
+  req: Request,
+  res: Response,
+  next:NextFunction
+) => {
+  const pets = await PetModel.find({ kind: { $in: ['other'] } })
+  res.render("all-other", { pets: pets });
+}
+
 export const petDetailUserService = async(
   req: Request,
   res: Response,
@@ -84,7 +109,6 @@ export const donationUserService = async(
   next:NextFunction
 ) => {
   const requests =await DonateModel.find({});
-  console.log(requests);
   return res.render("request-donation-user", { requests: requests });
 }
 

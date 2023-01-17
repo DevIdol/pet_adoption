@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body>
+  <%- include('./partials/sidebar.ejs') %>
+  <div class="main-pet">
+  <% pets.forEach(function(pet){ %>
+    <a href="/admin/pets/<%= pet._id %>">
+      <div class="pet">
+        <img src='data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>'>
+        <p><%= pet.name %></p>
+      </div>
+    </a>
+
+  <% }); %> 
+</div>
+</body>
+</html>
