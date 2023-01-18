@@ -56,8 +56,6 @@ export const petUploadService = async(
         description: req.body.description,
         isAvailable:req.body.ava
       }
-      console.log(pet);
-      console.log(errors.array());
       return res.render("pet-form", {
         errors: errors.array(),
         pet: pet,
@@ -78,8 +76,7 @@ export const petUploadService = async(
         description: req.body.description,
         isAvailable:req.body.ava
       }
-      console.log(pet);
-      console.log(errors.array());
+      
       return res.render("pet-form", {
         errors: errors.array(),
         pet: pet,
@@ -121,7 +118,9 @@ export const petUploadService = async(
           return newPet
             .save()
             .then(() => {
-            return {msg:`${files[index].originalname} uploaded successfully`}
+            //return {msg:`${files[index].originalname} uploaded successfully`}
+            // Add update here
+              console.log("heeeke;kekejieieoei")
             })
         } else {
           res.send("not right")
@@ -207,7 +206,8 @@ export const petUpdateService = async(
   try {
     
     const pet: any = await Pet.findById(req.params.id);
-    console.log(pet.name);
+   
+
     
     if (!pet) {
       const error: any = new Error("Not Found!");
@@ -216,7 +216,7 @@ export const petUpdateService = async(
     }
     
     const files = req.files;
-    console.log(files);
+   
       if (files?.length===0) {
         pet.name = req.body.name;
          pet.breed = req.body.breed;
@@ -247,10 +247,9 @@ export const petUpdateService = async(
       
        if (Array.isArray(files) && files[index]) {
         //const pet: any = Pet.findById(req.params.id);
-         console.log(pet.name);
+     
       
          pet.filename = files[index].originalname;
-         console.log(pet.filename);
          pet.contentType = files[index].mimetype;
          pet.imageBase64 = src;
          pet.name = req.body.name;

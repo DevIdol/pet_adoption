@@ -118,7 +118,9 @@ export const petUploadService = async(
           return newPet
             .save()
             .then(() => {
-            return {msg:`${files[index].originalname} uploaded successfully`}
+            //return {msg:`${files[index].originalname} uploaded successfully`}
+            // Add update here
+              console.log("heeeke;kekejieieoei")
             })
         } else {
           res.send("not right")
