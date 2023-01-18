@@ -17,5 +17,5 @@ npm install (to install node modules)
 npm run build (to compile typescript files to js)
 npm run dev (to run on localhost:8000 using nodemon)
 
-open http://localhost:8000/ in the browser
+open http://localhost:3000/ in the browser
 ```
