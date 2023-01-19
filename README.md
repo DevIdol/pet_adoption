@@ -29,6 +29,8 @@ localhost:8000
 
 `GET`
 `POST`
+`PUT`
+`DELETE`
 
 - **Installation**
 
