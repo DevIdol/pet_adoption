@@ -1,4 +1,4 @@
-# BIB_Project_Register, Login, Forgot-Password
+# BIB_Project_Pet Adoption
 
 - **.env file**
 
