@@ -307,7 +307,7 @@ export const donateRequestDashboardService = async(
   next:NextFunction
 ) => {
   const donations =await Donate.find({});
-  res.render("donate-dashboard", { donations: donations });
+  res.json({ donations: donations });
 }
 
 export const donateRequestCreateService = async(
@@ -373,23 +373,29 @@ export const donationUpdateFormService = async(
 }
 
 export const donationUpdateService = async(
-  req: Request,
+  req: any,
   res: Response,
   next:NextFunction
 ) => {
-  const donation = await Donate.findById(req.params.id);
+  if (mongoose.Types.ObjectId.isValid(req.params.id)) {
+    const donation = await Donate.findById(req.params.id);
    
-  if (!donation) {
-    const error: any = new Error("Not Found!");
-    error.statusCode = 404;
-    throw error;
+    if (!donation) {
+      const error: any = new Error("Not Found!");
+      error.statusCode = 404;
+      throw error;
+    }
+    donation.itemName = req.body.itemName;
+    donation.quantity = req.body.quantity;
+    donation.description = req.body.description;
+    let newDonation = new Donate(donation);
+    newDonation.save();
+    return res.json({ donation: donation });
+  } else {
+    return res.status(400).json({
+      message:"Invalid Id"
+    })
   }
-  donation.itemName = req.body.itemName;
-  donation.quantity = req.body.quantity;
-  donation.description = req.body.description;
-  let newDonation = new Donate(donation);
-  newDonation.save();
-  return res.redirect("/admin/pets/donate-dashboard");
 }
 
 
