@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Pets", token}) %>
+  </head>
+  <body>
+    <header><%- include('./partials/header.ejs') %></header>
+    <section class="home-sec">
+      <div class="l-inner">
+        <h3 class="home-user-head3">All of your furry friends</h3>
+        <%- include('./partials/category.ejs') %>
+        <div class="home-main">
+          <% pets.forEach(function(pet){ %>
+          <a href="/pets/<%= pet._id %>">
+            <div class="pet-user">
+              <img
+                src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
+              />
+              <div class="over">
+                <p><%= pet.name %></p>
+              </div>
+            </div>
+          </a>
+
+          <% }); %>
+        </div>
+      </div>
+    </section>
+    <%- include('./partials/script.ejs') %>
+  </body>
+</html>

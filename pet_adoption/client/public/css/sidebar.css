@@ -1,0 +1,77 @@
+/* Account Side Bar */
+.side-bar {
+  height: 100vh;
+  width: 260px;
+  position: fixed;
+  z-index: 1;
+  top: 60px;
+  left: 0;
+  background-color: var(--background);
+  overflow-x: hidden;
+  padding-top: 20px;
+  box-shadow: 5px 0 5px -5px #333;
+}
+
+.side-bar a,
+.side-bar button {
+  padding: 12px 20px 12px 60px;
+  text-decoration: none;
+  color: var(--font-color);
+  display: block;
+  font-size: 18px;
+}
+
+.side-bar a:hover,
+.side-bar button:hover,
+.side-bar form button:hover {
+  color: #0f0f0f;
+  transition: 0.6s ease;
+  font-weight: 500;
+}
+
+.side-bar form input {
+  color: var(--font-color);
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-left: 60px;
+}
+
+/* dropdown */
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.main {
+  margin-left: 200px;
+  font-size: 20px;
+  padding: 0px 10px;
+}
+
+.active {
+  background-color: gray;
+  color: #fff;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: silver;
+  padding-left: 8px;
+  box-shadow: 0 5px 5px -5px #333;
+}
+
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
