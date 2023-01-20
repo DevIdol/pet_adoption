@@ -26,7 +26,7 @@ const UserSchema = new Schema({
   favorites: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Pet",
+      ref: "Favorite",
     },
   ],
   verified: {

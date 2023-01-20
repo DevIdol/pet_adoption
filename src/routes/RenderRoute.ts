@@ -222,7 +222,6 @@ renderRoute.get(
     dogCat.forEach((d: any) => {
       dog = d
     });
-    console.log(dog);
     res.render("articles", {
       dog,
       articles,
