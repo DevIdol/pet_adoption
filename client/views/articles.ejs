@@ -12,12 +12,13 @@
       <div class="l-inner">
         <div class="alert-wrapper"></div>
         <div class="pet-article-main">
-          <% articles.forEach(function(article){ %>
-          <h1><%= article.category %> adoption</h1>
+          <h1>
+            <% if (dog == 'dog') { %> Dog <% } else{%> Cat <% } %> Adoption
+          </h1>
           <div class="lr-con">
             <div class="left-dog-article">
               <img
-                src="<% if (article.category == 'dog') { %> /image/dog-first.jpg <% } else{%> /image/cat-first.jpg <% } %>"
+                src="<% if (dog == 'dog') { %> /image/dog-first.jpg <% } else{%> /image/cat-first.jpg <% } %>"
                 alt="left-arti-dog"
               />
               <h3>Why Are Dogs Given Up?</h3>
@@ -30,7 +31,7 @@
             </div>
             <div class="right-dog-article">
               <img
-                src="<% if (article.category == 'dog') { %> /image/give-dog.jpg <% } else{%> /image/cat-second.jpg <% } %>"
+                src="<% if (dog == 'dog') { %> /image/give-dog.jpg <% } else{%> /image/cat-second.jpg <% } %>"
                 alt="right-arti-dog"
               />
               <h3>First 30 Days With A New Dog</h3>
@@ -44,6 +45,7 @@
           </div>
 
           <div class="dogie-main">
+            <% articles.forEach(function(article){ %>
             <div class="center-main">
               <div class="left-img">
                 <img
