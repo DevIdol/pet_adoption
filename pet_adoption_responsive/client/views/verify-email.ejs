@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Verify Email" })
+    %>
+  </head>
+
+  <body>
+    <section class="verify-email">
+      <% if ( typeof message !== "undefined") { %>
+      <h2><%= message %></h2>
+      <a class="btn" href="/login">Login</a>
+      <% } else { %>
+      <h2><%- include('./partials/messages.ejs') %></h2>
+      <% } %>
+    </section>
+    <%- include('./partials/script.ejs') %>
+  </body>
+</html>

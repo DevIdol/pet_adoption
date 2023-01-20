@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head.ejs', {title: "Pet Adoption | Register" }) %>
+</head>
+
+<body>
+  <header><%- include('./partials/header.ejs') %></header>
+  <section class="auth-sec">
+    <div class="l-inner">
+      <h2>Register</h2>
+      <div class="alert-wrapper">
+        <%- include('./partials/messages.ejs') %>
+      </div>
+      <form action="/register" method="post">
+        <input type="text" id="username" name="username" placeholder="Username" />
+        <input type="email" id="email" name="email" placeholder="Email" />
+        <input type="password" id="password" name="password" placeholder="Password" />
+        <input type="password" id="confirmPass" name="confirmPass" placeholder="Confirm Password" />
+        <div class="show-pass">
+          <input type="checkbox" id="show-password" />
+          <span>Show Password</span>
+        </div>
+        <input class="btn btn-register" type="Submit" value="Register" />
+      </form>
+      <div class="form-text">
+        <p></p>
+        <p>Already have an account? <a href="/login">Login</a></p>
+      </div>
+    </div>
+  </section>
+  <%- include('./partials/script.ejs') %>
+</body>
+
+</html>

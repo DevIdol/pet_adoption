@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Home", token}) %>
+  </head>
+  <body>
+    <header><%- include('./partials/header.ejs') %></header>
+    <section class="home-sec">
+      <div class="l-inner">
+        <div class="alert-wrapper">
+          <%- include('./partials/messages.ejs') %>
+        </div>
+        <div class="bg-pet">
+          <h1 class="home-user-heading">Find your best buddies</h1>
+          <h2 class="home-user-head2">
+            Browse pets from our network , you will get your buddy
+          </h2>
+        </div>
+
+        <h3 class="home-user-head3">Pets Available for adoption</h3>
+        <div class="home-main">
+          <% first3pets.forEach(function(pet){ %>
+          <a href="/pets/<%= pet._id %>">
+            <div class="pet-user">
+              <img
+                src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
+              />
+              <div class="over">
+                <p><%= pet.name %></p>
+              </div>
+            </div>
+          </a>
+
+          <% }); %>
+          <a href="/pets" class="catto-link">
+            <div class="more-container">
+              <img class="cattto" src="image/catto.png" alt="" />
+              <hr />
+              <h3>VIEW ALL PETS</h3>
+            </div>
+          </a>
+        </div>
+        <!--planning to adopt a pet-->
+        <div class="three-list-container">
+          <h3 class="planning-h3">Planning to Adopt a Pet?</h3>
+          <div class="floating-div clearfix">
+            <div>
+              <h3>Donation Requests</h3>
+              <p>Help our organization by making donation</p>
+              <a href="/donation-requests" class="learn-more-btn">LEARN MORE</a>
+            </div>
+            <div>
+              <h3>Pet Care Tips</h3>
+              <p>
+                Learn what else can you do to keep your dog healthy and happy
+              </p>
+              <a href="/petcare-tips" class="learn-more-btn">LEARN MORE</a>
+            </div>
+            <div>
+              <h3>Pet Training Tips</h3>
+              <p>Learn the best way to train your pets</p>
+              <a href="/training-tips/cat-training-tips" class="learn-more-btn"
+                >LEARN MORE</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!--latest pet first-->
+        <h3 class="home-user-head3">Latest Added Pets</h3>
+        <div class="home-main">
+          <% latestPets.forEach(function(pet){ %>
+          <a href="/pets/<%= pet._id %>">
+            <div class="pet-user">
+              <img
+                src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
+              />
+              <div class="over">
+                <p><%= pet.name %></p>
+              </div>
+            </div>
+          </a>
+
+          <% }); %>
+          <a href="/pets" class="catto-link">
+            <div class="more-container">
+              <img class="cattto" src="image/catto.png" alt="" />
+              <hr />
+              <h3>VIEW ALL PETS</h3>
+            </div>
+          </a>
+        </div>
+        <!--articles-->
+        <div class="article-section-home">
+          <div class="dog-article">
+            <img
+              class="img-dog-arti-n"
+              src="image/dog-arti.jpeg"
+              alt="dog-image"
+            />
+            <img
+              src="image/dog-arti.jpeg"
+              class="img-dog-arti"
+              alt="dog-image"
+            />
+            <h3>Dog Adoption Articles</h3>
+            <p>Learn more about caring for your new dog</p>
+            <a href="/articles?category=dog">
+              <div>READ MORE</div>
+            </a>
+          </div>
+          <div class="cat-article">
+            <img
+              src="image/cat-arti.jpg"
+              class="img-cat-arti-n"
+              alt="cat-image"
+            />
+            <img
+              src="image/cat-arti.jpg"
+              class="img-cat-arti"
+              alt="cat-image"
+            />
+            <h3>Cat Adoption Articles</h3>
+            <p>Learn more about caring for your new cat</p>
+            <a href="/articles?category=cat">
+              <div>READ MORE</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <%- include('./partials/footer.ejs')  %> 
+    </footer>
+    <%- include('./partials/script.ejs') %>
+  </body>
+</html>

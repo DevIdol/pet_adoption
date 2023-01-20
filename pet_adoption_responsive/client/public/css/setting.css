@@ -1,0 +1,77 @@
+.setting,
+.delete-account {
+  background-color: var(--background);
+  border-radius: 6px;
+  width: 96%;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.setting h2 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.setting form {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.setting form .username,
+.setting form .email,
+.setting form .password {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.setting form input {
+  border: none;
+  border-bottom: 1px solid #808080;
+  background-color: #f0ecec;
+  padding: 10px 4px;
+  outline: none;
+  font-size: 16px;
+}
+
+.setting form input:focus {
+  border-bottom: 1px solid var(--btn-color);
+}
+
+/* delete account */
+
+.delete-account {
+  margin-top: 20px;
+}
+.delete-account form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-account .pass {
+  border: none;
+  border-bottom: 1px solid #808080;
+  background-color: #f0ecec;
+  padding: 6px 4px;
+  outline: none;
+  font-size: 16px;
+}
+
+.delete-account .pass:focus {
+  border-bottom: 1px solid var(--btn-color);
+}
+
+.delete-account .btn-delete {
+  padding: 6px 20px;
+  background-color: var(--btn-color) !important;
+  color: var(--btn-font);
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 6px;
+  border: none !important;
+  cursor: pointer;
+}
