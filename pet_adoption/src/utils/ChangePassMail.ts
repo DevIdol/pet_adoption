@@ -1,11 +1,14 @@
 import path from "path";
 import nodemailer from "nodemailer";
 import hbs from "nodemailer-express-handlebars";
+import { Request, Response } from "express";
 
 export const SendMail = async (
   email: string,
   subject: string,
-  text: string
+  text: string,
+  req: Request,
+  res: Response
 ) => {
   try {
     const transporter = nodemailer.createTransport({
@@ -42,8 +45,9 @@ export const SendMail = async (
     };
     await transporter.sendMail(mailOptions);
     console.log("Email sent successfully!");
+    req.flash("success", "Please check your email to change password!");
   } catch (error) {
     console.log(`Email couldn't sent!`);
-    console.log(error);
+    req.flash("error", "Email Limit Filled. Please wait 24 hours.");
   }
 };

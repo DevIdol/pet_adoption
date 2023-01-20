@@ -56,9 +56,15 @@ export const registerService = async (
               token: crypto.randomBytes(32).toString("hex"),
             }).save();
             const url = `${process.env.BASE_URL}/users/${user._id}/verify/${token.token}`;
-            await VerifyEmail(user.email, "Verify your email address", url);
-            req.flash("success", "Please check your email to login!");
-            res.redirect("/register");
+            await VerifyEmail(
+              user.email,
+              "Verify your email address",
+              url,
+              req,
+              res
+            );
+            // req.flash("success", "Please check your email to login!");
+            // res.redirect("/register");
           });
         }
       });
@@ -81,7 +87,22 @@ export const loginService = async (
           req.flash("error", "Invalid email or password!");
           return res.redirect("/login");
         } else if (!user.verified) {
-          req.flash("error", "You are not verified!");
+          let token = await Token.findOne({ userId: user._id });
+          if (!token) {
+            token = await new Token({
+              userId: user._id,
+              token: crypto.randomBytes(32).toString("hex"),
+            }).save();
+            const url = `${process.env.BASE_URL}/users/${user._id}/verify/${token.token}`;
+            await VerifyEmail(
+              user.email,
+              "Verify your email address",
+              url,
+              req,
+              res
+            );
+          }
+          req.flash("error", "You are not verified! Please check your email.");
           return res.redirect("/login");
         } else {
           const body = {

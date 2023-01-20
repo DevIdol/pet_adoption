@@ -30,8 +30,7 @@ export const forgotPasswordService = async (
       }).save();
     }
     const url = `${process.env.BASE_URL}/forgot-password/${user._id}/${token.token}`;
-    await SendMail(user.email, "Password Reset", url);
-    req.flash("success", "Please check your email to change password!");
+    await SendMail(user.email, "Password Reset", url, req, res);
     res.redirect("/forgot-password");
   } catch (error) {
     console.log(error);

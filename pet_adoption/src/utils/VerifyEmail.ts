@@ -1,8 +1,15 @@
 import path from "path";
 import nodemailer from "nodemailer";
 import hbs from "nodemailer-express-handlebars";
+import { Request, Response } from "express";
 
-export const VerifyEmail = async (email: any, subject: any, text: any) => {
+export const VerifyEmail = async (
+  email: any,
+  subject: any,
+  text: any,
+  req: Request,
+  res: Response
+) => {
   try {
     var transporter = nodemailer.createTransport({
       host: String(process.env.HOST),
@@ -39,8 +46,14 @@ export const VerifyEmail = async (email: any, subject: any, text: any) => {
     };
     await transporter.sendMail(mailOptions);
     console.log("Email sent successfully!");
+    req.flash("success", "Please check your email to login!");
+    res.redirect("/login");
   } catch (error) {
     console.log(`Email couldn't sent!`);
-    console.log(error);
+    req.flash(
+      "error",
+      "Email Limit Filled. Please wait 24 hours and Login again with register mail."
+    );
+    res.redirect("/register");
   }
 };
