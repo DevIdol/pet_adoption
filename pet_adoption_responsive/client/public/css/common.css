@@ -56,3 +56,19 @@ body {
   margin: 10px auto;
   margin-right: 15px;
 }
+
+/*Added for responsive*/
+/*Ipad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+
+  .pet-categories-all {
+      margin: 2.604vw auto;
+  }
+  .pet-categories-all a {
+    padding: 2.604vw 3.906vw;
+    border-radius: 1.302vw;
+    font-size: 2.604vw;
+    margin: 1.302vw auto;
+    margin-right: 1.953vw;
+}
+}

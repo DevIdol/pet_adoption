@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 70px;
+    margin-top: 40px;
   }
   
   .pet-detail-ucon img{
@@ -110,3 +110,86 @@
   
   }
   
+  
+/*Added for responsive*/
+/*Ipad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .pet-detail-ucon {
+    height: 500px;
+    margin-top: 40px;
+}
+.pet-detail-ucon img {
+  width: 500px;
+}
+.pet-detail-context {
+  background-color: #ffffff;
+  width: 85%;
+  padding: 30px 20px;
+  margin: 40px auto;
+  display: block;
+  border-radius: 10px;
+}
+.pet-detail-context h3 {
+  font-size: 30px;
+  padding-bottom: 10px;
+  letter-spacing: 1.3px;
+}
+.pet-detail-context h4 {
+  border-bottom: 1px solid #6a6363;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-size: 20px;
+  letter-spacing: 1.3px;
+}
+.pet-detail-context p {
+  font-size: 17px;
+  letter-spacing: 1.3px;
+}
+.pet-contact-info {
+  padding: 30px 20px;
+  width: 85%;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+.pet-contact-info .img-rounded-pet {
+  width: 130px;
+  height: 130px;
+  top: 25px;
+  left: 38%;
+}
+.pet-contact-info h3 {
+  padding-top: 86px;
+  margin-top: 85px;
+  font-size: 20px;
+}
+.mail-link, .ph-link {
+  margin-top: 12px;
+}
+.mail-link p,
+.ph-link p {
+  padding-bottom: 20px;
+  text-align: center;
+  border-bottom:none;
+  margin-left: -250px;
+  margin-top: 30px;
+}
+.mail-img {
+  width: 30px;
+  height: 30px;
+}
+.adopt-text, .adopt-text-two {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 16px;
+  color: #6a6363;
+  position: absolute;
+}
+.adopt-text {
+  top: 258px;
+  border: none;
+}
+.adopt-text-two {
+  top: 342px;
+}
+}

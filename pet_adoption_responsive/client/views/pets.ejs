@@ -9,18 +9,20 @@
       <div class="l-inner">
         <h3 class="home-user-head3">All of your furry friends</h3>
         <%- include('./partials/category.ejs') %>
-        <div class="home-main">
+        <div class="home-main-all">
           <% pets.forEach(function(pet){ %>
+            <div class="pet-user-all">
           <a href="/pets/<%= pet._id %>">
-            <div class="pet-user">
+            
               <img
                 src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
               />
               <div class="over">
                 <p><%= pet.name %></p>
               </div>
-            </div>
+            
           </a>
+        </div>
 
           <% }); %>
         </div>

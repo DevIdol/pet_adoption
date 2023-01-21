@@ -15,12 +15,12 @@ renderRoute.get(
     const pets = await PetModel.find();
     const latestPets = await PetModel.find()
       .sort({ $natural: -1 })
-      .limit(4)
+    
       .exec();
     if (!pets) {
       res.render("not-found", { message: "No Pet" });
     }
-    const first4pets = pets.slice(0, 4);
+    const first4pets = pets;
     res.render("index", {
       pets: pets,
       first3pets: first4pets,

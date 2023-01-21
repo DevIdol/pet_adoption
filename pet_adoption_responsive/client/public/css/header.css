@@ -206,3 +206,11 @@ header .menu-toggle {
     transform: translateY(-15px) rotate(45deg);
   }
 }
+
+/*Added for responsive*/
+/*Ipad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  header h1 a img {
+    width: 6.51vw;
+}
+}
