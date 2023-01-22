@@ -1,28 +1,27 @@
 .home-sec {
-padding: 30px 0 40px;
-background-color: var(--background);
+  padding: 30px 0 40px;
+  background-color: var(--background);
 }
 
-.pet-user{
+.pet-user {
   width: 17%;
   height: 300px;
   margin: 10px 10px;
   display: inline-block;
   position: relative;
 }
-.pet-user img{
+.pet-user img {
   border-radius: 10px;
   width: 100%;
   height: 100%;
- 
 }
-.pet-user:hover{
+.pet-user:hover {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.pet-user .over{
+.pet-user .over {
   width: 100%;
-  padding:10px 0;
+  padding: 10px 0;
   display: block;
   background-color: #ffffff;
   position: absolute;
@@ -30,92 +29,88 @@ background-color: var(--background);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.bg-pet{
+.bg-pet {
   background: url("../image/dogs.jpg") no-repeat center/cover;
   padding: 250px 0;
-  
 }
-.home-user-heading{
+.home-user-heading {
   text-align: center;
   font-size: 50px;
   color: #ffffff;
-  text-shadow: 0 -1px 4px #FFF, 0 -2px 10px rgb(215, 215, 165), 0 -10px 20px #cec7bf, 0 -18px 40px rgb(202, 130, 130);
+  text-shadow: 0 -1px 4px #fff, 0 -2px 10px rgb(215, 215, 165),
+    0 -10px 20px #cec7bf, 0 -18px 40px rgb(202, 130, 130);
 }
-.home-user-head2{
+.home-user-head2 {
   text-align: center;
   font-size: 25px;
   margin-top: 10px;
   color: #ffffff;
 }
-.home-user-head3{
+.home-user-head3 {
   text-align: center;
-  color:#A020F0 ;
+  color: #a020f0;
   font-size: 30px;
-  margin:85px 0 30px;
+  margin: 85px 0 30px;
   font-weight: lighter;
 }
-.home-main{
-  
+.home-main {
   position: relative;
   margin-left: 5%;
-  
 }
-.home-main p{
-text-align: center;
-color:#A020F0;
+.home-main p {
+  text-align: center;
+  color: #a020f0;
 
-font-size: 22px;
-margin-top: 8px;
+  font-size: 22px;
+  margin-top: 8px;
 }
-.more-container{
+.more-container {
   width: 17%;
   border-radius: 10px;
   margin-left: 15px;
   height: 300px;
-  background-color: #A020F0;
+  background-color: #a020f0;
   position: absolute;
-  top:10px;
+  top: 10px;
   display: inline-block;
 }
 
-
- img.cattto{
-  width:50% ;
+img.cattto {
+  width: 50%;
   display: block;
-  margin:25px auto;
-
+  margin: 25px auto;
 }
-.catto-link .more-container h3{
+.catto-link .more-container h3 {
   text-align: center;
   color: #ffffff;
 }
-.pet-link-class{
+.pet-link-class {
   text-align: center;
   color: #ffffff;
 }
 
 /*planning to adopt a pet*/
-.three-list-container{
+.three-list-container {
   background-color: #ffffff;
   margin-top: 40px;
   padding: 50px 0 50px;
 }
-.three-list-container .planning-h3{
+.three-list-container .planning-h3 {
   text-align: center;
   font-size: 30px;
   font-weight: lighter;
   color: #645b5b;
-  margin:20px 0;
+  margin: 20px 0;
 }
-.floating-div{
- display: flex;
- justify-content: center;
+.floating-div {
+  display: flex;
+  justify-content: center;
   align-items: center;
   width: 90%;
   margin: 35px auto;
- text-align: center;
+  text-align: center;
 }
-.floating-div div{
+.floating-div div {
   width: 25%;
   float: left;
   margin-right: 50px;
@@ -123,39 +118,37 @@ margin-top: 8px;
   letter-spacing: 1px;
   line-height: 1.3;
   color: #645b5b;
-  
 }
-.floating-div div .learn-more-btn{
+.floating-div div .learn-more-btn {
   border: 3px solid #1fcddd;
   border-radius: 25px;
   display: inline-block;
   margin-top: 20px;
   padding: 10px 35px;
-  color:#A020F0;
-  font-weight:bold;
-
+  color: #a020f0;
+  font-weight: bold;
 }
-.floating-div div .learn-more-btn:hover{
+.floating-div div .learn-more-btn:hover {
   background-color: #1fcddded;
   color: #ffffff;
 }
-.floating-div div h3{
-  color: #A020F0;
+.floating-div div h3 {
+  color: #a020f0;
   margin-bottom: 10px;
   font-weight: lighter;
   font-size: 20px;
 }
 
 /*article section*/
-.article-section-home{
+.article-section-home {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin:70px 0 50px;
+  margin: 70px 0 50px;
 }
 .article-section-home .dog-article,
-.article-section-home .cat-article{
+.article-section-home .cat-article {
   width: 43%;
   height: 500px;
   display: inline-block;
@@ -165,39 +158,37 @@ margin-top: 8px;
 }
 
 .article-section-home .dog-article img.img-dog-arti-n,
-.article-section-home .cat-article img.img-cat-arti-n
-{
+.article-section-home .cat-article img.img-cat-arti-n {
   width: 100%;
   height: 300px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  
 }
 .img-dog-arti,
-.img-cat-arti{
+.img-cat-arti {
   width: 115px;
   height: 115px;
   border-radius: 50%;
-  border:7px solid #ffffff;
+  border: 7px solid #ffffff;
   position: absolute;
   top: 250px;
   left: 40%;
 }
 .dog-article h3,
-.cat-article h3{
+.cat-article h3 {
   font-size: 20px;
-  color:#645b5b;
+  color: #645b5b;
   text-align: center;
   margin-top: 80px;
 }
 .dog-article p,
-.cat-article p{
+.cat-article p {
   text-align: center;
   color: #645b5b;
   margin-top: 10px;
 }
 .dog-article a div,
-.cat-article a div{
+.cat-article a div {
   border-top: 1px solid #a29f9f;
   text-align: center;
   padding-top: 15px;
@@ -209,14 +200,38 @@ margin-top: 8px;
   font-weight: bolder;
 }
 .dog-article a div:hover,
-.cat-article a div:hover{
-color: #ffffff;
-background-color: #A020F0;
+.cat-article a div:hover {
+  color: #ffffff;
+  background-color: #a020f0;
 }
 
-.story-con{
+.story-con {
   width: 100%;
   height: 450px;
   background: url("../image/st2.jpg") center/cover;
   margin-top: 100px;
+}
+
+/* Saved Btn */
+
+.save-form {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.btn-save {
+  border: none;
+  padding: 4px;
+  background-color: #ffffffcc;
+  border-radius: 50%;
+}
+.btn-save i {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--btn-hover);
+}
+.btn-save i:hover{
+  font-weight: 600;
+  transition: var(--transition);
 }

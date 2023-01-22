@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import bcrypt from "bcrypt";
 import Token from "../models/Token";
 import User from "../models/UserModel";
+import FavoriteModel from "../models/FavoriteModel";
 
 //verify email
 export const verifyEmailService = async (
@@ -221,12 +222,13 @@ export const deleteUserService = async (
     let users: any = await User.findOne({ _id: req.params.id });
     const verifiedPassword = await bcrypt.compare(password, users.password);
     if (!verifiedPassword) {
-      errors.push({ message: "Enter Your Password!" });
+      errors.push({ message: "Invalid Password" });
     }
     if (errors.length > 0) {
       res.render("setting", { errors, password, token, user });
     } else {
-      await User.findByIdAndDelete(req.params.id);
+      await User.findByIdAndDelete(req.params.id).populate("favorites");
+      await FavoriteModel.deleteMany({ userId: user._id });
       res.clearCookie("access_token");
       req.flash("success", "Your account is deleted!");
       res.redirect("/");
@@ -244,6 +246,7 @@ export const deleteUserFromAdminService = async (
 ) => {
   try {
     const userId = req.params.id;
+    await FavoriteModel.deleteMany({ userId: userId });
     User.deleteOne({ _id: userId }, (err) => {
       if (!err) {
         res.redirect("/admin");

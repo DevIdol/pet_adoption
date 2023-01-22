@@ -14,8 +14,19 @@
               src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
             />
           </div>
-
+         
           <div class="pet-detail-context">
+            <div class="fav-icon">
+              <% if (typeof token !== 'undefined') { %>
+              <form action="/favorites/<%= pet._id %>" method="post">
+                <button type="submit" class="btn-save">
+                  <% if (pet.isFav == 'active') { %>
+                  <i class="fa-solid fa-heart"></i>
+                  <% } else{%> <i class="fa-regular fa-heart"></i><% } %>
+                </button>
+              </form>
+              <% } %>
+            </div>
             <h3><%= pet.name %></h3>
             <h4><%= pet.breed %> - <%= pet.kind %></h4>
             <h4><%= pet.sex %> - <%= pet.age %> - <%= pet.size %></h4>
@@ -49,9 +60,7 @@
         </div>
       </div>
     </section>
-    <footer>
-      <%- include('./partials/footer.ejs')  %> 
-    </footer>
+    <footer><%- include('./partials/footer.ejs') %></footer>
     <%- include('./partials/script.ejs') %>
   </body>
 </html>

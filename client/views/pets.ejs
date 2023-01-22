@@ -11,24 +11,34 @@
         <%- include('./partials/category.ejs') %>
         <div class="home-main">
           <% pets.forEach(function(pet){ %>
-          <a href="/pets/<%= pet._id %>">
-            <div class="pet-user">
+          <div class="pet-user">
+            <a href="/pets/<%= pet._id %>">
               <img
                 src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
               />
               <div class="over">
                 <p><%= pet.name %></p>
               </div>
-            </div>
-          </a>
-
+            </a>
+            <% if (typeof token !== 'undefined') { %>
+            <form
+              class="save-form"
+              action="/favorites/<%= pet._id %>"
+              method="post"
+            >
+            <button type="submit" class="btn-save">
+              <% if (pet.isFav == 'active') { %>
+              <i class="fa-solid fa-heart"></i>
+              <% } else{%> <i class="fa-regular fa-heart"></i><% } %>
+            </button>
+            </form>
+            <% } %>
+          </div>
           <% }); %>
         </div>
       </div>
     </section>
-    <footer>
-      <%- include('./partials/footer.ejs')  %> 
-    </footer>
+    <footer><%- include('./partials/footer.ejs') %></footer>
     <%- include('./partials/script.ejs') %>
   </body>
 </html>

@@ -1,24 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('./partials/head.ejs', {title: "Pet Adoption | Favorites", token
-    }) %>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | My Favorites",
+    token, favorites}) %>
   </head>
   <body>
     <header><%- include('./partials/header.ejs') %></header>
-    <section
-      class="home-sec"
-      style="
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      "
-    >
+    <section class="home-sec">
       <div class="l-inner">
-        <h2>My Favorite Pet</h2>
+        <h3 class="home-user-head3">My Favorite List</h3>
+        <div class="home-main">
+          <% favorites.forEach(function(fav){ %>
+          <div class="pet-user">
+            <a href="/pets/<%= fav.pets._id %>">
+              <img
+                src="data:<%= fav.pets.contentType %>;base64,<%= fav.pets.imageBase64 %>"
+              />
+              <div class="over">
+                <p><%= fav.pets.name %></p>
+              </div>
+            </a>
+            <% if (typeof token !== 'undefined') { %>
+            <form
+              class="save-form"
+              action="/favorites/<%= fav._id %>?_method=DELETE"
+              method="post"
+            >
+            <input type="hidden" name="petId" value="<%= fav.pets._id %>">
+              <button type="submit" class="btn-save">
+                <i class="fa-solid fa-heart"></i>
+              </button>
+            </form>
+            <% } %>
+          </div>
+
+          <% }); %>
+        </div>
+        <% if (!favorites.length) { %>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40vh;
+          "
+        >
+          <h3 style="font-size: 24px">No Data</h3>
+        </div>
+        <% } %>
       </div>
     </section>
+    <footer><%- include('./partials/footer.ejs') %></footer>
     <%- include('./partials/script.ejs') %>
   </body>
 </html>

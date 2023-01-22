@@ -17,7 +17,8 @@ import "./config/Passport";
 import resetPassRoute from "./routes/ResetPassRoute";
 import petRoute from "./routes/PetUserRoute";
 import adminRoute from "./routes/PetRoute";
-import { isAdmin } from "./middlewares/IsAuth";
+import { isAdmin, isUser } from "./middlewares/IsAuth";
+import favoriteRoute from "./routes/FavoriteRoute";
 
 dotenv.config();
 const app: Express = express();
@@ -38,19 +39,19 @@ app.use(methodOverride("_method"));
 app.use(cors());
 app.use(cookieParser());
 app.use(
-	session({
-		secret: String(process.env.SECRET_KEY),
-		saveUninitialized: true,
-		resave: true,
-	})
+  session({
+    secret: String(process.env.SECRET_KEY),
+    saveUninitialized: true,
+    resave: true,
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use((req: Request, res: Response, next: NextFunction) => {
-	res.locals.success = req.flash("success");
-	res.locals.error = req.flash("error");
-	next();
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
 });
 
 //render route
@@ -63,6 +64,9 @@ app.use("/forgot-password", resetPassRoute);
 
 //pets
 app.use("/pets", petRoute);
+
+//add to save
+app.use("/favorites", isUser, favoriteRoute);
 
 //admin route
 app.use("/admin", isAdmin, adminRoute);

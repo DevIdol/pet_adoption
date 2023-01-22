@@ -4,6 +4,7 @@ import { isAdmin, isUser } from "../middlewares/IsAuth";
 import PetModel from "../models/PetModel";
 import DonationModel from "../models/DonationModel";
 import PetArticleModel from "../models/PetArticleModel";
+import FavoriteModel from "../models/FavoriteModel";
 
 const renderRoute: Router = express.Router();
 
@@ -64,9 +65,18 @@ renderRoute.get(
 renderRoute.get(
   "/favorites",
   isUser,
-  (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, next: NextFunction) => {
+    const user: any = req.user;
     let token = req.cookies.access_token;
-    res.render("favorite", { user: req.user, token });
+    try {
+      const fav: any = await FavoriteModel.find({ userId: user._id }).populate(
+        "pets"
+      );
+      await User.findById(user._id).populate("favorites");
+      res.render("favorite", { user, token, favorites: fav });
+    } catch (error) {
+      console.log(error);
+    }
   }
 );
 
@@ -218,9 +228,9 @@ renderRoute.get(
     const cats = articles.filter((cat: any) => cat.category === "dog");
     const catDog = cats.map((cat: any) => cat.category);
     const dogCat: any = new Set(catDog);
-    let dog: any
+    let dog: any;
     dogCat.forEach((d: any) => {
-      dog = d
+      dog = d;
     });
     res.render("articles", {
       dog,
