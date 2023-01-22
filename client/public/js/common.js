@@ -72,22 +72,22 @@ randomImageElements.forEach(function (image) {
 });
 
 const catImg = [
-    "random1.jpg",
-    "random2.jpg",
-    "random3.jpg",
-    "random4.jpg",
-    "random5.jpg",
-    "random6.jpg",
-    "random7.jpg",
-    "random8.jpg",
-    "random9.jpg",
-    "random10.jpg",
-    "random11.jpg",
+    "c1.jpg",
+    "c2.jpg",
+    "c3.jpg",
+    "c4.jpg",
+    "c5.jpg",
+    "c6.jpg",
+    "c7.jpg",
+    "c8.jpg",
+    "c9.jpg",
+    "c10.jpg",
+    "c11.jpg",
 ];
 const catImageElements = document.querySelectorAll(".cat-image");
 catImageElements.forEach(function (image) {
     const catIndex = Math.floor(Math.random() * catImg.length);
-    image.src = "/image/" + images[catIndex];
+    image.src = "/image/" + catImg[catIndex];
 });
 
 

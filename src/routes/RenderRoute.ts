@@ -232,6 +232,7 @@ renderRoute.get(
     dogCat.forEach((d: any) => {
       dog = d;
     });
+    console.log(articles)
     res.render("articles", {
       dog,
       articles,
