@@ -5,10 +5,10 @@
   </head>
 
   <body>
-    <header><%- include('./partials/header.ejs') %></header>
+    <header><%- include('./partials/admin-nav.ejs') %></header>
     <section class="account-sec">
       <div class="l-inner">
-        <%- include('./partials/sidebar.ejs', { user }) %>
+        <%- include('./partials/admin-sidebar.ejs', {user}) %>
         <div class="account-wrapper">
           <div class="pet-form-wrapper">
             <h2>Update Donation Request</h2>

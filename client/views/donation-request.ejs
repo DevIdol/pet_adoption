@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('./partials/head.ejs', {title: "Pet Adoption | Create Donation
-    Request" }) %>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Create Donation Request" }) %>
   </head>
 
   <body>
-    <header><%- include('./partials/header.ejs') %></header>
+    <header><%- include('./partials/admin-nav.ejs') %></header>
     <section class="account-sec">
       <div class="l-inner">
-        <%- include('./partials/sidebar.ejs', { user }) %>
+        <%- include('./partials/admin-sidebar.ejs', {user}) %>
         <div class="account-wrapper">
           <div class="pet-form-wrapper">
             <h2>Add New Donation Request</h2>
