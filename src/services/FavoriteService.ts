@@ -49,7 +49,8 @@ export const favoriteService = async (
       await FavoriteModel.deleteOne({ _id: fav.id });
       user.favorites = user.favorites.filter((f: any) => String(f) !== fav.id);
       user.save();
-      res.redirect("/");
+      req.flash("success", "Removed Success!");
+      res.redirect("/favorites");
     }
   } catch (err: any) {
     console.log(err);
@@ -66,7 +67,6 @@ export const deleteFavoriteService = async (
     let user: any = await User.findById(userId._id);
     const fav: any = await FavoriteModel.find({ userId: userId._id });
     const petId: any = req.body.petId;
-    console.log(petId)
     let arr: any = [];
     fav.find((f: any) => {
       const isFav = String(f.userId) === userId._id;
@@ -80,9 +80,12 @@ export const deleteFavoriteService = async (
       user.save();
       await PetModel.updateOne({ _id: petId }, { $set: { isFav: "" } });
       await FavoriteModel.findByIdAndDelete(req.params.id);
+      req.flash("success", "Removed Success!");
       res.redirect("/favorites");
     } else {
-      res.redirect("/pets");
+      res.redirect("/");
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };

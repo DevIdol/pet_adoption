@@ -9,6 +9,9 @@
     <section class="home-sec">
       <div class="l-inner">
         <h3 class="home-user-head3">My Favorite List</h3>
+        <div class="alert-wrapper">
+          <%- include('./partials/messages.ejs') %>
+        </div>
         <div class="home-main">
           <% favorites.forEach(function(fav){ %>
           <div class="pet-user">
