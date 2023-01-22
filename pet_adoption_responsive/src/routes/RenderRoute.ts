@@ -215,10 +215,11 @@ renderRoute.get(
     if (category) {
       articles = await PetArticleModel.find({ category });
     }
-    const cats = articles.filter((cat: any) => cat.category === "dog");
-    const catDog = cats.map((cat: any) => cat.category);
+    const dogs = articles.filter((article: any) => article.category === "dog");
+    const catDog = dogs.map((dog: any) => dog.category);
     const dogCat: any = new Set(catDog);
-    let dog: any
+    let dog: any;
+
     dogCat.forEach((d: any) => {
       dog = d
     });

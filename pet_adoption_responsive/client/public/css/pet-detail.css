@@ -193,3 +193,94 @@
   top: 342px;
 }
 }
+
+/*Phone*/
+@media screen and (max-width:767.9px) {
+.home-sec {
+  padding: 4.688vw 0 6.25vw;
+ 
+}
+.pet-detail-ucon {
+  height: 78.125vw;
+  margin-top: 6.25vw;
+}
+.pet-detail-context {
+  width: 90%;
+  display: block;
+  padding: 4.688vw 3.125vw;
+  margin: 7.813vw auto;
+  border-radius: 1.563vw;
+}
+
+.pet-detail-context h3 {
+  font-size: 6.906vw;
+  padding-bottom: 1.563vw;
+  letter-spacing: 0.203vw;
+}
+.pet-detail-context h4 {
+  border-bottom: 0.156vw solid #6a6363;
+  padding-bottom: 3.125vw;
+  padding-top: 3.125vw;
+  font-size: 4.125vw;
+  letter-spacing: 0.203vw;
+}
+.pet-detail-context h4.about-h4 {
+  font-size: 5.906vw;
+  padding-bottom: 2.344vw;
+  letter-spacing: 0.203vw;
+}
+.pet-detail-context p {
+  font-size: 4.525vw;
+  letter-spacing: 0.203vw;
+}
+.pet-contact-info {
+  padding: 4.688vw 3.125vw;
+  width: 90%;
+  display: block;
+  border-radius: 1.563vw;
+  margin: 0.625vw auto;
+  
+}
+.pet-contact-info .img-rounded-pet {
+  width: 28.313vw;
+  height: 28.313vw;
+  top: 3.906vw;
+  left: 35%;
+}
+.pet-contact-info h3 {
+  padding-top: 13.438vw;
+  margin-top: 18.281vw;
+  font-size: 5.125vw;
+}
+.mail-link, .ph-link {
+  margin-top: 1.875vw;
+ 
+}
+.mail-link p {
+  padding-bottom: 3.125vw;
+  border-bottom: 0.156vw;
+  text-align: center;
+  margin-top: 3.125vw;
+  margin-left: -40.25vw;
+}
+.ph-link p{
+  text-align: center;
+  margin-top: 3.125vw;
+  margin-left: -40.25vw;
+}
+
+.mail-img {
+  width: 6.688vw;
+  height: 6.688vw;
+}
+.adopt-text {
+ 
+  font-size: 4.125vw;
+  top: 46.463vw;
+}
+.adopt-text-two {
+  top: 59.813vw;
+  font-size: 4.125vw;
+  
+}
+}

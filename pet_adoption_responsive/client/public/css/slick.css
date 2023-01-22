@@ -179,7 +179,8 @@ ul.slick-dots{
     ul.slick-dots{
        
         margin-top: 1.563vw;
-        margin-left: 40%;
+        margin-left: 0;
+        width: 100%;
     }
     .slick-dots li button{
         padding:0.781vw 0.781vw;
@@ -187,4 +188,5 @@ ul.slick-dots{
         font-size: 0vw;
         
     }
+    
 }

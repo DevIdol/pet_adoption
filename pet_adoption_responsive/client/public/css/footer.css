@@ -78,6 +78,7 @@ footer h2 {
 }
 
 /*Added for responsive*/
+/*I-pad*/
 @media screen and (min-width: 768px) and (max-width: 1180px) {
   .footer-menu {
     flex-direction: column;

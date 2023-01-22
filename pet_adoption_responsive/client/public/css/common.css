@@ -72,3 +72,11 @@ body {
     margin-right: 1.953vw;
 }
 }
+
+/*Phone*/
+@media screen and (max-width: 768px) {
+  .pet-categories-all {
+    margin: 3.125vw auto;
+}
+
+}

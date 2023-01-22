@@ -477,5 +477,150 @@ img.cattto {
   width: 90%;
   margin: 2.604vw auto;
 }
+.bg-pet {
+  padding: 130px 0px;
+  background: url(../image/dogs-md.jpg) no-repeat center/cover;
+}
+}
 
+/*Phone*/
+@media screen and (max-width:767.9px) {
+
+  .bg-pet {
+    padding: 20.313vw 0vw;
+    background: url(../image/dogs-sm.jpg) no-repeat center/cover;
+}
+.home-user-heading {
+  font-size: 5.938vw;
+  text-shadow: 0 -0.156vw 0.625vw #fff, 0 -0.313vw 1.563vw rgb(215 215 165), 0 -1.563vw 3.125vw #cec7bf, 0 -2.813vw 6.25vw rgb(202 130 130);
+}
+.home-user-head2 {
+  margin-top: 1.563vw;
+  font-size: 3.438vw;
+}
+.home-user-head3 {
+  margin: 13.281vw 0 4.688vw;
+  font-size: 4.688vw;
+}
+.pet-user {
+  width: 88%;
+  height: 56.25vw;
+  margin: 1.563vw 1.563vw;
+}
+.next2, .next1 {
+  right: 3.788vw;
+  font-size: 5vw;
+}
+.prev2,.prev1{
+    left: 3.788vw;
+    font-size: 5vw;
+}
+.home-main p, .home-main-all p {
+  margin-top: 1.25vw;
+  font-size: 5.438vw;
+}
+.three-list-container {
+  margin-top: 6.25vw;
+  padding: 7.813vw 0 7.813vw;
+
+}
+.three-list-container .planning-h3 {
+  margin: 3.125vw auto;
+  font-size: 6.688vw;
+  font-weight: lighter;
+  text-align: center;
+}
+.floating-div {
+  flex-direction: column;
+  width: 90%;
+  margin: 5.469vw auto;
+  
+}
+.floating-div div {
+  float: none;
+  width: 100%;
+  display: block;
+  margin: 10px auto;
+  line-height: 1.3;
+  margin-bottom: 7.813vw;
+}
+.floating-div div h3 {
+  margin-bottom: 1.563vw;
+  font-size: 5.125vw;
+  
+}
+.floating-div div p{
+  font-size: 4vw;
+  width: 90%;
+  display: block;
+  margin: 10px auto;
+  
+}
+.article-section-home {
+  display: flex;
+  flex-direction: column;
+  margin: 3.125vw auto;
+  gap: 5.125vw;
+}
+.article-section-home .dog-article, .article-section-home .cat-article {
+  display: block;
+  position: relative;
+  width: 90%;
+  height: 81.425vw;
+  border-radius: 1.563vw;
+}
+.article-section-home .dog-article img.img-dog-arti-n, .article-section-home .cat-article img.img-cat-arti-n {
+
+  height: 46.875vw;
+  border-top-left-radius: 1.563vw;
+  border-top-right-radius: 1.563vw;
+}
+.img-dog-arti, .img-cat-arti {
+  top: 39.063vw;
+  left: 40%;
+  width: 17.969vw;
+  height: 19.969vw;
+  border: 1.094vw solid #ffffff;
+}
+.dog-article h3, .cat-article h3 {
+  margin-top: 12.5vw;
+  font-size: 5.125vw;
+}
+.dog-article p, .cat-article p {
+  margin-top: 1.563vw;
+  font-size: 3.5vw;
+}
+.dog-article a div, .cat-article a div {
+  height: 8.594vw;
+  margin-top: 3.125vw;
+  padding-top: 2.344vw;
+  padding-bottom: 2.5vw;
+  border-top: 0.156vw solid #a29f9f;
+  border-bottom-left-radius: 1.563vw;
+  border-bottom-right-radius: 1.563vw;
+}
+/*pet detail*/
+.home-main-all {
+  margin-left: 11%;
+}
+.pet-categories-all a {
+  padding: 3.125vw 4.688vw;
+  border-radius: 1.563vw;
+  font-size: 3.125vw;
+  margin: 1.563vw auto;
+  margin-right: 1.563vw;
+}
+.pet-categories-all a:last-child{
+  margin-right: 0;
+}
+.pet-user-all {
+  display: inline-block;
+  position: relative;
+  width: 40%;
+  height: 46.875vw;
+  margin: 1.563vw 1.563vw;
+}
+.pet-user-all img {
+  border-radius: 1.563vw;
+}
 }
