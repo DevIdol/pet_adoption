@@ -77,6 +77,39 @@ footer h2 {
   color: #fff;
 }
 
+/*Added for responsive*/
+/*I-pad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .footer-menu {
+    flex-direction: column;
+    gap: 5.208vw;
+  }
+  .footer-link ul {
+    gap: 2.604vw;
+}
+  .footer-logo img {
+    width: 10.417vw;
+}
+footer h2 {
+  font-size: 3.125vw;
+}
+.social-media h3, .footer-link ul h3,.copy-right h3 {
+  font-size: 2.604vw;
+}
+.social-media a i {
+  font-size: 3.125vw;
+  padding: 2.604vw 1.302vw;
+}
+.copy-right {
+ 
+  padding: 2.604vw;
+  font-size: 2.083vw;
+  gap: 2.604vw;
+}
+}
+
+
+/*Phone*/
 @media screen and (max-width: 768px) {
   .footer-menu {
     flex-direction: column;
