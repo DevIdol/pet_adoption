@@ -53,7 +53,7 @@ export const favoriteService = async (
       res.redirect("/favorites");
     }
   } catch (err: any) {
-    console.log(err);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -86,6 +86,6 @@ export const deleteFavoriteService = async (
       res.redirect("/");
     }
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };

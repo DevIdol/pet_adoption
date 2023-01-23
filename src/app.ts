@@ -19,6 +19,7 @@ import petRoute from "./routes/PetUserRoute";
 import adminRoute from "./routes/PetRoute";
 import { isAdmin, isUser } from "./middlewares/IsAuth";
 import favoriteRoute from "./routes/FavoriteRoute";
+import adoptionRoute from "./routes/AdoptionRoute";
 
 dotenv.config();
 const app: Express = express();
@@ -54,6 +55,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
+
+
 //render route
 app.use("/", renderRoute);
 
@@ -67,6 +70,9 @@ app.use("/pets", petRoute);
 
 //add to save
 app.use("/favorites", isUser, favoriteRoute);
+
+//adoption register
+app.use("/adoption-register", adoptionRoute);
 
 //admin route
 app.use("/admin", isAdmin, adminRoute);

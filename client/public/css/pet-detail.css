@@ -17,7 +17,7 @@
   background-color: #ffffff;
   width: 55%;
   padding: 10px 20px 30px;
-  margin-top: 70px;
+  margin-top: 20px;
   margin-bottom: 70px;
   margin-left: 50px;
   display: inline-block;
@@ -112,4 +112,123 @@
 
 .fav-icon i {
   font-size: 30px;
+}
+
+/* Pet Adoption Register Btn */
+
+.pet-sign-btn {
+  border-top: 1px solid #6a6363;
+  margin-top: 10px;
+}
+
+.pet-sign-btn button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: -16px;
+  color: #6a6363;
+}
+
+.pet-sign-btn i {
+  font-size: 26px;
+  color: #6a6363;
+  padding-right: 30px;
+  padding-top: 26px;
+}
+
+/* Adoption Register Model */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  left: 0;
+  top:0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: var(--background);
+  margin: auto;
+  padding: 20px;
+  width: 40%;
+  border-radius: 6px;
+  margin-top: 70px;
+}
+
+/* The Close Button */
+.close {
+  color: #474545;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.adoption-sign-form img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid var(--btn-hover);
+}
+.adoption-sign-form h2{
+  font-size: 24px;
+  color: #6a6363;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.adoption-sign-header{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sign-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+}
+.adoption-sign-form h3{
+  text-transform: capitalize;
+  color: #474545;
+  padding-bottom: 20px;
+}
+
+.adoption-sign-header h3{
+  font-size: 24px;
+  padding-left: 20px;
+
+
+}
+
+
+.adoption-sign-form textarea{
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #f0ecec;
+  border: 1px solid #808080;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.adoption-sign-form textarea:focus {
+  outline: none;
+  border: 1px solid var(--btn-color);
+  transition: var(--transition);
 }

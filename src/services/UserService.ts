@@ -32,7 +32,7 @@ export const verifyEmailService = async (
       res.render("verify-email", { message: "Email verified successfully!" });
     }
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -102,7 +102,7 @@ export const updateUserService = async (
     req.flash("success", "Updated Success!");
     res.redirect("/personal-info");
   } catch (error: any) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -157,7 +157,7 @@ export const userSettingService = async (
       }
     }
   } catch (error: any) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -169,7 +169,7 @@ export const updateUserPasswordService = async (
 ) => {
   const token = req.cookies.access_token;
   let user: any = await User.findOne({ _id: req.params.id });
-  const { currentPassword, password, confirmPass } = req.body;
+  let { currentPassword, password, confirmPass } = req.body;
   let errors: any[] = [];
   try {
     const verifiedPassword = await bcrypt.compare(
@@ -198,13 +198,15 @@ export const updateUserPasswordService = async (
         user,
       });
     } else {
+      const salt = await bcrypt.genSalt(Number(process.env.SALT));
+      password = await bcrypt.hash(password, salt);
       user.password = password;
       await user.save();
       req.flash("success", "Password changed successfully!");
       res.redirect("/personal-info");
     }
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -234,7 +236,7 @@ export const deleteUserService = async (
       res.redirect("/");
     }
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -252,5 +254,7 @@ export const deleteUserFromAdminService = async (
         res.redirect("/admin");
       }
     });
-  } catch (error) {}
+  } catch (error) {
+    res.render("not-found", { error: "Something Wrong!" });
+  }
 };

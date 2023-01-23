@@ -5,6 +5,7 @@ import crypto from "crypto";
 import jwt from "jsonwebtoken";
 import passport from "passport";
 import { VerifyEmail } from "../utils/VerifyEmail";
+import bcrypt from "bcrypt";
 
 //register service
 export const registerService = async (
@@ -12,7 +13,9 @@ export const registerService = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { username, email, password, confirmPass } = req.body;
+  let { username, email, password, confirmPass } = req.body;
+  const salt = await bcrypt.genSalt(Number(process.env.SALT));
+  const hashPassword = await bcrypt.hash(password, salt);
 
   let errors: any = [];
   try {
@@ -48,7 +51,7 @@ export const registerService = async (
           const newUser: any = new User({
             username,
             email,
-            password,
+            password: hashPassword,
           });
           newUser.save().then(async (user: any) => {
             const token = await new Token({
@@ -70,7 +73,7 @@ export const registerService = async (
       });
     }
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -131,7 +134,7 @@ export const loginService = async (
         }
       });
     } catch (error: any) {
-      console.log(error);
+      res.render("not-found", { error: "Something Wrong!" });
     }
   })(req, res, next);
 };
@@ -147,7 +150,7 @@ export const logoutService = async (
     req.flash("success", "Logged out Success!");
     res.redirect("/");
   } catch (error: any) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -170,6 +173,6 @@ export const approvedAdminService = async (
       res.redirect("/admin");
     }
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };

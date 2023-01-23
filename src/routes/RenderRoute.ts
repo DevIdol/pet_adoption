@@ -5,6 +5,7 @@ import PetModel from "../models/PetModel";
 import DonationModel from "../models/DonationModel";
 import PetArticleModel from "../models/PetArticleModel";
 import FavoriteModel from "../models/FavoriteModel";
+import jwtDecode from "jwt-decode";
 
 const renderRoute: Router = express.Router();
 
@@ -13,6 +14,11 @@ renderRoute.get(
   "/",
   async (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
+    let user: any;
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      user = decoded.user;
+    }
     const pets = await PetModel.find();
     const latestPets = await PetModel.find()
       .sort({ $natural: -1 })
@@ -27,6 +33,7 @@ renderRoute.get(
       first3pets: first4pets,
       latestPets: latestPets,
       token,
+      user,
     });
   }
 );
@@ -75,7 +82,7 @@ renderRoute.get(
       await User.findById(user._id).populate("favorites");
       res.render("favorite", { user, token, favorites: fav });
     } catch (error) {
-      console.log(error);
+      res.render("not-found", { error: "Something Wrong!" });
     }
   }
 );
@@ -91,7 +98,7 @@ renderRoute.get(
       const users = await User.findById(user._id);
       res.render("personal-info", { user: users, token });
     } catch (error) {
-      console.log(error);
+      res.render("not-found", { error: "Something Wrong!" });
     }
   }
 );
@@ -107,7 +114,7 @@ renderRoute.get(
       const users = await User.findById(user._id);
       res.render("setting", { user: users, token });
     } catch (error) {
-      console.log(error);
+      res.render("not-found", { error: "Something Wrong!" });
     }
   }
 );
@@ -168,14 +175,19 @@ renderRoute.get(
   "/pets",
   async (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
+    let user: any;
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      user = decoded.user;
+    }
     const kind = req.query.kind;
     let pets;
     if (kind) {
-      pets = await PetModel.find({ kind });
+      pets = await PetModel.find({ kind});
     } else {
       pets = await PetModel.find();
     }
-    res.render("pets", { token, pets });
+    res.render("pets", { token, pets, user });
   }
 );
 
@@ -184,8 +196,13 @@ renderRoute.get(
   "/donation-requests",
   async (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
+    let user: any;
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      user = decoded.user;
+    }
     const requests = await DonationModel.find();
-    res.render("request-donation", { requests: requests, token });
+    res.render("request-donation", { requests: requests, token, user });
   }
 );
 
@@ -194,7 +211,12 @@ renderRoute.get(
   "/petcare-tips",
   (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
-    res.render("petcare-tips", { token });
+    let user: any;
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      user = decoded.user;
+    }
+    res.render("petcare-tips", { token, user });
   }
 );
 
@@ -203,7 +225,12 @@ renderRoute.get(
   "/training-tips/cat-training-tips",
   (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
-    res.render("training-tip-cat", { token });
+    let user: any;
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      user = decoded.user;
+    }
+    res.render("training-tip-cat", { token, user });
   }
 );
 
@@ -211,7 +238,12 @@ renderRoute.get(
   "/training-tips/dog-training-tips",
   (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
-    res.render("training-tip-dog", { token });
+    let user: any;
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      user = decoded.user;
+    }
+    res.render("training-tip-dog", { token, user });
   }
 );
 
@@ -220,6 +252,11 @@ renderRoute.get(
   "/articles",
   async (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
+    let user: any;
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      user = decoded.user;
+    }
     const category = req.query.category;
     let articles: any;
     if (category) {
@@ -232,11 +269,11 @@ renderRoute.get(
     dogCat.forEach((d: any) => {
       dog = d;
     });
-    console.log(articles)
     res.render("articles", {
       dog,
       articles,
       token,
+      user
     });
   }
 );

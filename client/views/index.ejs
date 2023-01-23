@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('./partials/head.ejs', {title: "Pet Adoption | Home", token}) %>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Home", token, user}) %>
   </head>
   <body>
     <header><%- include('./partials/header.ejs') %></header>
@@ -99,11 +99,11 @@
               action="/favorites/<%= pet._id %>"
               method="post"
             >
-            <button type="submit" class="btn-save">
-              <% if (pet.isFav == 'active') { %>
-              <i class="fa-solid fa-heart"></i>
-              <% } else{%> <i class="fa-regular fa-heart"></i><% } %>
-            </button>
+              <button type="submit" class="btn-save">
+                <% if (pet.isFav == 'active') { %>
+                <i class="fa-solid fa-heart"></i>
+                <% } else{%> <i class="fa-regular fa-heart"></i><% } %>
+              </button>
             </form>
             <% } %>
           </div>

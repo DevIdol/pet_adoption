@@ -75,3 +75,7 @@
   float: right;
   padding-right: 8px;
 }
+
+.logout{
+  cursor: pointer;
+}

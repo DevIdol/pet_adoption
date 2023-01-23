@@ -23,7 +23,9 @@ $(document).ready(function () {
             );
         });
     });
-
+    //Toast
+    $('.toast').toast('show');
+    //Show and Hide Password
     $("#show-password").change(function () {
         $(this).prop("checked")
             ? $("#password, #confirmPass, #currentPassword").prop("type", "text")
