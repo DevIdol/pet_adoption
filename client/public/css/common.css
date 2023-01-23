@@ -56,3 +56,39 @@ body {
   margin: 10px auto;
   margin-right: 15px;
 }
+
+/*Added for responsive*/
+/*Ipad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+
+  .pet-categories-all {
+      margin: 2.604vw auto;
+  }
+  .pet-categories-all a {
+    padding: 2.604vw 3.906vw;
+    border-radius: 1.302vw;
+    font-size: 2.604vw;
+    margin: 1.302vw auto;
+    margin-right: 1.953vw;
+}
+.btn {
+  padding: 1.302vw 0;
+  font-size: 2.344vw;
+  border-radius: 0.781vw;
+}
+}
+
+/*Phone*/
+@media screen and (max-width: 768px) {
+  .pet-categories-all {
+    margin: 3.125vw auto;
+}
+.btn {
+
+  padding: 10px 0;
+  font-size: 18px;
+  border-radius: 6px;
+
+}
+
+}

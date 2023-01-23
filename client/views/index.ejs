@@ -19,7 +19,17 @@
 
         <h3 class="home-user-head3">Pets Available for adoption</h3>
         <div class="home-main">
+          <span class="next2">
+            <img src="/image/img_arrow_right.png" alt="Right Arrow">
+
+          </span>
+          <span class="prev2">
+            <img src="image/img_arrow_left.png" alt="Left Arrow">
+          </span>
+          <div class="con-slick">
+         <ul class="slider2">
           <% first3pets.forEach(function(pet){ %>
+            <li>
           <a href="/pets/<%= pet._id %>">
             <div class="pet-user">
               <img
@@ -30,15 +40,18 @@
               </div>
             </div>
           </a>
-
+        </li>
+       
           <% }); %>
-          <a href="/pets" class="catto-link">
+        </ul>
+      </div>
+          <!--<a href="/pets" class="catto-link">
             <div class="more-container">
               <img class="cattto" src="image/catto.png" alt="" />
               <hr />
               <h3>VIEW ALL PETS</h3>
             </div>
-          </a>
+          </a>-->
         </div>
         <!--planning to adopt a pet-->
         <div class="three-list-container">
@@ -69,26 +82,41 @@
         <!--latest pet first-->
         <h3 class="home-user-head3">Latest Added Pets</h3>
         <div class="home-main">
+          <span class="next1">
+            <img src="/image/img_arrow_right.png" alt="Right Arrow">
+
+          </span>
+          <span class="prev1">
+            <img src="image/img_arrow_left.png" alt="Left Arrow">
+          </span>
+          <div class="con-slick">
+          <ul class="slider">
           <% latestPets.forEach(function(pet){ %>
+            <li>
+              <div class="pet-user">
           <a href="/pets/<%= pet._id %>">
-            <div class="pet-user">
+          
               <img
                 src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
               />
               <div class="over">
                 <p><%= pet.name %></p>
               </div>
-            </div>
+           
           </a>
+        </div>
+        </li>
 
           <% }); %>
-          <a href="/pets" class="catto-link">
+        </ul>
+      </div>
+          <!--<a href="/pets" class="catto-link">
             <div class="more-container">
               <img class="cattto" src="image/catto.png" alt="" />
               <hr />
               <h3>VIEW ALL PETS</h3>
             </div>
-          </a>
+          </a>-->
         </div>
         <!--articles-->
         <div class="article-section-home">
