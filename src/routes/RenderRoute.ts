@@ -7,23 +7,26 @@ import PetArticleModel from "../models/PetArticleModel";
 
 const renderRoute: Router = express.Router();
 
+
 //show home
 renderRoute.get(
   "/",
   async (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
-    const pets = await PetModel.find();
-    const latestPets = await PetModel.find()
-      .sort({ $natural: -1 })
-      .limit(4)
-      .exec();
+    //get 12 rows at random
+    const pets = await PetModel.aggregate([{ $sample: { size: 12 } }]);
+    //get the latest 12 rows at random
+    const latestPets = await PetModel.aggregate([
+      {$sort: {field: -1}},
+      {$sample: {size: 12}}
+  ])
     if (!pets) {
       res.render("not-found", { message: "No Pet" });
     }
-    const first4pets = pets.slice(0, 4);
+    const random12pets = pets;
     res.render("index", {
       pets: pets,
-      first3pets: first4pets,
+      first3pets: random12pets,
       latestPets: latestPets,
       token,
     });
