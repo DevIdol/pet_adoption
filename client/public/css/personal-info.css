@@ -64,10 +64,37 @@
   color: var(--btn-color);
   transition: var(--transition);
 }
+/*I-pad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .account-wrapper {
+    width: calc(100% - 33.854vw);
+    margin-left: 28.854vw;
+  }
+  .account-sec .personal-info {
+    border-radius: 0.781vw;
+    width: 100%;
+    padding: 2.604vw;
+  }
+  .personal-info h2 {
+    font-size: 3.125vw;
+    
+}
+.alert-wrapper {
+  padding-top: 2.604vw;
+}
+.username-wrapper, .email-wrapper, .password-wrapper {
+  padding: 2.604vw 1.302vw;
+}
+}
 
+/*Phone*/
 @media screen and (max-width: 768px) {
+  .account-sec {
+    padding: 13.021vw 0vw;
+}
   .account-sec .personal-info {
     width: 96%;
+    margin-top: 3.125vw;
   }
   .username-wrapper,
   .email-wrapper,
@@ -75,7 +102,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 16px;
+    gap: 2.5vw;
   }
   .personal-info .username,
   .personal-info .email,
@@ -85,4 +112,22 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  .account-wrapper {
+    width: calc(100% - 28.125vw);
+    margin-left: 27.813vw;
+    margin-top: 5.844vw;
+}
+
+.personal-info h2 {
+  font-size: 3.75vw;
+}
+.personal-info h3 {
+  font-size: 2.813vw;
+}
+.personal-info .username h4, .personal-info .email h4, .personal-info .password h4 {
+
+  font-weight: 500;
+  font-size: 2.813vw;
+}
 }

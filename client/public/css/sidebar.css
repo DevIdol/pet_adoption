@@ -75,3 +75,49 @@
   float: right;
   padding-right: 8px;
 }
+
+/*I-pad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .side-bar {
+    width: 27.854vw;
+    top: 7.813vw;
+    padding-top: 2.604vw;
+    box-shadow: 0.651vw 0 0.651vw -0.651vw #333;
+    overflow-y: hidden;
+}
+.side-bar a, .side-bar button {
+  padding: 1.563vw 2.604vw 1.563vw 3.813vw;
+  font-size: 2.944vw;
+}
+.side-bar form input {
+  font-size: 2.944vw;
+  padding-top: 1.302vw;
+  padding-left: 3.813vw;
+}
+.dropdown-container {
+  padding-left: 1.042vw;
+  box-shadow: 0 0.651vw 0.651vw -0.651vw #333;
+}
+
+}
+
+/*Phone*/
+@media screen and (max-width: 768px) {
+.side-bar {
+    height: 100vh;
+    width: 27vw;
+    top: 9.375vw;
+    left: 0;
+    padding-top: 3.125vw;
+    box-shadow: 0.781vw 0 0.781vw -0.781vw #333;
+}
+.side-bar a, .side-bar button {
+  padding: 1.875vw 3.125vw 1.875vw 2.375vw;
+  font-size: 3.213vw;
+}
+.side-bar form input {
+  font-size: 3.125vw;
+  padding-top: 1.563vw;
+  padding-left: 2.031vw;
+}
+}

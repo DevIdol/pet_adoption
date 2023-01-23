@@ -101,6 +101,13 @@
   font-size: 24px;
 }
 
+/*I-pad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .show-pass span {
+    font-size: 1.823vw;
+}
+}
+
 @media screen and (max-width: 768px) {
   .auth-sec .l-inner {
     width: 96%;
@@ -109,4 +116,11 @@
     font-size: 12px;
     padding: 20px 0 0;
   }
+  .alert-wrapper {
+    padding-top: 3.125vw;
+
+}
+.show-pass span {
+  font-size: 2.188vw;
+}
 }

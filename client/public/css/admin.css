@@ -97,3 +97,59 @@ tr td img {
 .pet-tbl-wrapper tr td form button.btn-delete{
   background-color: var(--error-color);
 }
+
+/*I-pad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .card-wrapper {
+    flex-direction: column;
+    gap:1.302vw;
+    padding: 2.604vw 0 3.906vw;
+}
+  .admin {
+    width: 100%;
+    padding: 0vw;
+}
+  .admin h2 {
+    font-size: 3.125vw;
+    text-align: center;
+}
+.admin .card-count {
+  padding: 2.604vw;
+  border-radius: 0.781vw;
+  width: 80%;
+}
+.admin .card-count h3 {
+  padding-bottom: 1.302vw;
+  font-size: 2.044vw;
+}
+.table-title {
+  padding-bottom: 1.302vw;
+}
+
+.pet-tbl-wrapper {
+  padding-top: 1.302vw;
+  overflow-x: none;
+}
+}
+
+/*Phone*/
+@media screen and (max-width: 768px) {
+  .admin h2 {
+    font-size: 3.75vw;
+}
+.card-wrapper {
+  flex-direction: column;
+  gap: 1.563vw;
+  padding: 3.125vw 0 4.688vw;
+}
+.admin .card-count {
+  width: 89%;
+  padding: 3.125vw;
+  border-radius: 0.938vw;
+}
+.table-title a {
+  font-size: 1.813vw;
+  padding: 1.563vw 4.688vw;
+  border-radius: 0.938vw;
+}
+}
