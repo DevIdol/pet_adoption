@@ -56,7 +56,39 @@ body {
   margin: 10px auto;
   margin-right: 15px;
 }
+ /*pagination*/
+.simple-pagination ul {
+	margin: 15px 0 20px;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
 
+.simple-pagination li {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.simple-pagination li a,
+.simple-pagination li span {
+	color: #666;
+	padding: 5px 10px;
+	text-decoration: none;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	box-shadow: 0px 0px 10px 0px #EEE;
+}
+
+.simple-pagination .current {
+	color: #FFF;
+	background-color: var(--btn-color);
+	border-color:var(--btn-color);
+}
+
+.simple-pagination .prev.current,
+.simple-pagination .next.current {
+	background: var(--btn-hover);
+}
 /*Added for responsive*/
 /*Ipad*/
 @media screen and (min-width: 768px) and (max-width: 1180px) {
@@ -76,6 +108,26 @@ body {
   font-size: 2.344vw;
   border-radius: 0.781vw;
 }
+
+/*pagination*/
+.simple-pagination ul {
+	margin: 1.953vw 0 2.604vw;
+	padding: 0;
+}
+
+.simple-pagination li {
+	margin-right: 0.651vw;
+}
+
+.simple-pagination li a,
+.simple-pagination li span {
+	padding: 0.651vw 1.302vw;
+	border: 0.13vw solid #EEE;
+	box-shadow: 0vw 0vw 1.302vw 0vw #EEE;
+}
+
+
+
 }
 
 /*Phone*/
@@ -90,5 +142,23 @@ body {
   border-radius: 6px;
 
 }
+/*pagination*/
+.simple-pagination ul {
+	margin: 15.002px 0 20px;
+	padding: 0;
+}
+
+.simple-pagination li {
+	display: inline-block;
+	margin-right: 4.998px;
+}
+
+.simple-pagination li a,
+.simple-pagination li span {
+	padding: 4.998px 10.003px;
+	border: 0.998px solid #EEE;
+	box-shadow: 0px 0px 10.003px 0px #EEE;
+}
+
 
 }
