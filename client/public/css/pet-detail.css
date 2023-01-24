@@ -105,14 +105,61 @@
   border-bottom: 1px solid #6a6363;
 }
 
-
 /* Fav Icon */
 .fav-icon {
+  padding-top: 55px;
   padding-bottom: 20px;
 }
-
+.fav-icon .save-btn i {
+  font-size: 30px;
+  color: var(--btn-color);
+}
+.fav-icon .save-btn i:hover {
+  font-weight: 600;
+  color: var(--btn-hover);
+  transition: var(--transition);
+}
 .fav-icon i {
   font-size: 30px;
+}
+
+.available-gp {
+  margin-top: 10px;
+  padding: 12px 0 4px;
+  border-top: 1px solid #474545;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 26px;
+}
+
+.available-gp .av-icon {
+  font-size: 26px;
+  color: var(--success-color);
+}
+.available-gp .available {
+  text-transform: uppercase;
+  color: var(--success-color);
+}
+.available-gp .unav-icon {
+  font-size: 26px;
+  color: var(--error-color);
+}
+.available-gp .unavailable {
+  color: var(--error-color);
+  text-transform: uppercase;
+}
+.available-gp a {
+  color: var(--btn-color);
+}
+.available-gp .adoption-log {
+  font-size: 26px;
+  color: var(--btn-color);
+  cursor: pointer;
+}
+#myBtn{
+  color: var(--btn-color);
+  cursor: pointer;
 }
 
 /* Pet Adoption Register Btn */
@@ -230,7 +277,6 @@
   transition: var(--transition);
 }
 
-
 /*Added for responsive*/
 /*Ipad*/
 @media screen and (min-width: 768px) and (max-width: 1180px) {
@@ -315,7 +361,10 @@
     top: 342px;
   }
   .pet-sign-btn {
-  text-align: center;
+    text-align: center;
+  }
+  .available-gp {
+    justify-content: center;
   }
   /* Modal Content */
   .modal-content {
@@ -421,14 +470,17 @@
   }
   .pet-sign-btn {
     text-align: center;
-    }
-    /* Modal Content */
-    .modal-content {
-      background-color: var(--background);
-      margin: auto;
-      padding: 2.604vw;
-      width: 90%;
-      border-radius: 6px;
-      margin-top: 70px;
-    }
+  }
+  .available-gp {
+    justify-content: center;
+  }
+  /* Modal Content */
+  .modal-content {
+    background-color: var(--background);
+    margin: auto;
+    padding: 2.604vw;
+    width: 90%;
+    border-radius: 6px;
+    margin-top: 70px;
+  }
 }

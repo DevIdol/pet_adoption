@@ -39,6 +39,7 @@
                     <th>Sex</th>
                     <th>Kind</th>
                     <th>Description</th>
+                    <th>Available</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
@@ -61,6 +62,11 @@
                     <td><%= petId.sex %></td>
                     <td><%= petId.kind %></td>
                     <td><%= desc %></td>
+                    <td><% if (petId.isAvailable) { %>
+                      <i class="fa-solid fa-circle-check av-icon"></i></i>
+                    <% } else{%>
+                      <i class="fa-sharp fa-solid fa-circle-xmark unav-icon"></i>
+                      <% } %> </td>
                     <td>
                       <form
                         class="pet-delete-form"

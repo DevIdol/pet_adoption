@@ -16,14 +16,15 @@ renderRoute.get(
   async (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
     let user: any;
+    let favorites: any;
     if (token) {
       const decoded: any = jwtDecode(token);
       user = decoded.user;
+      favorites = await FavoriteModel.find({ userId: user._id }).populate(
+        "pets"
+      );
+      await User.findById(user._id).populate("favorites");
     }
-    const favorites: any = await FavoriteModel.find({ userId: user._id }).populate(
-      "pets"
-    );
-    await User.findById(user._id).populate("favorites");
     const pets = await PetModel.find();
     const latestPets = await PetModel.find()
       .sort({ $natural: -1 })

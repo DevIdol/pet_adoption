@@ -4,6 +4,7 @@
     <%- include('./partials/head.ejs', {title: "Pet Adoption | Home", token,
     user}) %>
   </head>
+
   <body>
     <header><%- include('./partials/header.ejs') %></header>
     <section class="home-sec">
@@ -17,9 +18,8 @@
             Browse pets from our network , you will get your buddy
           </h2>
         </div>
-
         <div class="home-main">
-          <% if (favorites.length) { %>
+          <% if (typeof token !== 'undefined' && favorites.length) { %>
           <h3 class="home-user-head3">My Favorite Pets</h3>
           <span class="next2">
             <img src="/image/img_arrow_right.png" alt="Right Arrow" />
@@ -126,6 +126,12 @@
                       <% } else{%> <i class="fa-regular fa-heart"></i><% } %>
                     </button>
                   </form>
+                  <% } else{%>
+                  <div class="save-form">
+                    <button class="btn-save">
+                      <a href="/login"><i class="fa-regular fa-heart"></i></a>
+                    </button>
+                  </div>
                   <% } %>
                 </div>
               </li>

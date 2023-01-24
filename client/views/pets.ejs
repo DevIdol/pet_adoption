@@ -12,19 +12,34 @@
         <div class="home-main-all">
           <% pets.forEach(function(pet){ %>
             <div class="pet-user-all">
-          <a href="/pets/<%= pet._id %>">
-            
-              <img
-                src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
-              />
-              <div class="over">
-                <p><%= pet.name %></p>
+              <a href="/pets/<%= pet._id %>">
+                <img
+                  src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
+                />
+                <div class="over">
+                  <p><%= pet.name %></p>
+                </div>
+              </a>
+              <% if (typeof token !== 'undefined') { %>
+              <form
+                class="save-form"
+                action="/favorites/<%= pet._id %>"
+                method="post"
+              >
+                <button type="submit" class="btn-save">
+                  <% if (pet.isFav == 'active') { %>
+                  <i class="fa-solid fa-heart"></i>
+                  <% } else{%> <i class="fa-regular fa-heart"></i><% } %>
+                </button>
+              </form>
+              <% } else{%>
+              <div class="save-form">
+                <button class="btn-save">
+                  <a href="/login"><i class="fa-regular fa-heart"></i></a>
+                </button>
               </div>
-            
-          </a>
-          <!--add favorite form here-->
-        </div>
-
+              <% } %>
+            </div>
           <% }); %>
         </div>
       </div>

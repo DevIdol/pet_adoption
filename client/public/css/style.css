@@ -101,6 +101,16 @@
   font-size: 24px;
 }
 
+.av-icon {
+  font-size: 24px;
+  color: var(--success-color);
+}
+
+.unav-icon {
+  font-size: 24px;
+  color: var(--error-color);
+}
+
 @media screen and (max-width: 768px) {
   .auth-sec .l-inner {
     width: 96%;
