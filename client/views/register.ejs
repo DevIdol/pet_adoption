@@ -10,9 +10,7 @@
   <section class="auth-sec">
     <div class="l-inner">
       <h2>Register</h2>
-      <div class="alert-wrapper">
-        <%- include('./partials/messages.ejs') %>
-      </div>
+      <%- include('./partials/messages.ejs') %>
       <form action="/register" method="post">
         <input type="text" id="username" name="username" placeholder="Username" />
         <input type="email" id="email" name="email" placeholder="Email" />

@@ -13,9 +13,7 @@
         <div class="account-wrapper">
           <div class="setting">
             <h2>Setting</h2>
-            <div class="alert-wrapper">
-              <%- include('./partials/messages.ejs') %>
-            </div>
+            <%- include('./partials/messages.ejs') %>
             <form action="/users/setting/<%= user._id  %>?_method=PUT" method="post">
               <div class="username">
                 <label for="">Username</label>

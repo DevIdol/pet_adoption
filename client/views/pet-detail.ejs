@@ -14,9 +14,6 @@
               src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
             />
           </div>
-          <div class="alert-wrapper">
-            <%- include('./partials/messages.ejs') %>
-          </div>
           <div class="pet-detail-context">
             <div class="fav-icon">
               <% if (typeof token !== 'undefined') { %>
@@ -70,7 +67,7 @@
                  <p class="available">AVAILABLE</>
                 <% } else{%>
                   <i class="fa-sharp fa-solid fa-circle-xmark unav-icon"></i>
-                  <p class="unavailable">Out Of Adoption</p>
+                  <p class="unavailable">This Adoption is Out</p>
                   <% } %> 
             </div>
             <div class="available-gp" id="myBtn">

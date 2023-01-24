@@ -20,7 +20,7 @@ export const AdoptionFormService = async (
         user.adoptions.push(savedAdoption);
         user.save();
         req.flash("success", "Filled Success!");
-        res.redirect(`/pets/${petId}`);
+        res.redirect(`/adoption-form`);
       } else {
         res.setHeader("Content-Type", "text/html");
         req.flash("error", "Required Description");
@@ -28,7 +28,7 @@ export const AdoptionFormService = async (
       }
     } else {
       req.flash("error", "Already Filled!");
-      res.redirect(`/pets/${petId}`);
+      res.redirect(`/adoption-form`);
     }
   } catch (error) {
     res.render("not-found", { error: "Something Wrong!" });

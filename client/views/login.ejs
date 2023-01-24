@@ -9,9 +9,7 @@
     <section class="auth-sec">
       <div class="l-inner">
         <h2>Login</h2>
-        <div class="alert-wrapper">
-          <%- include('./partials/messages.ejs') %>
-        </div>
+        <%- include('./partials/messages.ejs') %>
         <form action="/login" method="post">
           <input type="email" id="email" name="email" placeholder="Email" />
           <input

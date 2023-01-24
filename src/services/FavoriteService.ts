@@ -30,6 +30,7 @@ export const favoriteService = async (
       let saveFav = await favorite.save();
       user.favorites.push(saveFav);
       user.save();
+      req.flash("success", "Success!");
       res.redirect("/");
     } else {
       req.flash("error", "Already Exist!");
