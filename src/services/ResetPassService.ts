@@ -33,7 +33,7 @@ export const forgotPasswordService = async (
     await SendMail(user.email, "Password Reset", url, req, res);
     res.redirect("/forgot-password");
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -58,7 +58,7 @@ export const passwordVerifyURLService = async (
 
     res.render("reset-password", { user: user._id, token: token.token });
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -107,6 +107,6 @@ export const resetPasswordService = async (
       res.redirect("/login");
     }
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };

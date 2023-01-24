@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('./partials/head.ejs', {title: "Pet Adoption | Home", token}) %>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Home", token, user}) %>
   </head>
   <body>
     <header><%- include('./partials/header.ejs') %></header>
@@ -41,7 +41,6 @@
             </div>
           </a>
         </li>
-       
           <% }); %>
         </ul>
       </div>
@@ -95,18 +94,15 @@
             <li>
               <div class="pet-user">
           <a href="/pets/<%= pet._id %>">
-          
               <img
                 src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
               />
               <div class="over">
                 <p><%= pet.name %></p>
-              </div>
-           
+              </div>           
           </a>
         </div>
         </li>
-
           <% }); %>
         </ul>
       </div>
@@ -157,9 +153,7 @@
         </div>
       </div>
     </section>
-    <footer>
-      <%- include('./partials/footer.ejs')  %> 
-    </footer>
+    <footer><%- include('./partials/footer.ejs') %></footer>
     <%- include('./partials/script.ejs') %>
   </body>
 </html>

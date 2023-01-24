@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import bcrypt from "bcrypt";
 import Token from "../models/Token";
 import User from "../models/UserModel";
+import FavoriteModel from "../models/FavoriteModel";
 
 //verify email
 export const verifyEmailService = async (
@@ -31,7 +32,7 @@ export const verifyEmailService = async (
       res.render("verify-email", { message: "Email verified successfully!" });
     }
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -101,7 +102,7 @@ export const updateUserService = async (
     req.flash("success", "Updated Success!");
     res.redirect("/personal-info");
   } catch (error: any) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -156,7 +157,7 @@ export const userSettingService = async (
       }
     }
   } catch (error: any) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -168,7 +169,7 @@ export const updateUserPasswordService = async (
 ) => {
   const token = req.cookies.access_token;
   let user: any = await User.findOne({ _id: req.params.id });
-  const { currentPassword, password, confirmPass } = req.body;
+  let { currentPassword, password, confirmPass } = req.body;
   let errors: any[] = [];
   try {
     const verifiedPassword = await bcrypt.compare(
@@ -197,13 +198,15 @@ export const updateUserPasswordService = async (
         user,
       });
     } else {
+      const salt = await bcrypt.genSalt(Number(process.env.SALT));
+      password = await bcrypt.hash(password, salt);
       user.password = password;
       await user.save();
       req.flash("success", "Password changed successfully!");
       res.redirect("/personal-info");
     }
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -221,18 +224,19 @@ export const deleteUserService = async (
     let users: any = await User.findOne({ _id: req.params.id });
     const verifiedPassword = await bcrypt.compare(password, users.password);
     if (!verifiedPassword) {
-      errors.push({ message: "Enter Your Password!" });
+      errors.push({ message: "Invalid Password" });
     }
     if (errors.length > 0) {
       res.render("setting", { errors, password, token, user });
     } else {
-      await User.findByIdAndDelete(req.params.id);
+      await User.findByIdAndDelete(req.params.id).populate("favorites");
+      await FavoriteModel.deleteMany({ userId: user._id });
       res.clearCookie("access_token");
       req.flash("success", "Your account is deleted!");
       res.redirect("/");
     }
   } catch (error) {
-    console.log(error);
+    res.render("not-found", { error: "Something Wrong!" });
   }
 };
 
@@ -244,10 +248,13 @@ export const deleteUserFromAdminService = async (
 ) => {
   try {
     const userId = req.params.id;
+    await FavoriteModel.deleteMany({ userId: userId });
     User.deleteOne({ _id: userId }, (err) => {
       if (!err) {
         res.redirect("/admin");
       }
     });
-  } catch (error) {}
+  } catch (error) {
+    res.render("not-found", { error: "Something Wrong!" });
+  }
 };

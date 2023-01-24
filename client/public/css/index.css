@@ -18,6 +18,7 @@
   margin: 10px 10px;
 
 }
+
 .pet-user-all img {
   width: 100%;
   height: 100%;
@@ -27,6 +28,7 @@
 .pet-user img {
   width: 100%;
   height: 100%;
+
   border-radius: 10px;
 
 }
@@ -73,6 +75,7 @@
   margin: 85px 0 30px;
   color: #A020F0;
   font-size: 30px;
+
   font-weight: lighter;
   text-align: center;
 }
@@ -117,6 +120,7 @@ img.cattto {
 
 .catto-link .more-container h3 {
   color: #ffffff;
+
   text-align: center;
 }
 
@@ -139,7 +143,6 @@ img.cattto {
   font-weight: lighter;
   text-align: center;
 }
-
 .floating-div {
   display: flex;
   justify-content: center;
@@ -157,7 +160,6 @@ img.cattto {
   margin-bottom: 50px;
   color: #645b5b;
   letter-spacing: 1px;
-
 }
 
 .floating-div div .learn-more-btn {
@@ -208,7 +210,6 @@ img.cattto {
   height: 300px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
 }
 
 .img-dog-arti,
@@ -630,4 +631,5 @@ img.cattto {
 .pet-user-all img {
   border-radius: 1.563vw;
 }
+
 }

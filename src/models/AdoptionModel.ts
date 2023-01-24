@@ -1,7 +1,9 @@
 import { Schema, model } from "mongoose";
-const petSchema = new Schema(
+import { AdoptionInterface } from "../interfaces/AdoptionInterface";
+const AdoptionRegister = new Schema(
   {
-    filename: {
+    userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    petId: {
       type: String,
       required: true,
     },
@@ -21,6 +23,10 @@ const petSchema = new Schema(
       type: String,
       required: true,
     },
+    kind: {
+      type: String,
+      required: true,
+    },
     age: {
       type: String,
       requierd: true,
@@ -33,21 +39,9 @@ const petSchema = new Schema(
       type: String,
       required: true,
     },
-    kind: {
+    desc: {
       type: String,
       required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-    isAvailable: {
-      type: Boolean,
-      required: true,
-    },
-    isFav: {
-      type: String,
-      default: "",
     },
   },
   {
@@ -55,4 +49,4 @@ const petSchema = new Schema(
   }
 );
 
-export default model("Pet", petSchema);
+export default model<AdoptionInterface>("Adoption", AdoptionRegister);
