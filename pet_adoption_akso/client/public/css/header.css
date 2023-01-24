@@ -1,0 +1,222 @@
+header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--background);
+  padding: 10px 0;
+  z-index: 9999;
+  box-shadow: 0 5px 5px -5px #333;
+}
+
+header .l-inner {
+  position: relative;
+  max-width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 a {
+  font-size: 28px;
+  color: var(--font-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+header h1 a img{
+  width: 50px;
+}
+
+header .g-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+header ul li {
+  cursor: pointer;
+  margin: 0;
+}
+
+header ul li a {
+  color: var(--font-color);
+}
+
+header .account {
+  position: relative;
+}
+
+.drop {
+  overflow: hidden;
+  list-style: none;
+  position: absolute;
+  box-shadow: 0 5px 5px -5px #333;
+  padding: 0;
+  width: 180px;
+  right: 0;
+  top: 14px;
+  z-index: 2;
+  display: none;
+}
+.drop div {
+  -webkit-transform: translate(0, -100%);
+  -moz-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+  -webkit-transition: all 0.5s 0.1s;
+  -moz-transition: all 0.5s 0.1s;
+  -ms-transition: all 0.5s 0.1s;
+  transition: all 0.5s 0.1s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.drop li {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: var(--background);
+  text-align: center;
+}
+.drop li:first-child {
+  padding-top: 20px;
+}
+.drop li:last-child {
+  padding-bottom: 20px;
+}
+header .account:hover .drop {
+  display: block;
+}
+header .account:hover ul div {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+header ul li form input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* favorite */
+header ul li a i {
+  font-size: 24px;
+  color: var(--btn-color);
+}
+.favorite {
+  position: relative;
+}
+
+.favorite .tooltiptext {
+  visibility: hidden;
+  width: 80px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  top: 20px;
+  right: 6px;
+  z-index: 1;
+  color: #808080;
+  font-size: 10px;
+}
+
+.favorite:hover .tooltiptext {
+  visibility: visible;
+}
+
+header .menu-toggle {
+  display: none;
+}
+/*Phone*/
+@media screen and (max-width: 768px) {
+  header .l-inner {
+    max-width: 100%;
+    width: 100%;
+    padding-left: 10px;
+  }
+  header nav {
+    background-color: var(--background);
+    width: 100vw;
+    height: 90vh;
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  header nav .g-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header .menu-toggle {
+    display: block;
+    position: absolute;
+    width: 43px;
+    height: 32px;
+    top: -2px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 99;
+  }
+
+  header .menu-toggle span {
+    position: absolute;
+    background-color: #141414;
+    width: 43px;
+    height: 3px;
+    border-radius: 30%;
+    transition: 0.8s ease;
+  }
+
+  header .menu-toggle span:nth-child(1) {
+    top: 0;
+  }
+
+  header .menu-toggle span:nth-child(2) {
+    top: 15px;
+    transition: 1.2s ease;
+  }
+
+  header .menu-toggle span:nth-child(3) {
+    top: 30px;
+  }
+
+  header .menu-toggle.active {
+    transform: rotate(180deg);
+    transition: 0.8s ease;
+  }
+
+  header .menu-toggle.active span:nth-child(1) {
+    transform: translateY(15px) rotate(-45deg);
+  }
+
+  header .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transition: none;
+  }
+
+  header .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-15px) rotate(45deg);
+  }
+  header h1 a img {
+    width: 7.813vw;
+}
+}
+
+/*Added for responsive*/
+/*Ipad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  header h1 a img {
+    width: 6.51vw;
+}
+}
+
+

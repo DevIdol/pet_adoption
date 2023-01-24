@@ -1,0 +1,126 @@
+/* input form */
+.auth-sec {
+  padding-top: 120px;
+}
+.auth-sec .l-inner {
+  width: 50%;
+  margin: 0 auto;
+  background-color: var(--background);
+  padding: 20px;
+  border-radius: 6px;
+}
+.auth-sec h2 {
+  text-align: center;
+  font-size: 24px;
+}
+
+.auth-sec form {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-sec form input {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #f0ecec;
+  border: 1px solid #808080;
+  font-size: 16px;
+}
+
+.auth-sec form input:focus {
+  outline: none;
+  border: 1px solid var(--btn-color);
+  transition: var(--transition);
+}
+.show-pass input[type="checkbox"] {
+  accent-color: var(--btn-color);
+  cursor: pointer;
+}
+
+.show-pass span {
+  font-size: 14px;
+}
+
+.form-text {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px 0;
+}
+
+/* Error */
+.alert-wrapper {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.error,
+.success {
+  font-size: 14px;
+  padding-bottom: 6px;
+  font-weight: 600;
+}
+.error {
+  color: var(--error-color);
+}
+.success {
+  color: var(--success-color);
+}
+
+/* vierify-email */
+.verify-email {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.verify-email h2,
+.verify-email h2 p {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.verify-email a.btn {
+  margin-top: 20px;
+  width: 120px;
+  text-align: center;
+}
+
+/* not-found */
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.not-found h2 {
+  font-size: 24px;
+}
+
+/*I-pad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .show-pass span {
+    font-size: 1.823vw;
+}
+}
+
+@media screen and (max-width: 768px) {
+  .auth-sec .l-inner {
+    width: 96%;
+  }
+  .form-text {
+    font-size: 12px;
+    padding: 20px 0 0;
+  }
+  .alert-wrapper {
+    padding-top: 3.125vw;
+
+}
+.show-pass span {
+  font-size: 2.188vw;
+}
+}
