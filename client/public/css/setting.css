@@ -75,3 +75,86 @@
   border: none !important;
   cursor: pointer;
 }
+
+/*I-pad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .setting form {
+    padding-top: 3.906vw;
+    gap: 3.906vw;
+  }
+  .setting,
+  .delete-account {
+    border-radius: 0.781vw;
+    padding: 2.604vw;
+  }
+
+  .setting h2 {
+    font-size: 3.125vw;
+    font-weight: 500;
+  }
+  .setting form .username,
+  .setting form .email,
+  .setting form .password {
+    gap: 1.302vw;
+    font-size: 3.083vw;
+  }
+  .setting form input {
+    border-bottom: 0.13vw solid #808080;
+    padding: 1.302vw 0.521vw;
+    font-size: 3.083vw;
+  }
+  .delete-account .pass {
+    border-bottom: 0.13vw solid #808080;
+    padding: 0.781vw 0.521vw;
+    font-size: 2.083vw;
+  }
+  .delete-account .btn-delete {
+    padding: 0.781vw 2.604vw;
+    font-size: 2.344vw;
+    border-radius: 0.781vw;
+  }
+}
+
+/*Phone*/
+@media screen and (max-width: 768px) {
+  .setting,
+  .delete-account {
+    border-radius: 0.938vw;
+    width: 96%;
+    padding: 3.125vw;
+  }
+  .setting form .username,
+  .setting form .email,
+  .setting form .password {
+    gap: 1.563vw;
+    font-size: 2.813vw;
+  }
+  .setting h2 {
+    font-size: 3.75vw;
+  }
+  .setting form input {
+    border-bottom: 0.156vw solid #808080;
+    padding: 1.563vw 0.625vw;
+    font-size: 2.5vw;
+  }
+  .delete-account .btn-delete {
+    padding: 0.938vw 3.125vw;
+    font-size: 2.813vw;
+    border-radius: 0.938vw;
+    border: none !important;
+  }
+  .delete-account {
+    margin-top: 3.125vw;
+  }
+  .delete-account form {
+    flex-direction: column;
+  }
+  .delete-account .pass {
+    border-bottom: 0.156vw solid #808080;
+    padding: 0.938vw 0.625vw;
+    font-size: 2.5vw;
+    display: block;
+    width: 90%;
+    margin: 3.125vw auto;
+  }
+}

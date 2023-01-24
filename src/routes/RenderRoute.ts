@@ -20,17 +20,22 @@ renderRoute.get(
       const decoded: any = jwtDecode(token);
       user = decoded.user;
     }
+    const favorites: any = await FavoriteModel.find({ userId: user._id }).populate(
+      "pets"
+    );
+    await User.findById(user._id).populate("favorites");
     const pets = await PetModel.find();
     const latestPets = await PetModel.find()
       .sort({ $natural: -1 })
       .limit(4)
       .exec();
     if (!pets) {
-      res.render("not-found", { message: "No Pet" });
+      res.render("not-found", { error: "No Pet" });
     }
     const first4pets = pets.slice(0, 4);
     res.render("index", {
       pets: pets,
+      favorites,
       first3pets: first4pets,
       latestPets: latestPets,
       token,

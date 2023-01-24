@@ -31,6 +31,25 @@ $(document).ready(function () {
             ? $("#password, #confirmPass, #currentPassword").prop("type", "text")
             : $("#password, #confirmPass, #currentPassword").prop("type", "password");
     });
+
+
+    //pagination pet page
+    var items = $(".home-main-all .pet-user-all");
+    var numItems = items.length;
+    var perPage = 8;
+    items.slice(perPage).hide();
+
+    $('#pagination-container').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "&laquo;",
+        nextText: "&raquo;",
+        onPageClick: function (pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    });
 });
 
 //dropdown

@@ -1,6 +1,6 @@
 :root {
   --font-color: #111;
-  --btn-color: #A020F0;
+  --btn-color: #a020f0;
   --btn-hover: #650e9b;
   --btn-font: #fff;
   --background: #e5e2e2;
@@ -26,7 +26,7 @@ body {
 .btn {
   width: 100%;
   padding: 10px 0;
-  background-color: var(--btn-color)  !important;
+  background-color: var(--btn-color) !important;
   color: var(--btn-font);
   font-weight: 600;
   font-size: 18px;
@@ -39,12 +39,12 @@ body {
   transition: var(--transition);
 }
 
-.pet-categories-all{
+.pet-categories-all {
   width: 80%;
   margin: 20px auto;
   text-align: center;
 }
-.pet-categories-all a{
+.pet-categories-all a {
   padding: 20px 30px;
   background-color: var(--btn-font);
   width: 20%;
@@ -55,4 +55,102 @@ body {
   font-size: 20px;
   margin: 10px auto;
   margin-right: 15px;
+}
+/*pagination*/
+.simple-pagination ul {
+  margin: 15px 0 20px;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.simple-pagination li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.simple-pagination li a,
+.simple-pagination li span {
+  color: #666;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 1px solid #eee;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 0px #eee;
+}
+
+.simple-pagination .current {
+  color: #fff;
+  background-color: var(--btn-color);
+  border-color: var(--btn-color);
+}
+
+.simple-pagination .prev.current,
+.simple-pagination .next.current {
+  background: var(--btn-hover);
+}
+/*Added for responsive*/
+/*Ipad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .pet-categories-all {
+    margin: 2.604vw auto;
+  }
+  .pet-categories-all a {
+    padding: 2.604vw 3.906vw;
+    border-radius: 1.302vw;
+    font-size: 2.604vw;
+    margin: 1.302vw auto;
+    margin-right: 1.953vw;
+  }
+  .btn {
+    padding: 1.302vw 0;
+    font-size: 2.344vw;
+    border-radius: 0.781vw;
+  }
+
+  /*pagination*/
+  .simple-pagination ul {
+    margin: 1.953vw 0 2.604vw;
+    padding: 0;
+  }
+
+  .simple-pagination li {
+    margin-right: 0.651vw;
+  }
+
+  .simple-pagination li a,
+  .simple-pagination li span {
+    padding: 0.651vw 1.302vw;
+    border: 0.13vw solid #eee;
+    box-shadow: 0vw 0vw 1.302vw 0vw #eee;
+  }
+}
+
+/*Phone*/
+@media screen and (max-width: 768px) {
+  .pet-categories-all {
+    margin: 3.125vw auto;
+  }
+  .btn {
+    padding: 10px 0;
+    font-size: 18px;
+    border-radius: 6px;
+  }
+  /*pagination*/
+  .simple-pagination ul {
+    margin: 15.002px 0 20px;
+    padding: 0;
+  }
+
+  .simple-pagination li {
+    display: inline-block;
+    margin-right: 4.998px;
+  }
+
+  .simple-pagination li a,
+  .simple-pagination li span {
+    padding: 4.998px 10.003px;
+    border: 0.998px solid #eee;
+    box-shadow: 0px 0px 10.003px 0px #eee;
+  }
 }

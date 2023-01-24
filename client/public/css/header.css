@@ -24,7 +24,7 @@ header h1 a {
   gap: 10px;
 }
 
-header h1 a img{
+header h1 a img {
   width: 50px;
 }
 
@@ -55,6 +55,7 @@ header .account {
   right: 0;
   top: 16px;
   z-index: 2;
+  background-color: var(--background);
   display: none;
 }
 .drop div {

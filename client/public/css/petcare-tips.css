@@ -1,27 +1,32 @@
 .petcare-tip-h1,
-.petcare-published-h2{
+.petcare-published-h2 {
   text-align: center;
   color: #645e5e;
 }
-.petcare-tip-h1{
+
+.petcare-tip-h1 {
   font-size: 40px;
   margin-top: 25px;
 }
-.petcare-published-h2{
+
+.petcare-published-h2 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.pet-writer-name{
-color: #130bb6;
+
+.pet-writer-name {
+  color: #130bb6;
 }
-.petcare-tip-container{
+
+.petcare-tip-container {
   background-color: #ffffff;
   border-radius: 10px;
   width: 80%;
-  padding:50px 0;
-  margin:30px auto;
+  padding: 50px 0;
+  margin: 30px auto;
 }
-.petcare-tip-container p{
+
+.petcare-tip-container p {
   width: 60%;
   margin: 20px auto;
   color: #645e5e;
@@ -30,58 +35,211 @@ color: #130bb6;
   line-height: 1.5;
   letter-spacing: 0.7px;
 }
-.petcare-tip-container h4{
+
+.petcare-tip-container h4 {
   text-align: center;
   font-size: 22px;
   color: #645e5e;
   margin-top: 50px;
 }
-.petcare-tips-img{
-  margin-left: 40%;
+
+.petcare-tips-img {
   width: 300px;
+  margin: 20px auto;
+  display: block;
   height: 200px;
   margin-top: 50px;
 }
 
 /*from pet training tips*/
 .cat-training-tips-btn,
-.dog-training-tips-btn{
+.dog-training-tips-btn {
   width: 20%;
   padding: 20px 30px;
   background-color: #ffffff;
   border-radius: 10px;
   color: #645e5e;
   font-size: 18px;
-  margin:20px auto;
+  margin: 20px auto;
   display: block;
   text-align: center;
 }
-.cat-training-tips-btn{
+
+.cat-training-tips-btn {
   margin-top: 140px;
 }
+
 .cat-training-tips-btn:hover,
-.dog-training-tips-btn:hover{
- background-color:#645e5e;
- color: #ffffff;
+.dog-training-tips-btn:hover {
+  background-color: var(--btn-hover);
+  color: #ffffff;
+  transition: var(--transition);
 }
 
-iframe{
+iframe {
   width: 60%;
   height: 415px;
   margin: 10px auto;
   text-align: center;
   display: block;
 }
-h4.side-h4{
+
+h4.side-h4 {
   text-align: left;
   margin-left: 20%;
 }
 
-.easy-h3{
+.easy-h3 {
   color: #e95f15;
   text-align: center;
   width: 60%;
   margin: 50px auto;
   font-size: 28px;
   line-height: 1.3;
+}
+
+/*Added for responsive*/
+/*I-pad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .petcare-tip-container {
+    border-radius: 1.302vw;
+    width: 90%;
+    padding: 6.51vw 0;
+    margin: 3.906vw auto;
+  }
+
+  .petcare-tip-h1 {
+    font-size: 3.906vw;
+    margin-top: 3.255vw;
+  }
+
+  .petcare-published-h2 {
+    margin-top: 2.604vw;
+    margin-bottom: 2.604vw;
+    font-size: 2.604vw;
+  }
+
+  .petcare-tip-container p {
+    width: 80%;
+    margin: 2.604vw auto;
+    font-size: 2.344vw;
+    letter-spacing: 0.091vw;
+  }
+
+  .petcare-tip-container h4 {
+    font-size: 2.865vw;
+    margin-top: 6.51vw;
+    margin-left: 10%;
+  }
+
+  .petcare-tip-container h4.tip-h4 {
+    font-size: 2.865vw;
+    margin-top: 6.51vw;
+    margin-left: 0
+  }
+
+  .petcare-tips-img {
+    width: 39.063vw;
+    margin: 2.604vw auto;
+    height: 26.042vw;
+    margin-top: 6.51vw;
+  }
+
+  /*pet training tips*/
+
+
+  .cat-training-tips-btn,
+  .dog-training-tips-btn {
+    width: 40%;
+    padding: 2.604vw 3.906vw;
+    border-radius: 1.302vw;
+    font-size: 2.344vw;
+    margin: 2.604vw auto;
+
+  }
+
+  .cat-training-tips-btn {
+    margin-top: 15.625vw;
+  }
+
+  iframe {
+    width: 80%;
+    height: 54.036vw;
+    margin: 1.302vw auto;
+
+  }
+
+  .easy-h3 {
+    width: 80%;
+    margin: 6.51vw auto;
+    font-size: 3.646vw;
+  }
+}
+
+/*Phone*/
+@media screen and (max-width:767.9px) {
+
+  .cat-training-tips-btn,
+  .dog-training-tips-btn {
+    width: 50%;
+    padding: 3.125vw 4.688vw;
+    border-radius: 1.563vw;
+    font-size: 3.125vw;
+    margin: 3.125vw auto;
+  }
+
+  .cat-training-tips-btn {
+    margin-top: 21.875vw;
+  }
+
+  .petcare-tip-container {
+    background-color: #ffffff;
+    border-radius: 1.563vw;
+    width: 90%;
+    padding: 7.813vw 0;
+    margin: 4.688vw auto;
+  }
+
+  .petcare-tip-h1 {
+    font-size: 4.688vw;
+    margin-top: 3.906vw;
+  }
+
+  .petcare-published-h2 {
+    margin-top: 3.125vw;
+    margin-bottom: 3.125vw;
+    font-size: 3.813vw;
+  }
+
+  .petcare-tip-container p {
+    width: 80%;
+    margin: 3.125vw auto;
+    font-size: 2.813vw;
+    line-height: 1.5;
+    letter-spacing: 0.109vw;
+  }
+
+  iframe {
+    width: 80%;
+    height: 54.844vw;
+    margin: 1.563vw auto;
+  }
+
+  h4.side-h4 {
+    text-align: left;
+    margin-left: 10%;
+    font-size: 3.438vw;
+    margin-top: 7.813vw;
+  }
+
+  .easy-h3 {
+    width: 90%;
+    margin: 7.813vw auto;
+    font-size: 4.375vw;
+  }
+
+  .petcare-tip-container h4 {
+    font-size: 3.438vw;
+    margin-top: 7.813vw;
+  }
 }
