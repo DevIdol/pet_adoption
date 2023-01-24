@@ -45,10 +45,6 @@ const petSchema = new Schema(
       type: Boolean,
       required: true,
     },
-    isFav: {
-      type: String,
-      default: "",
-    },
   },
   {
     timestamps: true,

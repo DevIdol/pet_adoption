@@ -133,7 +133,7 @@ header .menu-toggle {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1180px) {
   header .l-inner {
     max-width: 100%;
     width: 100%;
@@ -154,6 +154,7 @@ header .menu-toggle {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 40px;
   }
 
   header .menu-toggle {
