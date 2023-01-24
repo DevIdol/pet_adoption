@@ -84,65 +84,14 @@
               src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
               class="img-update-pet-form"
             />
-            <input type="hidden" name="petId" value="<%= pet._id %>" />
-            <input
-              type="hidden"
-              name="contentType"
-              value="<%= pet.contentType %>"
-            />
-            <input
-              type="hidden"
-              name="imageBase64"
-              value="<%= pet.imageBase64 %>"
-            />
-            <input
-              class="input"
-              type="hidden"
-              name="name"
-              value="<%= pet.name %>"
-            />
             <h3><%= pet.name %></h3>
           </div>
-
-          <input
-            style="width: 100%"
-            class="input"
-            type="hidden"
-            name="breed"
-            value="<%= pet.breed %>"
-          />
           <h3>Breed: <%= pet.breed %></h3>
-
-          <input
-            class="input"
-            type="hidden"
-            name="kind"
-            value="<%= pet.kind %>"
-          />
           <h3>Kind: <%= pet.breed %></h3>
-          <input
-            class="input"
-            type="hidden"
-            name="age"
-            value="<%= pet.age %>"
-          />
           <h3>Age: <%= pet.age %></h3>
-
-          <input
-            class="input"
-            type="hidden"
-            name="size"
-            value="<%= pet.size %>"
-          />
           <h3>Size: <%= pet.size %></h3>
-          <input
-            class="input"
-            type="hidden"
-            name="sex"
-            value="<%= pet.sex %>"
-          />
           <h3>Sex: <%= pet.sex %></h3>
-
+          <input type="hidden" name="petId" value="<%= pet._id %>">
           <textarea
             name="desc"
             id="desc"

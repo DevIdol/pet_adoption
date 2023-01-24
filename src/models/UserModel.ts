@@ -29,6 +29,12 @@ const UserSchema = new Schema({
       ref: "Favorite",
     },
   ],
+  adoptions: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Adoption",
+    },
+  ],
   verified: {
     type: Boolean,
     default: false,

@@ -4,6 +4,7 @@ export interface CreateUser {
   password: String;
   profile?: String;
   favorites?: any[];
+  adoptions?: any[];
   verified?: Boolean;
   isAdmin?: Boolean;
 }

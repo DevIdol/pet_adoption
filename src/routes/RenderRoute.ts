@@ -6,6 +6,7 @@ import DonationModel from "../models/DonationModel";
 import PetArticleModel from "../models/PetArticleModel";
 import FavoriteModel from "../models/FavoriteModel";
 import jwtDecode from "jwt-decode";
+import AdoptionModel from "../models/AdoptionModel";
 
 const renderRoute: Router = express.Router();
 
@@ -183,7 +184,7 @@ renderRoute.get(
     const kind = req.query.kind;
     let pets;
     if (kind) {
-      pets = await PetModel.find({ kind});
+      pets = await PetModel.find({ kind });
     } else {
       pets = await PetModel.find();
     }
@@ -273,8 +274,22 @@ renderRoute.get(
       dog,
       articles,
       token,
-      user
+      user,
     });
+  }
+);
+
+//show adoption form list
+renderRoute.get(
+  "/adoption-form",
+  isUser,
+  async (req: Request, res: Response, next: NextFunction) => {
+    let token = req.cookies.access_token;
+    const user: any = req.user;
+    const adoptions = await AdoptionModel.find({ userId: user._id }).populate(
+      "petId"
+    );
+    res.render("adoption-form", { user, token, adoptions });
   }
 );
 

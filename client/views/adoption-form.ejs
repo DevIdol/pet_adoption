@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Adoption Form",
+    token, user }) %>
+  </head>
+  <body>
+    <header><%- include('./partials/header.ejs') %></header>
+    <section class="account-sec">
+      <div class="l-inner">
+        <%- include('./partials/sidebar.ejs', {user}) %>
+        <div class="account-wrapper">
+          <div class="admin">
+            <% if (!adoptions.length) { %>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 40vh;
+              "
+            >
+              <h3 style="font-size: 24px">No Adoption Form</h3>
+            </div>
+            <% } else{%>
+            <div class="table-title">
+              <h2>My Adoption Form List</h2>
+            </div>
+            <div class="pet-tbl-wrapper" style="overflow-x: auto">
+              <table id="table">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Breed</th>
+                    <th>Age</th>
+                    <th>Size</th>
+                    <th>Sex</th>
+                    <th>Kind</th>
+                    <th>Description</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% adoptions.slice().reverse().forEach(function({_id,petId,
+                  desc}, i){ %>
+                  <tr>
+                    <td><%= i + 1 %></td>
+                    <td>
+                      <img
+                        src="data:<%= petId.contentType %>;base64,<%= petId.imageBase64 %>"
+                      />
+                    </td>
+                    <td>
+                      <a href="/pets/<%= petId._id %> "><%= petId.name %></a>
+                    </td>
+                    <td><%= petId.breed %></td>
+                    <td><%= petId.age %></td>
+                    <td><%= petId.size %></td>
+                    <td><%= petId.sex %></td>
+                    <td><%= petId.kind %></td>
+                    <td><%= desc %></td>
+                    <td>
+                      <form
+                        class="pet-delete-form"
+                        onclick=" return confirm('Are you sure you want to delete?')"
+                        action="/adoption-register/<%= _id %>?_method=DELETE"
+                        method="post"
+                      >
+                        <button class="btn-delete" type="submit" value="delete">
+                          Delete
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('./partials/script.ejs') %>
+  </body>
+</html>

@@ -31,14 +31,9 @@ $(document).ready(function () {
             ? $("#password, #confirmPass, #currentPassword").prop("type", "text")
             : $("#password, #confirmPass, #currentPassword").prop("type", "password");
     });
-
-    $('#table').DataTable({
-        lengthMenu: [5, 10, 20, 50, 100],
-    });
 });
 
 //dropdown
-
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
 

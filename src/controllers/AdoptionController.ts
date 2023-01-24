@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { AdoptionFormService } from "../services/AdoptionService";
+import { AdoptionFormService, AdoptonDeleteService } from "../services/AdoptionService";
 
 export const adoptionForm = async (
   req: Request,
@@ -7,4 +7,12 @@ export const adoptionForm = async (
   next: NextFunction
 ) => {
   AdoptionFormService(req, res, next);
+};
+
+export const adoptionDelete = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  AdoptonDeleteService(req, res, next);
 };
