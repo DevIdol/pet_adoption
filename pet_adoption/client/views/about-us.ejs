@@ -8,18 +8,87 @@
   <header>
     <div class="inner"><%- include('./partials/header.ejs') %></div>
   </header>
-  <div class="contact-us-banner">
-    <div class="contact-inner-con">
-      <h1>About Pet Adoption</h1>
-      <p>
-        Pet Adoption is an online, searchable database of animals who need homes. It is also a directory of many adoptable pets  across the country
-      </p>
+    <div class="about-us-banner">
+
     </div>
-    
-  </div>
+
+    <p class="about-us-p">
+      Pet adoption is an online, searchable database of animals who need homes. <br> It is also a directory 
+      for people who want to adopt cute pets. <br> You can save a life by adopting. <br>
+    </p>
+    <a href="/contact-us" class="contact-us-btn">Contact us</a>
+
+    <div class="mission-con">
+      <p class="mission-p">Our goals and missions </p>
+      <div class="lr-mission-main">
+        <div class="left-mission-con">
+         <p>
+          To use Internet technology and the resources it can generate to:
+Increase public awareness of the availability of high-quality adoptable pets
+Increase the overall effectiveness of pet adoption programs across the country to the extent that the euthanasia of adoptable pets is eliminated
+Elevate the status of pets to that of family member.
+         </p>
+         <p>
+          From the comfort of their personal computers, pet lovers can search for a pet that best matches their needs. They can then reference a shelter’s web page and discover what services it offers. Petfinder also includes discussion forums, a pet-care resource directory 
+          and a library of free pet-care articles to help keep pets in their homes.
+         </p>
+         <p>
+          People wishing to adopt pets should register. A contact person should be responsible for direct communications with us.
+         </p>
+        </div>
+        <div class="right-mission-con">
+          <p>
+            Our website is only a directory of homeless pets and pet adoption people. No information in this site is guaranteed.
+             Although the information on website is updated frequently, it is always best to call the facility or organization that
+              lists the pet to insure it is still available and to insure the information listed in our website is accurate.
+          </p>
+          <p>
+            It is crucial that any pet found through an adoption service be thoroughly examined by a veterinarian immediately upon adoption.
+             Any pets found, adopted through, or listed in website are the sole responsibility of the adoption organizations and/or the adopting party.
+          </p>
+          <p>
+            We accepts no responsiblity for any liability or for any injury or damages to any person or property caused by any listed animal,
+             as well as any cause of action, claims, suits or demands whatsoever that may arise as a result of such injury or damage.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="process-con">
+      <h2>Our process</h2>
+      <p>Learn our process from rescue a pet state to final state of adoption</p>
+      <div class="process-card-con">
+        <div class="process-card">
+          <img src="image/c11.jpg" alt="img" class="process-card-img">
+          <h3>Rescue Step</h3>
+          <p class="card-t"> - Accept stray pets</p>
+          <p class="card-t"> - provide medical care</p>
+          <p class="card-t"> - provide treatment</p>
+          <p class="card-t"> - provide temporary housing</p>
+        </div>
+        <div class="process-card">
+          <img src="image/random7.jpg" alt="img" class="process-card-img">
+          <h3>Review Step</h3>
+          <p class="card-t"> - Review adoptor info</p>
+          <p class="card-t"> - Review adoptor proof of income</p>
+          <p class="card-t"> - Review adoptor proof of address </p>
+          <p class="card-t"> - Make appointment with adoptor</p>
+        </div>
+        <div class="process-card">
+          <img src="image/c8.jpg" alt="img" class="process-card-img">
+          <h3>Final Step</h3>
+          <p class="card-t"> - Accept adoption fees</p>
+          <p class="card-t"> - Sign an adoption contract</p>
+          <p class="card-t"> - Share facts about adopted pet</p>
+          <p class="card-t"> - Give pet to adoptor</p>
+        </div>
+        
+      </div>
+    </div>
   <footer>
     <%- include('./partials/footer.ejs')  %> 
   </footer>
-  
+  <%- include('./partials/script.ejs') %>
 </body>
 </html>
