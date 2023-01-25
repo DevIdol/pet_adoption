@@ -6,11 +6,9 @@
   </head>
   <body>
     <header><%- include('./partials/header.ejs') %></header>
-
     <section class="account-sec">
       <div class="l-inner">
-        <%- include('./partials/admin-sidebar.ejs', {user}) %>
-        <div class="account-wrapper">
+        <div style="margin: 0 auto;">
           <div class="admin">
             <% if (!adoptions.length) { %>
             <div
@@ -21,11 +19,11 @@
                 height: 40vh;
               "
             >
-              <h3 style="font-size: 24px">No Adoption Form</h3>
+              <h3 style="font-size: 24px">No Adoption List</h3>
             </div>
             <% } else{%>
             <div class="table-title">
-              <h2>My Adoption Form List</h2>
+              <h2>Adoption Form List</h2>
             </div>
             <div class="pet-tbl-wrapper" style="overflow-x: auto">
               <table id="table">
@@ -43,16 +41,15 @@
                     <th>Kind</th>
                     <th>Description</th>
                     <th>Available</th>
-                    <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <% adoptions.slice().reverse().forEach(function({_id, userId,
-                  petId, desc}, i){ %>
+                  <% adoptions.forEach(function({_id, userId, petId,
+                  desc}, i){ %>
                   <tr>
                     <td><%= i + 1 %></td>
-                    <td><%= userId.username %></td>
-                    <td><%= userId.email %></td>
+                    <td><%= userId.username  %> </td>
+                    <td><%= userId.email  %> </td>
                     <td>
                       <img
                         src="data:<%= petId.contentType %>;base64,<%= petId.imageBase64 %>"
@@ -67,38 +64,11 @@
                     <td><%= petId.sex %></td>
                     <td><%= petId.kind %></td>
                     <td><%= desc %></td>
-                    <td>
-                      <form
-                        action="/adoption-register/admin/<%= petId._id %>?_method=PUT"
-                        onclick=" return confirm('Are you sure?')"
-                        class="pet-form"
-                        method="post"
-                      >
-                        <% if (petId.isAvailable) { %>
-                        <button type="submit" value="Update">
-                          <i class="fa-solid fa-circle-check av-icon"></i>
-                        </button>
-                        <% } else{%>
-                        <button type="submit" value="Update">
-                          <i
-                            class="fa-sharp fa-solid fa-circle-xmark unav-icon"
-                          ></i>
-                        </button>
-                        <% } %>
-                      </form>
-                    </td>
-                    <td>
-                      <form
-                        class="pet-delete-form"
-                        onclick=" return confirm('Are you sure you want to delete?')"
-                        action="/adoption-register/admin/<%= userId._id %>/<%= _id %>?_method=DELETE"
-                        method="post"
-                      >
-                        <button class="btn-delete" type="submit" value="delete">
-                          Delete
-                        </button>
-                      </form>
-                    </td>
+                    <td><% if (petId.isAvailable) { %>
+                      <i class="fa-solid fa-circle-check av-icon"></i></i>
+                    <% } else{%>
+                      <i class="fa-sharp fa-solid fa-circle-xmark unav-icon"></i>
+                      <% } %> </td>
                   </tr>
                   <% }); %>
                 </tbody>

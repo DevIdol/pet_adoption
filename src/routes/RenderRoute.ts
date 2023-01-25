@@ -144,8 +144,16 @@ renderRoute.get(
     const pets = await PetModel.find();
     const articles = await PetArticleModel.find();
     const donation = await DonationModel.find();
-    const adoption = await AdoptionModel.find()
-    res.render("admin", { user, users, pets, adoption, articles, donation, token });
+    const adoption = await AdoptionModel.find();
+    res.render("admin", {
+      user,
+      users,
+      pets,
+      adoption,
+      articles,
+      donation,
+      token,
+    });
   }
 );
 
@@ -323,6 +331,24 @@ renderRoute.get(
       .populate("userId")
       .populate("petId");
     res.render("all-adoptions", { token, user, adoptions });
+  }
+);
+
+//adoption form list
+//show adoption form list
+renderRoute.get(
+  "/adoption-list",
+  async (req: Request, res: Response, next: NextFunction) => {
+    let token = req.cookies.access_token;
+    let user: any;
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      user = decoded.user;
+    }
+    const adoptions = await AdoptionModel.find()
+      .populate("userId")
+      .populate("petId");
+    res.render("adoption-list", { user, token, adoptions });
   }
 );
 

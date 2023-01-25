@@ -1,5 +1,10 @@
 import { Request, Response, NextFunction } from "express";
-import { AdoptionFormService, AdoptionDeleteService, AdoptionAdminDeleteService } from "../services/AdoptionService";
+import {
+  AdoptionFormService,
+  AdoptionDeleteService,
+  AdoptionAdminDeleteService,
+  availableAdoptionService,
+} from "../services/AdoptionService";
 
 //create adoption
 export const adoptionForm = async (
@@ -26,4 +31,13 @@ export const adoptionAdminDelete = async (
   next: NextFunction
 ) => {
   AdoptionAdminDeleteService(req, res, next);
+};
+
+//available adoption
+export const availableAdoption = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  availableAdoptionService(req, res, next);
 };

@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import User from "../models/UserModel";
 import AdoptionModel from "../models/AdoptionModel";
+import PetModel from "../models/PetModel";
 
 export const AdoptionFormService = async (
   req: Request,
@@ -96,6 +97,32 @@ export const AdoptionAdminDeleteService = async (
       res.redirect("/");
     } else {
       res.redirect("/");
+    }
+  } catch (error) {
+    res.render("not-found", { error: "Something Wrong!" });
+  }
+};
+
+//Pet Adoption Available
+//verify Admin
+export const availableAdoptionService = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const pet: any = await PetModel.findById(req.params.id);
+    if (!pet.isAvailable) {
+      await PetModel.findByIdAndUpdate(req.params.id, {
+        $set: { isAvailable: true },
+      });
+      res.redirect("/admin/adoptons-form");
+    }
+    if (pet.isAvailable) {
+      await PetModel.findByIdAndUpdate(req.params.id, {
+        $set: { isAvailable: false },
+      });
+      res.redirect("/admin/adoptons-form");
     }
   } catch (error) {
     res.render("not-found", { error: "Something Wrong!" });
