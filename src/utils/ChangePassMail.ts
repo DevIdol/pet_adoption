@@ -17,8 +17,8 @@ export const SendMail = async (
       port: Number(process.env.MAIL_PORT),
       secure: Boolean(process.env.SECURE),
       auth: {
-        user: String(process.env.MAIL_CENTER),
-        pass: String(process.env.MAIL_PASS),
+        user: String(process.env.MAIL_CHANGE),
+        pass: String(process.env.MAIL_CHANGEPASS),
       },
     });
     const handlebarOptions: any = {
@@ -34,7 +34,7 @@ export const SendMail = async (
     transporter.use("compile", hbs(handlebarOptions));
 
     var mailOptions = {
-      from: `Pet Adobtion 🐕 <${process.env.MAIL_CENTER}>`,
+      from: `Pet Adobtion 🐕 <${process.env.MAIL_CHANGEPASS}>`,
       to: email,
       subject: subject,
       template: "changepass",

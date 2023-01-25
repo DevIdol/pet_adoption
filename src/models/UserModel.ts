@@ -45,13 +45,6 @@ const UserSchema = new Schema({
   },
 });
 
-// UserSchema.pre("save", async function (next) {
-//   const salt = await bcrypt.genSalt(Number(process.env.SALT));
-//   const passwordHash = await bcrypt.hash(this.password, salt);
-//   this.password = passwordHash;
-//   next();
-// });
-
 UserSchema.methods.isValidPassword = async function (password: any) {
   const user = this;
   const compare = await bcrypt.compare(password, user.password);

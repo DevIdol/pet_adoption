@@ -3,6 +3,7 @@ import Token from "../models/Token";
 import User from "../models/UserModel";
 import crypto from "crypto";
 import { SendMail } from "../utils/ChangePassMail";
+import bcrypt from 'bcrypt';
 
 //Forgot Password
 export const forgotPasswordService = async (
@@ -68,7 +69,7 @@ export const resetPasswordService = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { password, confirmPass } = req.body;
+  let { password, confirmPass } = req.body;
   let errors: any[] = [];
   try {
     if (!password || !confirmPass) {
@@ -100,6 +101,8 @@ export const resetPasswordService = async (
         token,
       });
     } else {
+      const salt = await bcrypt.genSalt(Number(process.env.SALT));
+      password = await bcrypt.hash(password, salt);
       user.password = password;
       await user.save();
       await token.remove();

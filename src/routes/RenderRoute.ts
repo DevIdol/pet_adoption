@@ -34,7 +34,7 @@ renderRoute.get(
     const pets = await PetModel.find();
     const latestPets = await PetModel.find()
       .sort({ $natural: -1 })
-      .limit(4)
+      .limit(6)
       .exec();
     if (!pets) {
       res.render("not-found", { error: "No Pet" });

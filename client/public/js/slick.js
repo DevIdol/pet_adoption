@@ -33,7 +33,7 @@ $(document).ready(function () {
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 4,
-        dots: true,
+        dots: false,
         autoplaySpeed: 2000,
         nextArrow: $('.next2'),
         prevArrow: $('.prev2'),
@@ -72,6 +72,13 @@ $(document).ready(function () {
             var showTo = showFrom + perPage;
             items.hide().slice(showFrom, showTo).show();
         }
+    });
+
+    //Show and Hide Password
+    $("#show-password").change(function () {
+        $(this).prop("checked")
+            ? $("#password, #confirmPass, #currentPassword").prop("type", "text")
+            : $("#password, #confirmPass, #currentPassword").prop("type", "password");
     });
 })
 
