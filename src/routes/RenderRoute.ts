@@ -334,7 +334,7 @@ renderRoute.get(
   }
 );
 
-//adoption form list
+
 //show adoption form list
 renderRoute.get(
   "/adoption-list",
@@ -349,6 +349,20 @@ renderRoute.get(
       .populate("userId")
       .populate("petId");
     res.render("adoption-list", { user, token, adoptions });
+  }
+);
+
+// about us page
+renderRoute.get(
+  "/about-us",
+  (req: Request, res: Response, next: NextFunction) => {
+    let token = req.cookies.access_token;
+    let user: any;
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      user = decoded.user;
+    }
+    res.render("about-us", { token, user });
   }
 );
 

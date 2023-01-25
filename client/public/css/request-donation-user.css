@@ -1,4 +1,4 @@
-.donation-main-user{
+.donation-main-user {
   background-color: #738e94;
   width: 90%;
   margin: 100px auto;
@@ -6,34 +6,33 @@
   border-radius: 10px;
 }
 
-.donation-main-user h3{
+.donation-main-user h3 {
   text-align: center;
   font-size: 25px;
   color: #ffffff;
 }
-.donation-user-request{
+.donation-user-request {
   width: 50%;
   margin: 20px auto;
   padding: 30px 10px;
   background-color: #ffffff;
   border-radius: 10px;
-  color:#5f5d58;
+  color: #5f5d58;
 }
-.donation-user-request p{
+.donation-user-request p {
   text-align: center;
   font-size: 20px;
   padding-bottom: 15px;
   padding-top: 15px;
   border-bottom: 1px solid #5f5d58;
-
 }
-.pet-donation-inquiry{
+.pet-donation-inquiry {
   text-align: center;
   color: #e9a40e;
   margin-top: 10px;
   font-size: 18px;
 }
-.contact-us-user{
+.contact-us-user {
   padding: 20px 40px;
   color: #5f5d58;
   background-color: #ffffff;
@@ -43,8 +42,87 @@
   display: block;
   border-radius: 10px;
 }
-.contact-us-user a{
+.contact-us-user a {
   display: block;
   color: #5f5d58;
   line-height: 1.6;
+}
+/*Added for responsive*/
+/*I-pad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .donation-main-user {
+    width: 90%;
+    margin: 13.021vw auto;
+    padding: 6.51vw 2.604vw;
+    border-radius: 1.302vw;
+  }
+
+  .donation-main-user h3 {
+    font-size: 3.255vw;
+  }
+  .donation-user-request {
+    width: 80%;
+    margin: 2.604vw auto;
+    padding: 3.906vw 1.302vw;
+    border-radius: 1.302vw;
+  }
+  .donation-user-request p {
+    font-size: 2.604vw;
+    padding-bottom: 1.953vw;
+    padding-top: 1.953vw;
+    border-bottom: 0.13vw solid #5f5d58;
+  }
+  .pet-donation-inquiry {
+    margin-top: 1.302vw;
+    font-size: 2.344vw;
+  }
+  .contact-us-user {
+    font-size: 2.604vw;
+    padding: 2.604vw 5.208vw;
+    margin: 2.604vw auto;
+    width: 40%;
+    border-radius: 1.302vw;
+  }
+  .contact-us-user a {
+    line-height: 1.6;
+    font-size: 2.083vw;
+  }
+}
+
+/*Phone*/
+@media screen and (max-width: 768px) {
+  .donation-main-user {
+    margin: 15.625vw auto;
+    padding: 7.813vw 3.125vw;
+    border-radius: 1.563vw;
+  }
+  .donation-main-user h3 {
+    font-size: 4.906vw;
+  }
+  .pet-donation-inquiry {
+    margin-top: 1.563vw;
+    font-size: 3.813vw;
+  }
+  .contact-us-user {
+    padding: 3.125vw 6.25vw;
+    margin: 3.125vw auto;
+    width: 70%;
+    border-radius: 1.563vw;
+    font-size: 3.213vw;
+  }
+  .contact-us-user a {
+    font-size: 2.813vw;
+  }
+  .donation-user-request {
+    width: 90%;
+    margin: 3.125vw auto;
+    padding: 4.688vw 1.563vw;
+    border-radius: 1.563vw;
+  }
+  .donation-user-request p {
+    font-size: 3.125vw;
+    padding-bottom: 2.344vw;
+    padding-top: 2.344vw;
+    border-bottom: 0.156vw solid #5f5d58;
+  }
 }

@@ -1,0 +1,238 @@
+.about-sec {
+  padding-top: 100px;
+}
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding-bottom: 40px;
+}
+.about-us-p {
+  width: 70%;
+  line-height: 1.3;
+  font-size: 24px;
+  color: #8f8989;
+  text-align: center;
+}
+.about-header h2 {
+  font-size: 28px;
+  color: var(--btn-color);
+  text-align: center;
+}
+.mission-con {
+  background-color: #d9e1e3;
+  padding: 15px 0 60px;
+}
+.mission-p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 28px;
+  color: #2b2738;
+}
+.lr-mission-main {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center;
+  gap: 50px;
+}
+.lr-mission-main p {
+  margin-top: 35px;
+  font-size: 16px;
+  color: #2b2738;
+}
+.left-mission-con,
+.right-mission-con {
+  width: 35%;
+  line-height: 1.3;
+  letter-spacing: 0.4px;
+}
+.process-con h2 {
+  text-align: center;
+  color: #2b2738;
+  font-size: 30px;
+  margin-top: 40px;
+  font-weight: 400;
+}
+.process-con p {
+  color: #2b2738;
+  text-align: center;
+  font-size: 16px;
+  margin: 10px 0;
+}
+.process-card-con {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.process-card-con .process-card {
+  width: 30%;
+  background-color: #f4f3f1;
+  margin: 60px 0;
+  padding: 0px 0px 15px;
+  position: relative;
+}
+.process-card-con .process-card h3 {
+  background-color: #2b2738;
+  text-align: center;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 50px 10px 20px;
+}
+.process-card-con .process-card .card-t {
+  text-align: left;
+  color: #2b2738;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.process-card-con .process-card .process-card-img {
+  width: 75px;
+  height: 75px;
+  border: 5px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: -40px;
+  left: 155px;
+}
+
+/*Added for responsive*/
+/*I-pad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .about-header {
+    gap: 0px;
+  }
+  .about-us-p {
+    width: 60%;
+    margin: 3.906vw auto;
+    font-size: 3.125vw;
+  }
+  .mission-p {
+    margin-top: 2.604vw;
+    font-size: 3.846vw;
+  }
+  .lr-mission-main {
+    margin-top: 5.208vw;
+    gap: 1vw;
+    flex-direction: column;
+  }
+  .lr-mission-main p {
+    margin-top: 2.153vw;
+    font-size: 2.583vw;
+  }
+  .left-mission-con,
+  .right-mission-con {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    letter-spacing: 0.052vw;
+  }
+  .process-con h2 {
+    font-size: 3.906vw;
+    margin-top: 5.208vw;
+  }
+  .process-con p {
+    font-size: 2.583vw;
+    margin: 1.302vw 0;
+  }
+  .process-card-con {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .process-card-con .process-card {
+    width: 70%;
+    margin: 5.813vw auto;
+    padding: 0vw 0vw 1.953vw;
+    display: block;
+  }
+  .process-card-con .process-card:first-child {
+    margin-top: 10vw;
+  }
+  .process-card-con .process-card .process-card-img {
+    width: 9.068vw;
+    height: 9.068vw;
+    border: 0.651vw solid #ffffff;
+    top: -5.208vw;
+    left: 30.224vw;
+  }
+  .process-card-con .process-card h3 {
+    font-size: 2.904vw;
+    padding: 6.51vw 1.302vw 2.604vw;
+  }
+  .process-card-con .process-card .card-t {
+    font-size: 2.583vw;
+    margin-left: 1.302vw;
+  }
+}
+
+/*phone*/
+@media screen and (max-width: 768px) {
+  .about-header {
+    gap: 0px;
+  }
+  .about-us-banner {
+    padding: 45.313vw 0;
+  }
+  .about-us-p {
+    width: 60%;
+    margin: 4.688vw auto;
+    font-size: 3.95vw;
+  }
+
+  .mission-p {
+    margin-top: 3.125vw;
+    font-size: 4.375vw;
+  }
+  .lr-mission-main {
+    flex-direction: column;
+    margin-top: 6.25vw;
+    gap: 0vw;
+  }
+  .mission-con {
+    padding: 2.344vw 0 9.375vw;
+  }
+  .left-mission-con,
+  .right-mission-con {
+    width: 85%;
+    letter-spacing: 0.063vw;
+    display: block;
+    margin: 0 auto;
+  }
+  .lr-mission-main p {
+    margin-top: 5.469vw;
+    font-size: 2.9vw;
+  }
+  .process-con h2 {
+    font-size: 4.688vw;
+    margin-top: 6.25vw;
+  }
+  .process-con p {
+    font-size: 2.5vw;
+    margin: 1.963vw 0;
+  }
+  .process-card-con {
+    flex-direction: column;
+    gap: 0vw;
+  }
+  .process-card-con .process-card {
+    width: 80%;
+    margin: 9.375vw auto;
+    padding: 0vw 0vw 2.344vw;
+    display: block;
+  }
+  .process-card-con .process-card .process-card-img {
+    width: 11.719vw;
+    height: 11.719vw;
+    border: 0.781vw solid #ffffff;
+    top: -6.25vw;
+    left: 33.719vw;
+  }
+  .process-card-con .process-card h3 {
+    font-size: 3.725vw;
+    padding: 7.813vw 1.563vw 3.125vw;
+  }
+  .process-card-con .process-card .card-t {
+    font-size: 2.9vw;
+    margin-left: 1.563vw;
+  }
+}
