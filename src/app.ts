@@ -20,6 +20,7 @@ import adminRoute from "./routes/PetRoute";
 import { isAdmin, isUser } from "./middlewares/IsAuth";
 import favoriteRoute from "./routes/FavoriteRoute";
 import adoptionRoute from "./routes/AdoptionRoute";
+import contactRoute from "./routes/ContactRoute";
 
 dotenv.config();
 const app: Express = express();
@@ -55,8 +56,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-
-
 //render route
 app.use("/", renderRoute);
 
@@ -76,5 +75,8 @@ app.use("/adoption-register", adoptionRoute);
 
 //admin route
 app.use("/admin", isAdmin, adminRoute);
+
+//contact mail
+app.use("/send-mail", contactRoute);
 
 app.listen(PORT, () => logger.info(`Server running on port ${PORT}`));

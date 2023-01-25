@@ -179,6 +179,65 @@
         </div>
       </div>
     </section>
+    <section class="contact-sec">
+      <div class="l-inner">
+        <div class="contact-us">
+          <h2>Contact Us</h2>
+          <div class="address">
+            <a href="https://www.google.com.mm" target="_blank">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>City, State</p>
+            </a>
+          </div>
+          <div class="email">
+            <a href="mailto:contact.petadoption.mm@gmail.com" target="_blank">
+              <i class="fa-solid fa-envelope"></i>
+              <p>petadoption.mm@gmail.com</p>
+            </a>
+          </div>
+          <div class="phone">
+            <a href="tel:09891489955">
+              <i class="fa-solid fa-phone"></i>
+              <p>+95 9891489955</p>
+            </a>
+          </div>
+          <div class="visit-page">
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+
+            <a href="https://www.twitter.com/" target="_blank"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </div>
+          <div class="visit-site">
+            <a href="https://www.petadoption.mm.com" target="_blank"
+              >www.petadoption.mm.com</a
+            >
+          </div>
+        </div>
+        <div class="get-in-touch">
+          <h2>Get In Touch</h2>
+          <form action="/send-mail" method="post">
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="text" name="email" placeholder="Email" required />
+            <input type="text" name="subject" placeholder="Subject" required />
+            <textarea
+              name="message"
+              cols="10"
+              rows="10"
+              placeholder="How can I help you?"
+              required
+            ></textarea>
+            <button class="btn" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
     <footer><%- include('./partials/footer.ejs') %></footer>
     <%- include('./partials/script.ejs') %>
   </body>
