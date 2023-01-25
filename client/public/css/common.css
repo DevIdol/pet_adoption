@@ -9,8 +9,19 @@
   --success-color: #008080;
 }
 
+@font-face {
+  font-family: "Helvetica";
+  src: url("../font/Helvetica-Bold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Helvetica";
+  src: url("../font/Helvetica.ttf");
+  font-weight: 400;
+}
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Helvetica", sans-serif;
   color: var(--font-color);
   font-size: 16px;
   font-weight: 400;
@@ -21,6 +32,15 @@ body {
 .l-inner {
   max-width: 1400px;
   margin: 0 auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica" !important;
+  font-weight: 600 !important;
 }
 
 .btn {
