@@ -131,7 +131,6 @@ body {
   background-color: var(--btn-color);
   transition: var(--transition);
   color: #ffffff;
-  font-weight: 600;
 }
 
 /*Phone*/
