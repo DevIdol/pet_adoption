@@ -75,5 +75,16 @@ $(document).ready(function () {
     });
 })
 
+// active link
+const currentUrl = window.location.href;
+const links = document.querySelectorAll('.pet-categories-all a');
+
+links.forEach(link => {
+    if (link.href === currentUrl) {
+        link.classList.add('active');
+    }
+});
+
+
 
 
