@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Dashboard" }) %>
+  </head>
+
+  <body>
+    <header><%- include('./partials/admin-nav.ejs') %></header>
+    <section class="account-sec">
+      <div class="l-inner">
+        <%- include('./partials/admin-sidebar.ejs', {user}) %>
+        <div class="account-wrapper">
+          <div class="admin">
+            <h2>Admin Dashboard</h2>
+            <div class="card-wrapper">
+              <div class="card-count">
+                <h3>User Count</h3>
+                <% if (typeof users !=="undefined" ) { %>
+                <h4><%= users.length %></h4>
+                <% } %>
+              </div>
+              <div class="card-count">
+                <h3><a href="/admin/pet-table">Pet Count</a></h3>
+                <% if (typeof pets !=="undefined" ) { %>
+                <h4><a href="/admin/pet-table"> <%= pets.length %> </a></h4>
+                <% } else{%>
+                <h4>0</h4>
+                <% } %>
+              </div>
+              <div class="card-count">
+                <h3><a href="/admin/article-table">Article Count</a></h3>
+                <% if (typeof articles !=="undefined" ) { %>
+                <h4>
+                  <a href="/admin/article-table"> <%= articles.length %> </a>
+                </h4>
+                <% } else{%>
+                <h4>0</h4>
+                <% } %>
+              </div>
+              <div class="card-count">
+                <h3><a href="/admin/article-table">Adoption Count</a></h3>
+                <% if (typeof adoption !=="undefined" ) { %>
+                <h4>
+                  <a href="/admin/article-table"> <%= adoption.length %> </a>
+                </h4>
+                <% } else{%>
+                <h4>0</h4>
+                <% } %>
+              </div>
+              <div class="card-count">
+                <h3>
+                  <a href="/admin/donation-table">Donation Request Count</a>
+                </h3>
+                <% if (typeof donation !=="undefined" ) { %>
+                <h4>
+                  <a href="/admin/donation-table"> <%= donation.length %> </a>
+                </h4>
+                <% } else{%>
+                <h4>0</h4>
+                <% } %>
+              </div>
+            </div>
+            <div class="table-title">
+              <h2>User Table</h2>
+            </div>
+            <div class="pet-tbl-wrapper" style="overflow-x: auto">
+              <table id="table">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Verified</th>
+                    <th>Role</th>
+                    <th>Admin Approval</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% users.forEach(function(user, i){ %>
+                  <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= user.username %></td>
+                    <td><%= user.email %></td>
+                    <td>
+                      <form
+                        action="/admin/approvaluser/<%= user._id %>?_method=PUT"
+                        onclick=" return confirm('Are you sure?')"
+                        class="pet-form"
+                        method="post"
+                      >
+                        <% if (user.verified) { %>
+                        <button type="submit" value="Update">
+                          <i class="fa-solid fa-circle-check av-icon"></i>
+                        </button>
+                        <% } else{%>
+                        <button type="submit" value="Update">
+                          <i
+                            class="fa-sharp fa-solid fa-circle-xmark unav-icon"
+                          ></i>
+                        </button>
+                        <% } %>
+                      </form>
+                    </td>
+                    <td>
+                      <% if (user.isAdmin) { %> Admin <% } else{ %>User<% } %>
+                    </td>
+                    <td>
+                      <form
+                        action="/admin/approval/<%= user._id %>?_method=PUT"
+                        onclick=" return confirm('Are you sure?')"
+                        class="pet-form"
+                        method="post"
+                      >
+                        <% if (user.isAdmin) { %>
+                        <button class="btn-update" type="submit" value="Update">
+                          Approved
+                        </button>
+                        <% } else{%>
+                        <button class="btn-delete" type="submit" value="Update">
+                          Approve
+                        </button>
+                        <% } %>
+                      </form>
+                    </td>
+                    <td>
+                      <form
+                        onclick=" return confirm('Are you sure you want to delete?')"
+                        action="/users/delete/<%= user._id %>?_method=DELETE"
+                        method="post"
+                      >
+                        <button class="btn-delete" type="submit" value="delete">
+                          Delete
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('./partials/script.ejs') %>
+  </body>
+</html>

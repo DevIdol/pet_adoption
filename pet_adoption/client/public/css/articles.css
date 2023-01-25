@@ -1,0 +1,93 @@
+.pet-article-main{
+width: 80%;
+margin: 100px auto;
+padding: 30px 20px;
+background-color: #ffffff;
+border-radius: 10px;
+}
+.pet-article-main h1{
+  font-size: 30px;
+  color: #5c5757;
+  padding: 20px 0;
+  border-bottom: 1px solid #5c5757;
+  text-transform:capitalize;
+}
+
+.pet-article-main .left-dog-article,
+.pet-article-main .right-dog-article{
+  width: 40%;
+  margin:20px auto;
+  display: inline-block;
+  
+}
+.pet-article-main .left-dog-article{
+  margin-left: 100px;
+}
+.pet-article-main .left-dog-article img,
+.pet-article-main .right-dog-article img{
+  width: 80%;
+  height: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+.pet-article-main .left-dog-article p,
+.pet-article-main .right-dog-article p,
+.pet-article-main .left-dog-article h3,
+.pet-article-main .right-dog-article h3
+{
+  width: 80%;
+  display: block;
+  margin: 20px auto;
+  line-height: 1.3;
+  color: #5c5757;
+}
+
+.pet-article-main .left-dog-article h3,
+.pet-article-main .right-dog-article h3{
+  color:#2865c0;
+  font-size: 20px;
+}
+.lr-con{
+  border-bottom: 1px solid #5c5757;
+}
+.dogie-main .left-img{
+  width: 15%;
+  margin-left: 10%;
+  height: 200px;
+  display: inline-block;
+  margin-top: 20px;
+}
+.dogie-main .left-img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+
+}
+.dogie-main .right-text{
+  width: 60%;
+  display: inline-block;
+  margin-left: 20px;
+
+}
+.dogie-main .right-text .dog-adoption{
+  color:#2865c0;
+  font-size: 18px;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+.dogie-main .right-text h3{
+  color: #2865c0;
+  font-size: 20px;
+  margin:5px 0;
+}
+.dogie-main .right-text p{
+  color: #5c5757;
+  line-height: 1.3;
+}
+.center-main{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}

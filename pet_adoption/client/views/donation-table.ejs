@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head.ejs', {title: "Pet Adoption | Donation Request Table" }) %>
+</head>
+
+<body>
+  <header><%- include('./partials/admin-nav.ejs') %></header>
+  <section class="account-sec">
+    <div class="l-inner">
+      <%- include('./partials/admin-sidebar.ejs', {user}) %>
+      <div class="account-wrapper">
+        <div class="admin">
+          <div class="table-title">
+            <h2>Donation Request Table</h2>
+            <a href="/admin/donate-request/create">Create Donation Request</a>
+          </div>
+          <div class="pet-tbl-wrapper" style="overflow-x: auto">
+            <table id="table">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Item Name</th>
+                  <th>Quantity</th>
+                  <th>Description</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% donations.slice().reverse().forEach(function(donation, i){
+                  %>
+                <tr>
+                  <td><%= i + 1 %></td>
+                  <td>
+                    <a href="/donation-requests"><%= donation.itemName %></a>
+                  </td>
+                  <td><%= donation.quantity %></td>
+                  <td><%= donation.description %></td>
+                  <td>
+                    <form class="pet-update-form" action="/admin/donations/edit/<%= donation._id %>" method="get">
+                      <button class="btn-update" type="submit" value="Update">
+                        Update
+                      </button>
+                    </form>
+                  </td>
+                  <td>
+                    <form class="pet-delete-form" onclick=" return confirm('Are you sure you want to delete?')" action="/admin/donations/<%= donation._id %>?_method=DELETE" method="post">
+                      <button class="btn-delete" type="submit" value="delete">
+                        Delete
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%- include('./partials/script.ejs') %>
+</body>
+
+</html>

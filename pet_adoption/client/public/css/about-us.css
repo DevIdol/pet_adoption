@@ -1,0 +1,24 @@
+.contact-us-banner{
+  width: 100%;
+ padding: 200px 0;
+  background: #292a39;
+}
+.contact-us-banner .contact-inner-con{
+ width:50%;
+ margin-left: 10%;
+}
+.contact-us-banner .contact-inner-con h1{
+  font-size: 50px;
+  line-height: 1.1;
+  letter-spacing: 0.94px;
+  padding-bottom: 20px;
+  color: var(--background);
+ 
+}
+.contact-us-banner .contact-inner-con  p{
+  color: var(--background);
+  font-size: 24px;
+    letter-spacing: 0.3px;
+    width: 100%;
+
+}
