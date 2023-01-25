@@ -31,7 +31,11 @@
                   <% articles.slice().reverse().forEach(function(article, i){ %>
                   <tr>
                     <td><%= i + 1 %></td>
-                    <td><%= article.title %></td>
+                    <td>
+                      <a href="/articles?category=<%= article.category %>"
+                        ><%= article.title %></a
+                      >
+                    </td>
                     <td><%= article.category %></td>
                     <td><%= article.description %></td>
                     <td>

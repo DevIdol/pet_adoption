@@ -11,9 +11,15 @@ export const AdoptionFormService = async (
     const userId: any = req.user;
     let user: any = await User.findOne({ _id: userId._id });
     let petId = req.body.petId;
-    let adoption = await AdoptionModel.findOne({ petId: petId });
+
+    let adoPet: any[] = [];
+    let adoption: any = await AdoptionModel.find({ userId: userId });
+    adoption.filter((ado: any) => {
+      let isPet = String(ado.petId) == petId;
+      adoPet.push(isPet);
+    });
     let adoptionInfo = { userId: userId._id, ...req.body };
-    if (!adoption) {
+    if (!adoPet.includes(true)) {
       if (req.body.desc) {
         const newAdoption = new AdoptionModel(adoptionInfo);
         const savedAdoption = await newAdoption.save();
@@ -35,7 +41,8 @@ export const AdoptionFormService = async (
   }
 };
 
-export const AdoptonDeleteService = async (
+//delete adoption
+export const AdoptionDeleteService = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -57,6 +64,36 @@ export const AdoptonDeleteService = async (
       await AdoptionModel.findByIdAndDelete(req.params.id);
       req.flash("success", "Removed Success!");
       res.redirect("/adoption-form");
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    res.render("not-found", { error: "Something Wrong!" });
+  }
+};
+
+//delete adoption from admin
+export const AdoptionAdminDeleteService = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    let userId = req.params.userId;
+    let adoId = req.params.adoId;
+    let user: any = await User.findById(userId);
+    const ado: any = await AdoptionModel.find({ userId });
+    let arr: any = [];
+    ado.find((a: any) => {
+      const isAdo = String(a.userId) === userId;
+      arr.push(isAdo);
+    });
+    if (arr.includes(true)) {
+      user.adoptions = user.adoptions.filter((a: any) => String(a) !== adoId);
+      user.save();
+      await AdoptionModel.findByIdAndDelete(adoId);
+      req.flash("success", "Removed Success!");
+      res.redirect("/");
     } else {
       res.redirect("/");
     }

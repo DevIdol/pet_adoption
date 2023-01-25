@@ -154,6 +154,29 @@ export const logoutService = async (
   }
 };
 
+//verifed user from admin
+export const approvedUserService = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const user: any = await User.findById(req.params.id);
+    if (!user.verified) {
+      await User.findByIdAndUpdate(req.params.id, { $set: { verified: true } });
+      res.redirect("/admin");
+    }
+    if (user.verified) {
+      await User.findByIdAndUpdate(req.params.id, {
+        $set: { verified: false },
+      });
+      res.redirect("/admin");
+    }
+  } catch (error) {
+    res.render("not-found", { error: "Something Wrong!" });
+  }
+};
+
 //verify Admin
 export const approvedAdminService = async (
   req: Request,

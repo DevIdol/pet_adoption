@@ -38,6 +38,16 @@
                 <% } %>
               </div>
               <div class="card-count">
+                <h3><a href="/admin/article-table">Adoption Count</a></h3>
+                <% if (typeof adoption !=="undefined" ) { %>
+                <h4>
+                  <a href="/admin/article-table"> <%= adoption.length %> </a>
+                </h4>
+                <% } else{%>
+                <h4>0</h4>
+                <% } %>
+              </div>
+              <div class="card-count">
                 <h3>
                   <a href="/admin/donation-table">Donation Request Count</a>
                 </h3>
@@ -72,7 +82,26 @@
                     <td><%= i + 1 %></td>
                     <td><%= user.username %></td>
                     <td><%= user.email %></td>
-                    <td><%= user.verified %></td>
+                    <td>
+                      <form
+                        action="/admin/approvaluser/<%= user._id %>?_method=PUT"
+                        onclick=" return confirm('Are you sure?')"
+                        class="pet-form"
+                        method="post"
+                      >
+                        <% if (user.verified) { %>
+                        <button type="submit" value="Update">
+                          <i class="fa-solid fa-circle-check av-icon"></i>
+                        </button>
+                        <% } else{%>
+                        <button type="submit" value="Update">
+                          <i
+                            class="fa-sharp fa-solid fa-circle-xmark unav-icon"
+                          ></i>
+                        </button>
+                        <% } %>
+                      </form>
+                    </td>
                     <td>
                       <% if (user.isAdmin) { %> Admin <% } else{ %>User<% } %>
                     </td>
@@ -84,12 +113,12 @@
                         method="post"
                       >
                         <% if (user.isAdmin) { %>
-                        <button class="btn-delete" type="submit" value="Update">
-                          Cancel
+                        <button class="btn-update" type="submit" value="Update">
+                          Confirmed
                         </button>
                         <% } else{%>
-                        <button class="btn-update" type="submit" value="Update">
-                          Confirm
+                        <button class="btn-delete" type="submit" value="Update">
+                          Approve
                         </button>
                         <% } %>
                       </form>

@@ -17,6 +17,7 @@ renderRoute.get(
     let token = req.cookies.access_token;
     let user: any;
     let favorites: any;
+    let petId: any[] = [];
     if (token) {
       const decoded: any = jwtDecode(token);
       user = decoded.user;
@@ -24,6 +25,11 @@ renderRoute.get(
         "pets"
       );
       await User.findById(user._id).populate("favorites");
+      let Fav = await FavoriteModel.find({ userId: user._id });
+      Fav.map((p: any) => {
+        let pid = String(p.pets);
+        petId.push(pid);
+      });
     }
     const pets = await PetModel.find();
     const latestPets = await PetModel.find()
@@ -41,6 +47,7 @@ renderRoute.get(
       latestPets: latestPets,
       token,
       user,
+      petId,
     });
   }
 );
@@ -137,7 +144,8 @@ renderRoute.get(
     const pets = await PetModel.find();
     const articles = await PetArticleModel.find();
     const donation = await DonationModel.find();
-    res.render("admin", { user, users, pets, articles, donation, token });
+    const adoption = await AdoptionModel.find()
+    res.render("admin", { user, users, pets, adoption, articles, donation, token });
   }
 );
 
@@ -182,10 +190,16 @@ renderRoute.get(
   "/pets",
   async (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
+    let petId: any[] = [];
     let user: any;
     if (token) {
       const decoded: any = jwtDecode(token);
       user = decoded.user;
+      let Fav = await FavoriteModel.find({ userId: user._id });
+      Fav.map((p: any) => {
+        let pid = String(p.pets);
+        petId.push(pid);
+      });
     }
     const kind = req.query.kind;
     let pets;
@@ -194,7 +208,7 @@ renderRoute.get(
     } else {
       pets = await PetModel.find();
     }
-    res.render("pets", { token, pets, user });
+    res.render("pets", { token, pets, user, petId });
   }
 );
 
@@ -296,6 +310,19 @@ renderRoute.get(
       "petId"
     );
     res.render("adoption-form", { user, token, adoptions });
+  }
+);
+
+renderRoute.get(
+  "/admin/adoptons-form",
+  isAdmin,
+  async (req: Request, res: Response, next: NextFunction) => {
+    let token = req.cookies.access_token;
+    const user: any = req.user;
+    const adoptions = await AdoptionModel.find()
+      .populate("userId")
+      .populate("petId");
+    res.render("all-adoptions", { token, user, adoptions });
   }
 );
 

@@ -4,6 +4,7 @@ import {
   logout,
   register,
   approvedAdmin,
+  approvedUser,
 } from "../controllers/AuthController";
 import { isAdmin, isUser } from "../middlewares/IsAuth";
 
@@ -17,6 +18,9 @@ authRoute.post("/login", login);
 
 //login
 authRoute.post("/logout", isUser, logout);
+
+//verify user from admin
+authRoute.put("/admin/approvaluser/:id", isAdmin, approvedUser);
 
 //verify admin
 authRoute.put("/admin/approval/:id", isAdmin, approvedAdmin);

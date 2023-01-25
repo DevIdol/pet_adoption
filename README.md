@@ -23,6 +23,8 @@ SECRET_KEY = 45a087d6af0921796ed3b5c0f827a1e75e3300b8ad9fe6f35dd03bce35585e6b
 
 ```
 localhost:8000
+
+localhost:8000/admin
 ```
 
 - **Method**

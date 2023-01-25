@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('./partials/head.ejs', {title: "Pet Adoption | Pets", token, user}) %>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Pets", token,
+    user}) %>
   </head>
   <body>
     <header><%- include('./partials/header.ejs') %></header>
@@ -11,47 +12,44 @@
         <%- include('./partials/category.ejs') %>
         <div class="home-main-all">
           <% pets.forEach(function(pet){ %>
-            <div class="pet-user-all">
-              <a href="/pets/<%= pet._id %>">
-                <img
-                  src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
-                />
-                <div class="over">
-                  <p><%= pet.name %></p>
-                </div>
-              </a>
-              <% if (typeof token !== 'undefined') { %>
-              <form
-                class="save-form"
-                action="/favorites/<%= pet._id %>"
-                method="post"
-              >
-                <button type="submit" class="btn-save">
-                  <% if (pet.isFav == 'active') { %>
-                  <i class="fa-solid fa-heart"></i>
-                  <% } else{%> <i class="fa-regular fa-heart"></i><% } %>
-                </button>
-              </form>
-              <% } else{%>
-              <div class="save-form">
-                <button class="btn-save">
-                  <a href="/login"><i class="fa-regular fa-heart"></i></a>
-                </button>
+          <div class="pet-user-all">
+            <a href="/pets/<%= pet._id %>">
+              <img
+                src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
+              />
+              <div class="over">
+                <p><%= pet.name %></p>
               </div>
-              <% } %>
+            </a>
+            <% if (typeof token !== 'undefined') { %>
+            <form
+              class="save-form"
+              action="/favorites/<%= pet._id %>"
+              method="post"
+            >
+              <button type="submit" class="btn-save">
+                <% var pid = [] %> <% petId.filter(p => { let id = p == pet._id;
+                pid.push(id) }) %> <% if (pid.includes(true)) { %>
+                <i class="fa-solid fa-heart"></i>
+                <% } else{%> <i class="fa-regular fa-heart"></i><% } %>
+              </button>
+            </form>
+            <% } else{%>
+            <div class="save-form">
+              <button class="btn-save">
+                <a href="/login"><i class="fa-regular fa-heart"></i></a>
+              </button>
             </div>
+            <% } %>
+          </div>
           <% }); %>
         </div>
       </div>
       <div id="pagination-container"></div>
     </section>
-    <footer>
-      <%- include('./partials/footer.ejs')  %> 
-    </footer>
+    <footer><%- include('./partials/footer.ejs') %></footer>
     <%- include('./partials/script.ejs') %>
 
-    <script>
-     
-    </script>
+    <script></script>
   </body>
 </html>

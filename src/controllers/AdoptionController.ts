@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { AdoptionFormService, AdoptonDeleteService } from "../services/AdoptionService";
+import { AdoptionFormService, AdoptionDeleteService, AdoptionAdminDeleteService } from "../services/AdoptionService";
 
+//create adoption
 export const adoptionForm = async (
   req: Request,
   res: Response,
@@ -9,10 +10,20 @@ export const adoptionForm = async (
   AdoptionFormService(req, res, next);
 };
 
+//delete adoption
 export const adoptionDelete = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  AdoptonDeleteService(req, res, next);
+  AdoptionDeleteService(req, res, next);
+};
+
+//delete adoption from admin
+export const adoptionAdminDelete = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  AdoptionAdminDeleteService(req, res, next);
 };

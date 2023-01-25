@@ -4,6 +4,7 @@ import {
   logoutService,
   registerService,
   approvedAdminService,
+  approvedUserService,
 } from "../services/AuthRouteService";
 
 //register
@@ -31,6 +32,15 @@ export const logout = async (
   next: NextFunction
 ) => {
   logoutService(req, res, next);
+};
+
+//approved admin
+export const approvedUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  approvedUserService(req, res, next);
 };
 
 //approved admin

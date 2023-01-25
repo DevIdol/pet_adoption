@@ -12,11 +12,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 0 30px;
+  gap: 4px;
 }
 
 .admin .card-count {
-  width: 23%;
-  padding: 20px;
+  padding: 20px 30px;
   background-color: var(--background);
   border-radius: 6px;
   text-align: center;

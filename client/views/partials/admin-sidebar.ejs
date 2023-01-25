@@ -1,6 +1,7 @@
 <div class="side-bar">
     <% if (user.isAdmin) { %>
     <a href="/admin">Dashboard</a>
+    <a href="/admin/adoptons-form">Adoption Table</a>
     <button class="dropdown-btn">Pet
       <i class="fa fa-caret-down"></i>
     </button>
@@ -23,6 +24,7 @@
       <a href="/admin/donate-request/create">Create Donation</a>
       <a href="/admin/donation-table">Donation Table</a>
     </div>
+    
     <% } %>
     <form action="/logout" method="post">
       <input class="logout" type="submit" value="Logout" />

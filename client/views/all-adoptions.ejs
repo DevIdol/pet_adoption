@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('./partials/head.ejs', {title: "Pet Adoption | Pet Table" }) %>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Adoption Form",
+    token, user }) %>
   </head>
   <body>
-    <header><%- include('./partials/admin-nav.ejs') %></header>
+    <header><%- include('./partials/header.ejs') %></header>
+   
     <section class="account-sec">
       <div class="l-inner">
         <%- include('./partials/admin-sidebar.ejs', {user}) %>
         <div class="account-wrapper">
           <div class="admin">
+            <% if (!adoptions.length) { %>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 40vh;
+              "
+            >
+              <h3 style="font-size: 24px">No Adoption Form</h3>
+            </div>
+            <% } else{%>
             <div class="table-title">
-              <h2>Pet Table</h2>
-              <a href="/admin/pets/create">Create New Pet</a>
+              <h2>My Adoption Form List</h2>
             </div>
             <div class="pet-tbl-wrapper" style="overflow-x: auto">
               <table id="table">
                 <thead>
                   <tr>
                     <th>No</th>
+                    <th>Username</th>
+                    <th>Email</th>
                     <th>Image</th>
                     <th>Name</th>
                     <th>Breed</th>
@@ -28,58 +43,44 @@
                     <th>Kind</th>
                     <th>Description</th>
                     <th>Available</th>
-                    <th>Edit</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <% pets.slice().reverse().forEach(function(pet, i){ %>
+                  <% adoptions.slice().reverse().forEach(function({_id, userId, petId,
+                  desc}, i){ %>
                   <tr>
                     <td><%= i + 1 %></td>
+                    <td><%= userId.username  %> </td>
+                    <td><%= userId.email  %> </td>
                     <td>
                       <img
-                        src="data:<%= pet.contentType %>;base64,<%= pet.imageBase64 %>"
+                        src="data:<%= petId.contentType %>;base64,<%= petId.imageBase64 %>"
                       />
                     </td>
-                    <td><a href="/pets/<%= pet._id %> "><%= pet.name %></a></td>
-                    <td><%= pet.breed %></td>
-                    <td><%= pet.age %></td>
-                    <td><%= pet.size %></td>
-                    <td><%= pet.sex %></td>
-                    <td><%= pet.kind %></td>
-                    <td><%= pet.description %></td>
-                    <td><% if (pet.isAvailable) { %>
+                    <td>
+                      <a href="/pets/<%= petId._id %> "><%= petId.name %></a>
+                    </td>
+                    <td><%= petId.breed %></td>
+                    <td><%= petId.age %></td>
+                    <td><%= petId.size %></td>
+                    <td><%= petId.sex %></td>
+                    <td><%= petId.kind %></td>
+                    <td><%= desc %></td>
+                    <td><% if (petId.isAvailable) { %>
                       <i class="fa-solid fa-circle-check av-icon"></i></i>
                     <% } else{%>
                       <i class="fa-sharp fa-solid fa-circle-xmark unav-icon"></i>
                       <% } %> </td>
                     <td>
-                      <form
-                        class="pet-update-form"
-                        action="/admin/pets/edit/<%= pet._id %>"
-                        method="get"
-                      >
-                        <button
-                          class="btn-update"
-                          type="submit"
-                          value="Update"
-                        >
-                          Update
-                        </button>
-                      </form>
-                    </td>
-                    <td>
+                    
                       <form
                         class="pet-delete-form"
                         onclick=" return confirm('Are you sure you want to delete?')"
-                        action="/admin/pets/<%= pet._id %>?_method=DELETE"
+                        action="/adoption-register/admin/<%= userId._id %>/<%= _id %>?_method=DELETE"
                         method="post"
                       >
-                        <button
-                          class="btn-delete"
-                          type="submit"
-                          value="delete"
-                        >
+                        <button class="btn-delete" type="submit" value="delete">
                           Delete
                         </button>
                       </form>
@@ -89,6 +90,7 @@
                 </tbody>
               </table>
             </div>
+            <% } %>
           </div>
         </div>
       </div>

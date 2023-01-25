@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import Token from "../models/Token";
 import User from "../models/UserModel";
 import FavoriteModel from "../models/FavoriteModel";
+import AdoptionModel from "../models/AdoptionModel";
 
 //verify email
 export const verifyEmailService = async (
@@ -229,8 +230,11 @@ export const deleteUserService = async (
     if (errors.length > 0) {
       res.render("setting", { errors, password, token, user });
     } else {
-      await User.findByIdAndDelete(req.params.id).populate("favorites");
+      await User.findByIdAndDelete(req.params.id)
+        .populate("favorites")
+        .populate("adoptions");
       await FavoriteModel.deleteMany({ userId: user._id });
+      await AdoptionModel.deleteMany({ userId: user._id });
       res.clearCookie("access_token");
       req.flash("success", "Your account is deleted!");
       res.redirect("/");
@@ -249,6 +253,7 @@ export const deleteUserFromAdminService = async (
   try {
     const userId = req.params.id;
     await FavoriteModel.deleteMany({ userId: userId });
+    await AdoptionModel.deleteMany({ userId: userId });
     User.deleteOne({ _id: userId }, (err) => {
       if (!err) {
         res.redirect("/admin");
