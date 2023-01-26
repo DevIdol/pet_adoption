@@ -1,0 +1,143 @@
+.contact-sec {
+  background-color: var(--background);
+  padding: 0 60px;
+  padding-bottom: 60px;
+}
+
+.contact-sec .l-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+/* Contact Us */
+.contact-sec .contact-us {
+  background-color: var(--btn-hover);
+  border-radius: 6px;
+  width: 49%;
+  display: flex;
+  padding: 40px 80px;
+  flex-direction: column;
+  gap: 30px;
+  box-shadow: #32325d40 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.contact-us h2 {
+  color: #ffffff;
+  font-size: 28px;
+}
+.contact-us a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+}
+.contact-us i {
+  font-size: 24px;
+  color: #fff;
+}
+.contact-us p {
+  font-size: 18px;
+  color: #fff;
+}
+.visit-page {
+  margin-top: 20px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.visit-site {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.visit-site a {
+  font-size: 12px;
+  color: #c0c0c0;
+}
+
+/* Get In Touch */
+.contact-sec .get-in-touch {
+  background-color: var(--background);
+  border-radius: 6px;
+  width: 49%;
+  padding: 20px;
+  box-shadow: #32325d40 0px 50px 100px -20px, #0000004d 0px 30px 60px -30px,
+    #0a254059 0px -2px 6px 0px inset;
+}
+.get-in-touch h2 {
+  font-size: 24px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+.get-in-touch form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.get-in-touch form input,
+.get-in-touch form textarea {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid var(--background);
+  box-shadow: 3px 3px 3px #0000003d inset;
+  resize: none;
+}
+.get-in-touch form input:focus,
+.get-in-touch form textarea:focus {
+  outline: none;
+  border: 1px solid var(--btn-hover);
+}
+
+/* i-Pad View */
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .contact-sec .l-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+  }
+  .contact-sec .contact-us,
+  .contact-sec .get-in-touch {
+    width: 100%;
+  }
+}
+
+/* Mobile View */
+@media screen and (max-width: 767.9px) {
+  .contact-sec {
+    background-color: var(--background);
+    padding: 0 20px;
+    padding-bottom: 60px;
+  }
+  .contact-sec .l-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+  }
+  .contact-sec .contact-us,
+  .contact-sec .get-in-touch {
+    width: 100%;
+  }
+  .contact-sec .contact-us {
+    padding: 40px;
+  }
+  .contact-us a {
+    gap: 10px;
+  }
+  .contact-us i{
+    font-size: 20px;
+  }
+  .contact-us p {
+    font-size: 16px;
+  }
+}

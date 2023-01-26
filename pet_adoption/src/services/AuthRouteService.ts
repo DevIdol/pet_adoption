@@ -162,6 +162,10 @@ export const approvedUserService = async (
 ) => {
   try {
     const user: any = await User.findById(req.params.id);
+    const token: any = await Token.findOne({ userId: user._id });
+    if (token) {
+      await token.remove();
+    }
     if (!user.verified) {
       await User.findByIdAndUpdate(req.params.id, { $set: { verified: true } });
       res.redirect("/admin");

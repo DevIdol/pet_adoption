@@ -19,7 +19,9 @@
               <% if (typeof token !== 'undefined') { %>
               <form action="/favorites/<%= pet._id %>" method="post">
                 <button type="submit" class="btn-save">
-                  <% if (pet.isFav == 'active') { %>
+                  <% var pid = [] %> <% petId.filter(p => { let id = p ==
+                    pet._id; pid.push(id) }) %>
+                  <% if (pid.includes(true)) { %>
                   <i class="fa-solid fa-heart"></i>
                   <% } else{%> <i class="fa-regular fa-heart"></i><% } %>
                 </button>
