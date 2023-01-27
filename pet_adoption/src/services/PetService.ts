@@ -347,7 +347,7 @@ export const donationUpdateService = async (
   donation.quantity = req.body.quantity;
   donation.description = req.body.description;
   let newDonation = new Donate(donation);
-  newDonation.save();
+  await newDonation.save();
   return res.redirect("/admin/donation-table");
 };
 

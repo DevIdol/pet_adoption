@@ -1,0 +1,139 @@
+openapi: 3.0.2
+servers:
+  - url: http://127.0.0.1:8000
+info:
+  description: This is API Doc for Pet Adoption Project
+  title: Pet Adoption API
+  version: 1.0.0
+
+tags:
+ - name: Donations
+   description: Operation about Donations
+paths:
+  # Donation request Routes
+  /api/donations:
+    get:
+      tags: 
+        - Donations
+      summary: Get all donation requests
+      description: Get all donation requets make by admin.
+      responses:
+        "200":
+          description: Return all Donation Requests
+    post:
+      tags:
+        - Donations
+      summary: Create a new donation request
+      requestBody:
+        description: Create a new donation request
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                itemName:
+                  type: string
+                  example: "Cat Food Bag"
+                quantity:
+                  type: string
+                  example: "5"
+                description:
+                  type: string
+                  example: "To feed the cats"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  itemName:
+                    type: string
+                    example: "Cat food bag"
+                  quantity:
+                    type: string
+                    example: "5"
+                  description:
+                    type: string
+                    example: "To feed cats"
+        "405":
+          description: Invalid Input
+  /api/donations/{donationId}:
+    put:
+      tags:
+        - Donations
+      summary: Update donation request 
+      operationId: updateDonationId
+      parameters:
+        - name: donationId
+          in: path
+          description: ID of donation request to return
+          required: true
+          schema:
+            type: string
+      requestBody:
+          description: Update an existing donation request
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  itemName:
+                    type: string
+                    example: "Dog food bag"
+                  quantity:
+                    type: string
+                    example: "6"
+                  description:
+                    type: string
+                    example: "To feed the dogs"
+      responses:
+        "200":
+          description: Updated successfully!
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    example: "63c2aef7ba60c0506ec9c212"
+                  itemName:
+                    type: string
+                    example: "itemName Updated"
+                  quantity:
+                    type: string
+                    example: "Quantity Updated"
+                  description:
+                    type: string
+                    example: "Description Updated"
+                  status:
+                    type: boolean
+                    example: true
+                  createdAt:
+                    type: string
+                    format: date
+                  updatedAt:
+                    type: string
+                    format: date
+        "405":
+          description: Invalid input
+    delete:
+      tags:
+        - Donations
+      summary: Delete a donation request
+      operationId: deleteDonationId
+      parameters:
+        - name: donationId
+          in: path
+          description: Donation Id to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Deleted Successfully!
+        "400":
+          description: Invalid value
