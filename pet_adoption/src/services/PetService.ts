@@ -358,7 +358,7 @@ export const petArticleFormService = async (
   next: NextFunction
 ) => {
   const user = req.user;
-  const article = PetArticle.find();
+  const article =await PetArticle.find();
   res.render("petarticle-form", {
     errors: "",
     article: article,

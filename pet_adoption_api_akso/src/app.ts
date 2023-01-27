@@ -10,6 +10,7 @@ import * as swaggerUI from 'swagger-ui-express';
 import * as YAML from 'js-yaml';
 //routes
 import DonationRoute from "./routes/DonationRoute.js";
+import ArticleRoute from "./routes/ArticleRoute.js";
 
 //loading swagger
 const yamlString = fs.readFileSync('./swagger/api.yaml', 'utf8');
@@ -32,5 +33,8 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 //donation route
 app.use("/api/", DonationRoute);
+
+//article route
+app.use("/api/", ArticleRoute);
 
 app.listen(PORT, () => logger.info(`Server running on port ${PORT}`)); 

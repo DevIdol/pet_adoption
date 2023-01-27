@@ -5,12 +5,12 @@ info:
   description: This is API Doc for Pet Adoption Project
   title: Pet Adoption API
   version: 1.0.0
-
 tags:
- - name: Donations
-   description: Operation about Donations
+  - name: Donations
+    description: Operation about Donations
+  - name: Articles
+    description: Operation about Pet Articles
 paths:
-  # Donation request Routes
   /api/donations:
     get:
       tags: 
@@ -137,3 +137,63 @@ paths:
           description: Deleted Successfully!
         "400":
           description: Invalid value
+    
+  /api/articles:
+      get:
+        tags: 
+          - Articles
+        summary: Get all Articles
+        description: Get all articles added by admn.
+        responses:
+          "200":
+            description: Return all Articles
+      post:
+        tags:
+          - Articles
+        summary: Create a new article
+        requestBody:
+          description: Create a new article
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  title:
+                    type: string
+                    example: "What is the most popular dog breed in the USA?"
+                  description:
+                    description: string
+                    example: "What are the most popular dog breeds in the US? Depends who you ask! From Retrievers to German Shepards, there are many fan favorites that come to mind. But such a question can be quite subjective— what does a popular pet mean to you? Good looks,
+                     charm or trainability perhaps? The all-American dog doesn’t have to be ones"
+                  category:
+                    type: string
+                    example: "dog"
+                    pattern: "^(dog|cat)$"
+                    required: true
+        responses:
+          "200":
+            description: Successful operation
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                      example: "What is the most popular dog breed in the USA?"
+                    description:
+                      description: string
+                      example: "What are the most popular dog breeds in the US? Depends who you ask! From Retrievers to German Shepards, there are many fan favorites that come to mind. But such a question can be quite subjective— what does a popular pet mean to you? Good looks, charm or 
+                      trainability perhaps? The all-American dog doesn’t have to be ones"
+                    category:
+                      type: string
+                      example: "cat"
+                      enum: ["dog", "cat"]
+                      required: true
+          "405":
+            description: Invalid Input  
+
+    
+
+  
