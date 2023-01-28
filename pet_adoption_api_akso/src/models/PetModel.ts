@@ -42,7 +42,7 @@ const petSchema = new Schema(
       required: true,
     },
     isAvailable: {
-      type: Boolean,
+      type: String,
       required: true,
     },
   },

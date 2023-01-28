@@ -2,7 +2,8 @@ import { Request, Response, NextFunction } from "express";
 import {
   petGetService,
   petUploadService,
-  petDeleteService
+  petDeleteService,
+  petUpdateService
 } from "../services/PetService.js";
 
 //get
@@ -24,6 +25,13 @@ export const petUpload = async(
 }
 
 //update
+export const petUpdate = async(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  petUpdateService(req, res, next);
+}
 
 //delete
 export const petDelete = async(
