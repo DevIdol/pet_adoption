@@ -5,11 +5,48 @@ info:
   description: This is API Doc for Pet Adoption Project
   title: Pet Adoption API
   version: 1.0.0
+components:
+  schemas:
+    ImageUpload:
+      type: object
+      properties:
+        images:
+          type: string
+          format: binary
+          description: "name of file"
+        fileType:
+          type: string
+          enum: [jpeg, png]
+        name:
+          type: string
+        breed:
+          type: string
+        age:
+          type: string
+        size:
+          type: string
+          enum: [Big,Medium,Small]
+        sex:
+          type: string
+          enum: [male,female]
+        kind:
+          type: string
+          enum: [cat,dog,other]
+        description:
+          type: string
+        isAvailable:
+          type: boolean
+          enum: [true,false]
+      required:
+        - images
+        - fileType
 tags:
   - name: Donations
     description: Operation about Donations
   - name: Articles
     description: Operation about Pet Articles
+  - name: Pets
+    description: Operation about Pets
 paths:
   /api/donations:
     get:
@@ -169,8 +206,6 @@ paths:
                   category:
                     type: string
                     example: "dog"
-                    pattern: "^(dog|cat)$"
-                    required: true
         responses:
           "200":
             description: Successful operation
@@ -190,10 +225,131 @@ paths:
                       type: string
                       example: "cat"
                       enum: ["dog", "cat"]
-                      required: true
           "405":
             description: Invalid Input  
+  /api/articles/{articleId}:
+    put:
+      tags:
+        - Articles
+      summary: Update Article
+      operationId: updateArticleId
+      parameters:
+        - name: articleId
+          in: path
+          description: ID of article to return
+          required: true
+          schema:
+            type: string
+      requestBody:
+          description: Update an existing article
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  title:
+                    type: string
+                    example: "Cool Dog Names"
+                  description:
+                    type: string
+                    example: "Getting a new dog? Consider one of these cool dog names and maybe some of the cool will rub off on you. A cool dog name makes for a cool pet owner. Why settle for an ordinary dog name
+                     like Fido or Scooter when your dog can lead the pack with one of these instead?"
+                  category:
+                    type: string
+                    example: "cat"
+      responses:
+        "200":
+          description: Updated successfully!
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    example: "63c2aef7ba60c0506ec9c212"
+                  title:
+                    type: string
+                    example: "Cool Dog Names"
+                  description:
+                    type: string
+                    example: "Getting a new dog? Consider one of these cool dog names and maybe some of the cool will rub off on you. A cool dog name makes for a cool pet owner. Why settle for an ordinary dog name like
+                     Fido or Scooter when your dog can lead the pack with one of these instead?"
+                  category:
+                    type: string
+                    example: "cat"
+                  status:
+                    type: boolean
+                    example: true
+                  createdAt:
+                    type: string
+                    format: date
+                  updatedAt:
+                    type: string
+                    format: date
+        "405":
+          description: Invalid input
+    delete:
+      tags:
+        - Articles
+      summary: Delete an article
+      operationId: deleteArticleId
+      parameters:
+        - name: articleId
+          in: path
+          description: Article Id to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Deleted Successfully!
+        "400":
+          description: Invalid value
 
-    
-
-  
+  /api/pets:
+    get:
+        tags: 
+          - Pets
+        summary: Get all Pets
+        description: Get all pets added by admn.
+        responses:
+          "200":
+            description: Return all pets
+    post:
+      tags:
+        - Pets
+      summary: Create a new pet
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ImageUpload'
+              parameters:
+                - in: formData
+                  name: images
+                  type: file
+                  required: true
+                  description: The image to upload   
+      responses:
+        '200':
+          description: Success
+  /api/pets/{petId}:
+    delete:
+      tags:
+        - Pets
+      summary: Delete a pet
+      operationId: deletePetId
+      parameters:
+        - name: petId
+          in: path
+          description: Pet Id to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Deleted Successfully!
+        "400":
+          description: Invalid value

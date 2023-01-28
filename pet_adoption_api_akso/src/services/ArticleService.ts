@@ -16,12 +16,12 @@ export const petArticleGetService = async (
       status: 1 
     });
   } catch (err: any) {
-    logger.error('GET Post API Error');
+    logger.error('GET Article API Error');
     logger.error(err);
     if (!err.statusCode) {
       err.statusCode = 500;
     }
-    res.status(403).json({ message: 'GET Post API Error', status: 1 });
+    res.status(403).json({ message: 'GET Article API Error', status: 1 });
   }
 };
 
@@ -61,5 +61,65 @@ export const petArticleService = async (
       err.statusCode = 500;
     }
     res.status(403).json({ message: 'Create Post API Error', status: 1 });
+  }
+};
+
+//update
+export const petArticleUpdateService = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const article = await PetArticle.findById(req.params.id);
+    if (!article) {
+      const error: any = new Error("Not Found!");
+      error.statusCode = 404;
+      throw error;
+    }
+    if (req.body.category === "dog" || req.body.category === "cat") {
+      article.category = req.body.category;
+      article.title = req.body.title;
+      article.description = req.body.description;
+      let newArticle = new PetArticle(article);
+      const result = await newArticle.save();
+      res.json({ message: "Updated Successfully!", data: result, status: 1 });
+    } else {
+      res.status(405).json({ data: "Input only dog/cat" });
+    }
+  }catch (err: any) {
+    logger.error('Update Article API Error');
+    logger.error(err);
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    res.status(403).json({ data: 'Update Article API Error', status: 1 });
+  }
+};
+
+//delete
+export const petArticleDeleteService = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const requestedId = req.params.id;
+    PetArticle.findById(requestedId, (err: any, item: any) => {
+      if (err) console.log("error");
+      PetArticle.deleteOne({ _id: requestedId }, (err) => {
+        if (!err) {
+          res.json({ data: `${item.title} Deleted successfully`, status: 1 })
+        }
+      });
+    })
+    
+  }catch (err: any) {
+    logger.error('Delete Post API Error');
+    logger.error(err);
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    res.status(403).json({ data: 'Delete Post API Error', status: 1 });
   }
 };

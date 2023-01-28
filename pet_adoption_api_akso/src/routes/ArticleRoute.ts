@@ -2,7 +2,9 @@ import express from "express";
 import { check } from "express-validator";
 import {
   petArticleGet,
-  petArticle
+  petArticle,
+  petArticleUpdate,
+  petArticleDelete
 } from "../controllers/ArticleController.js";
 const router = express.Router();
 
@@ -15,6 +17,8 @@ router.route("/articles")
       check("description").notEmpty().withMessage("Description can't be empty"),
     ],
     petArticle
-  );
-
+);
+router.route("/articles/:id")
+  .put(petArticleUpdate)
+  .delete(petArticleDelete)
 export default router;

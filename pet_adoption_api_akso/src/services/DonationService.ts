@@ -89,7 +89,6 @@ export const donationUpdateService = async (
 };
 
 //delete
-//delete
 
 export const donationDeleteService = async (
   req: Request,
@@ -108,11 +107,11 @@ export const donationDeleteService = async (
     });
  
 }catch (err: any) {
-  logger.error('Delete Post API Error');
+  logger.error('Delete Donation API Error');
   logger.error(err);
   if (!err.statusCode) {
     err.statusCode = 500;
   }
-  res.status(403).json({ data: 'Delete Post API Error', status: 1 });
+  res.status(403).json({ data: 'Delete Donation API Error', status: 1 });
 }
 };

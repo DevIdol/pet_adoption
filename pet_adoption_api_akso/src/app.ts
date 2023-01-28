@@ -11,6 +11,7 @@ import * as YAML from 'js-yaml';
 //routes
 import DonationRoute from "./routes/DonationRoute.js";
 import ArticleRoute from "./routes/ArticleRoute.js";
+import PetRoute from "./routes/PetRoute.js";
 
 //loading swagger
 const yamlString = fs.readFileSync('./swagger/api.yaml', 'utf8');
@@ -36,5 +37,8 @@ app.use("/api/", DonationRoute);
 
 //article route
 app.use("/api/", ArticleRoute);
+
+//pet route
+app.use("/api/", PetRoute);
 
 app.listen(PORT, () => logger.info(`Server running on port ${PORT}`)); 
