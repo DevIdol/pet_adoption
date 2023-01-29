@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import PetArticle from "../models/PetArticleModel.js";
+import PetArticle from "../models/PetArticleModel";
 import { validationResult } from "express-validator";
-import { logger } from "../logger/Logger.js";
+import { logger } from "../logger/Logger";
 
 //get
 export const petArticleGetService = async (

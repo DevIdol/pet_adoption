@@ -147,7 +147,7 @@ export const petUpdateService = async (
 //    res.json({ data: pet });
     
     const files = req.files;
-    if (files?.length === 0) {
+    if (!files) {
       if (!req.body.name){
         req.body.name = pet.name;
         console.log(req.body.name);

@@ -10,8 +10,8 @@ import fs from 'fs';
 import * as swaggerUI from 'swagger-ui-express';
 import * as YAML from 'js-yaml';
 //routes
-import DonationRoute from "./routes/DonationRoute.js";
-import ArticleRoute from "./routes/ArticleRoute.js";
+import DonationRoute from "./routes/DonationRoute";
+import ArticleRoute from "./routes/ArticleRoute";
 import PetRoute from "./routes/PetRoute.js";
 
 //loading swagger
