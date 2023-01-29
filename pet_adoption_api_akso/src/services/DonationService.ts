@@ -76,7 +76,6 @@ export const donationUpdateService = async (
   donation.description = req.body.description;
   let newDonation = new Donate(donation);
     const result =await newDonation.save();
-    console.log(result);
   res.json({ message: "Updated Successfully!", data: result, status: 1 });
   }catch (err: any) {
     logger.error('Update Post API Error');
