@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head.ejs', {title: "Pet Adoption | Update Pet Article" }) %>
+</head>
+
+<body>
+  <header><%- include('./partials/admin-nav.ejs') %></header>
+  <section class="account-sec">
+    <div class="l-inner">
+      <%- include('./partials/admin-sidebar.ejs', {user}) %>
+      <div class="account-wrapper">
+        <div class="pet-form-wrapper">
+          <h2>Update Article</h2>
+          <% if (errors) { %>
+          <% errors.forEach(function(error) { %>
+          <div class="error">
+            <%= error.msg %>
+          </div>
+          <% }); %>
+          <% } %>
+
+          <form action="/admin/articles/<%= article._id %>?_method=PUT" class="pet-form" method="post">
+
+            <select name="category">
+              <option>
+                <--- Select Category --->
+              </option>
+              <% if (article.category==="cat") { %>
+              <option value="cat" selected>Cat</option>
+              <option value="dog">Dog</option>
+              <% } %>
+              <% if (article.category==="dog") { %>
+              <option value="cat">Cat</option>
+              <option value="dog" selected>Dog</option>
+              <% } %>
+            </select><br><br>
+            <input class="input" type="text" name="title" placeholder="title" value="<%= article.title %>"><br><br>
+            <textarea name="description" cols="30" rows="10" value=""><%= article.description %></textarea><br><br>
+            <button class="btn" type="submit" name="submit-button">Update Article</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%- include('./partials/script.ejs') %>
+</body>
+
+</html>

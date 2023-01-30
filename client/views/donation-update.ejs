@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Update Donation Request" }) %>
+  </head>
+
+  <body>
+    <header><%- include('./partials/admin-nav.ejs') %></header>
+    <section class="account-sec">
+      <div class="l-inner">
+        <%- include('./partials/admin-sidebar.ejs', {user}) %>
+        <div class="account-wrapper">
+          <div class="pet-form-wrapper">
+            <h2>Update Donation Request</h2>
+            <form
+              action="/admin/donations/<%= donation._id %>?_method=PUT"
+              class="donation-form"
+              method="post"
+            >
+              <% if (errors) { %> <% errors.forEach(function(error) { %>
+              <div class="error"><%= error.msg %></div>
+              <% }); %> <% } %>
+              <input
+                class="input"
+                type="text"
+                name="itemName"
+                placeholder="Item Name"
+                value="<%= donation.itemName %>"
+              />
+              <br /><br />
+              <input
+                class="input"
+                type="text"
+                name="quantity"
+                placeholder="Quantity"
+                value="<%= donation.quantity %>"
+              />
+              <br /><br />
+              <textarea name="description" cols="30" rows="10">
+<%= donation.description %></textarea
+              >
+              <br /><br />
+              <button class="btn" type="submit" name="submit-button">
+                Update Donation request
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('./partials/script.ejs') %>
+  </body>
+</html>
