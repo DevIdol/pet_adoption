@@ -14,6 +14,9 @@ header .l-inner {
   justify-content: space-between;
   align-items: center;
 }
+header h1{
+  z-index: 9999 !important;
+}
 
 header h1 a {
   font-size: 28px;
@@ -138,32 +141,33 @@ header .menu-toggle {
   header .l-inner {
     max-width: 100%;
     width: 100%;
-    padding-left: 10px;
+    padding-left: 1.302vw;
   }
   header nav {
     background-color: var(--background);
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     position: absolute;
     top: -100vh;
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 0 !important;
   }
   header nav .g-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 40px;
+    padding-top: 5.208vw;
   }
 
   header .menu-toggle {
     display: block;
     position: absolute;
-    width: 43px;
-    height: 32px;
-    right: 10px;
+    width: 5.599vw;
+    height: 4.167vw;
+    right: 1.302vw;
     cursor: pointer;
     z-index: 99;
   }
@@ -171,8 +175,8 @@ header .menu-toggle {
   header .menu-toggle span {
     position: absolute;
     background-color: #141414;
-    width: 43px;
-    height: 3px;
+    width: 5.599vw;
+    height: 0.391vw;
     border-radius: 30%;
     transition: 0.8s ease;
   }
@@ -182,12 +186,12 @@ header .menu-toggle {
   }
 
   header .menu-toggle span:nth-child(2) {
-    top: 15px;
+    top: 1.953vw;
     transition: 1.2s ease;
   }
 
   header .menu-toggle span:nth-child(3) {
-    top: 30px;
+    top: 3.906vw;
   }
 
   header .menu-toggle.active {
@@ -196,7 +200,7 @@ header .menu-toggle {
   }
 
   header .menu-toggle.active span:nth-child(1) {
-    transform: translateY(15px) rotate(-45deg);
+    transform: translateY(1.953vw) rotate(-45deg);
   }
 
   header .menu-toggle.active span:nth-child(2) {
@@ -205,37 +209,49 @@ header .menu-toggle {
   }
 
   header .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-15px) rotate(45deg);
+    transform: translateY(-1.953vw) rotate(45deg);
   }
+
+  /*akso added*/
+  header {
+    padding: 1.302vw 0;
+    box-shadow: 0 0.651vw 0.651vw -0.651vw #333;
+}
 }
 
 @media screen and (max-width: 768px) {
   header h1 a{
-    font-size: 20px;
+    font-size: 3.125vw;
   }
   header h1 a img {
-    width: 38px;
+    width: 5.938vw;
   }
   header .menu-toggle{
-    top: 6px;
+    top: 0.938vw;
   }
   header .menu-toggle span {
-    width: 36px;
-    height: 2px;
+    width: 5.625vw;
+    height: 0.313vw;
   }
   header .menu-toggle span:nth-child(2) {
-    top: 12px;
+    top: 1.875vw;
     transition: 1.2s ease;
   }
 
   header .menu-toggle span:nth-child(3) {
-    top: 24px;
+    top: 3.75vw;
   }
   header .menu-toggle.active span:nth-child(1) {
-    transform: translateY(12px) rotate(-45deg);
+    transform: translateY(1.875vw) rotate(-45deg);
   }
 
   header .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-12px) rotate(45deg);
+    transform: translateY(-1.875vw) rotate(45deg);
   }
+  /*akso added*/
+  header {
+    padding: 1.563vw 0;
+    box-shadow: 0 0.781vw 0.781vw -0.781vw #333;
+}
+
 }

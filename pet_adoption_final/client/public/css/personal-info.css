@@ -50,6 +50,7 @@
   align-self: center;
   align-items: flex-end;
   font-weight: 500;
+  font-size: 16px;
 }
 
 .personal-info .email-wrapper {
@@ -59,6 +60,7 @@
 
 .personal-info .edit a i {
   color: #6d6b6b;
+  font-size: 18px;
 }
 .personal-info .edit a i:hover {
   color: var(--btn-color);
@@ -84,6 +86,18 @@
 }
 .username-wrapper, .email-wrapper, .password-wrapper {
   padding: 2.604vw 1.302vw;
+}
+
+/*akso added*/
+.personal-info .edit a i {
+  font-size: 2.344vw;
+}
+.personal-info .password h4 {
+
+  font-size: 2.083vw;
+}
+.personal-info .password h4 span {
+  font-size: 2.604vw;
 }
 }
 
@@ -129,5 +143,17 @@
 
   font-weight: 500;
   font-size: 2.813vw;
+}
+
+/*akso added*/
+.personal-info .edit a i {
+  font-size: 2.813vw;
+}
+.personal-info .password h4 {
+
+  font-size: 2.5vw;
+}
+.personal-info .password h4 span {
+  font-size: 3.125vw;
 }
 }
