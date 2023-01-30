@@ -311,6 +311,31 @@ img.cattto {
   display: block;
   margin: 20px auto;
 }
+/* Saved Btn */
+.save-form {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.btn-save {
+  border: none;
+  padding: 4px;
+  background-color: #ffffffcc !important;
+  border-radius: 50%;
+}
+
+.btn-save i {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--btn-hover);
+}
+
+.btn-save i:hover {
+  font-weight: 400;
+  transition: var(--transition);
+
+}
 
 /*Added for responsive*/
 
@@ -522,9 +547,30 @@ img.cattto {
   }
 
   .bg-pet {
-    padding: 130px 0px;
-    background: url(../image/dogs-md.jpg) no-repeat center/cover;
+    padding: 16.927vw 0vw;
+    background: url("../image/dogs.jpg") no-repeat center/cover;
   }
+  
+/* Saved Btn */
+.save-form {
+  position: absolute;
+  top: 1.302vw;
+  right: 1.302vw;
+}
+
+.btn-save {
+  padding: 0.521vw;
+}
+
+.btn-save i {
+  font-size: 3.125vw;
+
+}
+.latest-pets h3 {
+  font-size: 3.906vw;
+  
+}
+
 }
 
 /*Phone*/
@@ -540,7 +586,7 @@ img.cattto {
 
   .bg-pet {
     padding: 20.313vw 0vw;
-    background: url(../image/dogs-sm.jpg) no-repeat center/cover;
+    background: url("../image/dogs.jpg") no-repeat center/cover;
   }
 
   .home-user-heading {
@@ -710,29 +756,39 @@ img.cattto {
   .pet-user-all img {
     border-radius: 1.563vw;
   }
-}
 
+  /*akso added*/
+  
 /* Saved Btn */
 .save-form {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1.563vw;
+  right: 1.563vw;
 }
 
 .btn-save {
   border: none;
-  padding: 4px;
-  background-color: #ffffffcc !important;
-  border-radius: 50%;
+  padding: 0.625vw;
+  
 }
 
 .btn-save i {
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--btn-hover);
+  font-size: 3.75vw;
+  ;
+}
+.floating-div div .learn-more-btn {
+  
+  margin-top: 3.125vw;
+  padding: 1.563vw 5.469vw;
+  border: 0.469vw solid var(--btn-color);
+  font-size: 2.813vw;
+  border-radius: 3.906vw;
+}
+.latest-pets h3 {
+  font-size: 4.688vw;
+ 
 }
 
-.btn-save i:hover {
-  font-weight: 600;
-  transition: var(--transition);
 }
+
+

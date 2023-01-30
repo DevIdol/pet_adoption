@@ -104,7 +104,7 @@
   .contact-sec .l-inner {
     flex-direction: column;
     justify-content: center;
-    gap: 60px;
+    gap: 7.813vw;
   }
   .contact-sec .contact-us,
   .contact-sec .get-in-touch {
@@ -113,31 +113,31 @@
 }
 
 /* Mobile View */
-@media screen and (max-width: 767.9px) {
+@media screen and (max-width: 119.984vw) {
   .contact-sec {
     background-color: var(--background);
-    padding: 0 20px;
-    padding-bottom: 60px;
+    padding: 0 3.125vw;
+    padding-bottom: 9.375vw;
   }
   .contact-sec .l-inner {
     flex-direction: column;
     justify-content: center;
-    gap: 60px;
+    gap: 9.375vw;
   }
   .contact-sec .contact-us,
   .contact-sec .get-in-touch {
     width: 100%;
   }
   .contact-sec .contact-us {
-    padding: 40px;
+    padding: 6.25vw;
   }
   .contact-us a {
-    gap: 10px;
+    gap: 1.563vw;
   }
   .contact-us i{
-    font-size: 20px;
+    font-size: 3.125vw;
   }
   .contact-us p {
-    font-size: 16px;
+    font-size: 3.5vw;
   }
 }

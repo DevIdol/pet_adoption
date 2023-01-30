@@ -1,8 +1,8 @@
 $(document).ready(function () {
     $(".menu-toggle").on("click", function () {
-        var topVal = 45;
+        var topVal = 0;
         if ($(this).hasClass("active")) {
-            topVal = -980;
+            topVal = -1200;
             $(this).removeClass("active");
         } else {
             $(this).addClass("active");
