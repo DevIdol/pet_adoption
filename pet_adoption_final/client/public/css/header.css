@@ -41,6 +41,7 @@ header ul li {
 }
 
 header ul li a {
+
   color: var(--font-color);
 }
 
@@ -148,7 +149,7 @@ header .menu-toggle {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    top: -100vh;
+    top: -200vh;
     left: 0;
     right: 0;
     bottom: 0;
@@ -159,7 +160,7 @@ header .menu-toggle {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 5.208vw;
+    padding-top: 5.408vw;
   }
 
   header .menu-toggle {
@@ -217,6 +218,9 @@ header .menu-toggle {
     padding: 1.302vw 0;
     box-shadow: 0 0.651vw 0.651vw -0.651vw #333;
 }
+header .g-nav {
+  gap: 3.906vw;
+}
 }
 
 @media screen and (max-width: 768px) {
@@ -253,5 +257,8 @@ header .menu-toggle {
     padding: 1.563vw 0;
     box-shadow: 0 0.781vw 0.781vw -0.781vw #333;
 }
-
+header .g-nav {
+  gap: 4.688vw;
+  padding-top: 12vw !important;
+}
 }
