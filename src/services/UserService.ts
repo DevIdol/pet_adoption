@@ -207,7 +207,7 @@ export const updateUserPasswordService = async (
       res.redirect("/personal-info");
     }
   } catch (error) {
-    res.render("not-found", { error: "Something Wrong!" });
+    res.render("not-found", { rroer: "Something Wrong!" });
   }
 };
 

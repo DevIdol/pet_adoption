@@ -39,6 +39,7 @@ export const petUploadService = async (
         description: req.body.description,
         isAvailable: req.body.ava,
       };
+      console.log("Created")
       return res.render("pet-form", {
         errors: errors.array(),
         pet: pet,
@@ -104,6 +105,7 @@ export const petUploadService = async (
       });
       Promise.all(result)
         .then((msg) => {
+          req.flash('success', "Created Success")
           res.redirect("/admin/pet-table");
         })
         .catch((err) => {
@@ -153,6 +155,7 @@ export const petDeleteService = async (
   const requestedPetId = req.params.id;
   Pet.deleteOne({ _id: requestedPetId }, (err) => {
     if (!err) {
+      req.flash("success", "Delete Success");
       res.redirect("/admin/pet-table");
     }
   });
@@ -199,6 +202,7 @@ export const petUpdateService = async (
       pet.isAvailable = req.body.ava;
       let newPet: any = new Pet(pet);
       await newPet.save();
+      req.flash("success", "Update Success");
       return res.redirect("/admin/pet-table");
     } else {
       let imgArray;
@@ -241,6 +245,7 @@ export const petUpdateService = async (
       Promise.all(result)
         .then(
           () => {
+            req.flash("success", "Update Success");
             res.redirect("/admin/pet-table");
           }
           //res.json(msg)
@@ -263,7 +268,6 @@ export const donateRequestService = async (
   const donations = await Donate.find({});
   res.render("donation-request", { errors: "", donation: donations, user });
 };
-
 
 export const donateRequestCreateService = async (
   req: Request,
@@ -292,9 +296,10 @@ export const donateRequestCreateService = async (
     };
     const newDonate = new Donate(donationCreate);
     await newDonate.save();
-    res.redirect("/admin/article-table");
+    req.flash("success", "Created Success")
+    res.redirect("/admin/donation-table");
   } catch (err: any) {
-    res.redirect("/admin/article-table");
+    res.redirect("/admin/donation-table");
   }
 };
 
@@ -308,6 +313,7 @@ export const donationDeleteService = async (
   const requestedId = req.params.id;
   Donate.deleteOne({ _id: requestedId }, (err) => {
     if (!err) {
+     req.flash('success', "Deleted Success")
       res.redirect("/admin/donation-table");
     }
   });
@@ -348,6 +354,7 @@ export const donationUpdateService = async (
   donation.description = req.body.description;
   let newDonation = new Donate(donation);
   newDonation.save();
+  req.flash("success", "Updated Success")
   return res.redirect("/admin/donation-table");
 };
 
@@ -393,6 +400,7 @@ export const petArticleService = async (
     };
     const newArticle = new PetArticle(article);
     await newArticle.save();
+    req.flash("success", "Created Success")
     res.redirect("/admin/article-table");
   } catch (err: any) {
     res.redirect("/admin/article-table");
@@ -407,6 +415,7 @@ export const petArticleDeleteService = async (
   const requestedId = req.params.id;
   PetArticle.deleteOne({ _id: requestedId }, (err) => {
     if (!err) {
+      req.flash("success", "Deleted Success")
       res.redirect("/admin/article-table");
     }
   });
@@ -445,5 +454,6 @@ export const petArticleUpdateService = async (
   article.description = req.body.description;
   let newArticle = new PetArticle(article);
   newArticle.save();
+  req.flash("success", "Updated Success")
   res.redirect("/admin/article-table");
 };

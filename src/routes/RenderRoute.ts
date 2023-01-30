@@ -327,9 +327,7 @@ renderRoute.get(
   async (req: Request, res: Response, next: NextFunction) => {
     let token = req.cookies.access_token;
     const user: any = req.user;
-    const adoptions = await AdoptionModel.find()
-      .populate("userId")
-      .populate("petId");
+    const adoptions = await AdoptionModel.find().populate(["userId", "petId"])
     res.render("all-adoptions", { token, user, adoptions });
   }
 );

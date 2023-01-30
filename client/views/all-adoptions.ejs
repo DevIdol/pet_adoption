@@ -47,7 +47,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% adoptions.slice().reverse().forEach(function({_id, userId,
+                 <% adoptions.slice().reverse().forEach(function({_id, userId,
                   petId, desc}, i){ %>
                   <tr>
                     <td><%= i + 1 %></td>
@@ -101,6 +101,7 @@
                     </td>
                   </tr>
                   <% }); %>
+                  
                 </tbody>
               </table>
             </div>
