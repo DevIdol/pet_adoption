@@ -3,7 +3,7 @@ import User from "../models/UserModel";
 import PetModel from "../models/PetModel";
 import FavoriteModel from "../models/FavoriteModel";
 
-export const favoriteService = async (
+export const addToFavService = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -14,25 +14,20 @@ export const favoriteService = async (
     const fav: any = await FavoriteModel.find({ userId: userId._id });
     const pet: any = await PetModel.findById(req.params.id);
     let arr: any = [];
-    let favArr: any = [];
-    let petsId: any;
+
+    let favId: any;
     fav.find((f: any) => {
-      let petId = String(f.pets);
       const isFav = String(f.pets) === String(pet._id);
-      favArr.push(petId);
       arr.push(isFav);
     });
 
-    favArr
-      .filter((v: any) => v == req.params.id)
-      .map((v: any) => {
-        petsId = v;
+    fav
+      .filter((f: any) => String(f.pets) == req.params.id)
+      .map((p: any) => {
+        favId = p._id;
       });
+
     if (!arr.includes(true)) {
-      await PetModel.updateOne(
-        { _id: req.params.id },
-        { $set: { isFav: "active" } }
-      );
       const favorite = new FavoriteModel({
         userId: userId._id,
         pets: pet,
@@ -40,13 +35,12 @@ export const favoriteService = async (
       let saveFav = await favorite.save();
       user.favorites.push(saveFav);
       user.save();
-      req.flash('success', "Saved!")
+      req.flash("success", "Saved!");
       res.redirect("/");
     } else {
       const fav: any = await FavoriteModel.findOne({
-        pets: petsId,
+        _id: favId,
       });
-      await PetModel.updateOne({ _id: req.params.id }, { $set: { isFav: "" } });
       await FavoriteModel.deleteOne({ _id: fav.id });
       user.favorites = user.favorites.filter((f: any) => String(f) !== fav.id);
       user.save();
@@ -54,6 +48,7 @@ export const favoriteService = async (
       res.redirect("/");
     }
   } catch (err: any) {
+    console.log(err);
     res.render("not-found", { error: "Something Wrong!" });
   }
 };

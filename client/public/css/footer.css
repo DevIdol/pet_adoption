@@ -82,4 +82,22 @@ footer h2 {
     flex-direction: column;
     gap: 40px;
   }
+  .footer-link{
+    padding-top: 0px;
+  }
+  .footer-link h3{
+    display: none;
+  }
+  .social-media h3{
+    font-size: 18px;
+  }
+  .social-media a i {
+    font-size: 20px;
+  }
+  .copy-right h3 {
+    font-size: 14px;
+  }
+  .copy-right p {
+    font-size: 12px;
+  }
 }

@@ -19,6 +19,7 @@ import {
   petArticelUpdateForm,
   petArticleUpdate,
 } from "../controllers/PetController.js";
+import { isAdmin } from "../middlewares/IsAuth.js";
 
 const router = express.Router();
 
@@ -44,7 +45,7 @@ router
 router
   .route("/pets/:id")
   .get(petDetail)
-  .delete(petDelete)
+  .delete(isAdmin, petDelete)
   .put(
     store.array("images", 1200),
     [
@@ -56,6 +57,7 @@ router
       check("description").notEmpty().withMessage("description can't be empty"),
       check("ava").notEmpty().withMessage("fill true/false in isAvailable"),
     ],
+    isAdmin,
     petUpdate
   );
 router.route("/pets/edit/:id").get(petUpdateForm);
@@ -74,12 +76,16 @@ router
         .withMessage("Type number 1 to 4 digits"),
       check("description").notEmpty().withMessage("Description can't be empty"),
     ],
+    isAdmin,
     donateRequestCreate
   );
 
 //donation delete and update
-router.route("/donations/:id").delete(donationDelete).put(donationUpdate);
-router.route("/donations/edit/:id").get(donationUpdateForm);
+router
+  .route("/donations/:id")
+  .delete(isAdmin, donationDelete)
+  .put(isAdmin, donationUpdate);
+router.route("/donations/edit/:id").get(isAdmin, donationUpdateForm);
 
 //show article form and create
 router
@@ -91,11 +97,15 @@ router
       check("title").notEmpty().withMessage("Title can't be empty"),
       check("description").notEmpty().withMessage("Description can't be empty"),
     ],
+    isAdmin,
     petArticle
   );
 
 //article update and delete
-router.route("/articles/:id").delete(petArticleDelete).put(petArticleUpdate);
-router.route("/articles/edit/:id").get(petArticelUpdateForm);
+router
+  .route("/articles/:id")
+  .delete(isAdmin, petArticleDelete)
+  .put(isAdmin, petArticleUpdate);
+router.route("/articles/edit/:id").get(isAdmin, petArticelUpdateForm);
 
 export default router;

@@ -3,7 +3,7 @@ import Token from "../models/Token";
 import User from "../models/UserModel";
 import crypto from "crypto";
 import { SendMail } from "../utils/ChangePassMail";
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
 
 //Forgot Password
 export const forgotPasswordService = async (
@@ -31,7 +31,7 @@ export const forgotPasswordService = async (
       }).save();
     }
     const url = `${process.env.BASE_URL}/forgot-password/${user._id}/${token.token}`;
-    await SendMail(user.email, "Password Reset", url, req, res);
+    await SendMail(user.email, "Password Reset", url, req);
     res.redirect("/forgot-password");
   } catch (error) {
     res.render("not-found", { error: "Something Wrong!" });

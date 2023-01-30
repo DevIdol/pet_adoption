@@ -5,7 +5,7 @@ import {
   registerService,
   approvedAdminService,
   approvedUserService,
-} from "../services/AuthRouteService";
+} from "../services/AuthService";
 
 //register
 export const register = async (

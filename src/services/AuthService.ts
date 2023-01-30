@@ -90,21 +90,6 @@ export const loginService = async (
           req.flash("error", "Invalid email or password!");
           return res.redirect("/login");
         } else if (!user.verified) {
-          let token = await Token.findOne({ userId: user._id });
-          if (!token) {
-            token = await new Token({
-              userId: user._id,
-              token: crypto.randomBytes(32).toString("hex"),
-            }).save();
-            const url = `${process.env.BASE_URL}/users/${user._id}/verify/${token.token}`;
-            await VerifyEmail(
-              user.email,
-              "Verify your email address",
-              url,
-              req,
-              res
-            );
-          }
           req.flash("error", "You are not verified! Please check your email.");
           return res.redirect("/login");
         } else {
@@ -127,7 +112,6 @@ export const loginService = async (
             .cookie("access_token", token, {
               expires: expiryDate,
               httpOnly: true,
-              secure: true,
             })
             .status(200)
             .redirect("/");
@@ -148,7 +132,7 @@ export const logoutService = async (
   try {
     res.clearCookie("access_token");
     req.flash("success", "Logged out Success!");
-    res.redirect("/");
+    res.redirect("/login");
   } catch (error: any) {
     res.render("not-found", { error: "Something Wrong!" });
   }

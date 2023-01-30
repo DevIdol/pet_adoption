@@ -131,6 +131,7 @@ header ul li a i {
 
 header .menu-toggle {
   display: none;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 1180px) {
@@ -162,7 +163,6 @@ header .menu-toggle {
     position: absolute;
     width: 43px;
     height: 32px;
-    top: -2px;
     right: 10px;
     cursor: pointer;
     z-index: 99;
@@ -206,5 +206,36 @@ header .menu-toggle {
 
   header .menu-toggle.active span:nth-child(3) {
     transform: translateY(-15px) rotate(45deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header h1 a{
+    font-size: 20px;
+  }
+  header h1 a img {
+    width: 38px;
+  }
+  header .menu-toggle{
+    top: 6px;
+  }
+  header .menu-toggle span {
+    width: 36px;
+    height: 2px;
+  }
+  header .menu-toggle span:nth-child(2) {
+    top: 12px;
+    transition: 1.2s ease;
+  }
+
+  header .menu-toggle span:nth-child(3) {
+    top: 24px;
+  }
+  header .menu-toggle.active span:nth-child(1) {
+    transform: translateY(12px) rotate(-45deg);
+  }
+
+  header .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-12px) rotate(45deg);
   }
 }

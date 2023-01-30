@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import {
+  addToFavService,
   deleteFavoriteService,
-  favoriteService,
 } from "../services/FavoriteService";
 
 export const createFavorite = async (
@@ -9,7 +9,7 @@ export const createFavorite = async (
   res: Response,
   next: NextFunction
 ) => {
-  favoriteService(req, res, next);
+  addToFavService(req, res, next);
 };
 
 export const deleteFavorite = async (

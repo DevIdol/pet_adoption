@@ -1,14 +1,13 @@
 import path from "path";
 import nodemailer from "nodemailer";
 import hbs from "nodemailer-express-handlebars";
-import { Request, Response } from "express";
+import { Request } from "express";
 
 export const SendMail = async (
   email: string,
   subject: string,
   text: string,
   req: Request,
-  res: Response
 ) => {
   try {
     const transporter = nodemailer.createTransport({
