@@ -776,6 +776,7 @@ img.cattto {
 }
 
 .btn-save i:hover {
-  font-weight: 600;
+  font-weight: 400;
   transition: var(--transition);
+
 }
