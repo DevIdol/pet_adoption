@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Article Table" })
+    %>
+  </head>
+  <body>
+    <header><%- include('./partials/admin-nav.ejs') %></header>
+    <section class="account-sec">
+      <div class="l-inner">
+        <%- include('./partials/admin-sidebar.ejs', {user}) %>
+        <div class="account-wrapper">
+          <div class="admin">
+            <div class="table-title">
+              <h2>Pet Article Table</h2>
+              <a href="/admin/pet-article/create">Create New Article</a>
+            </div>
+            <div class="pet-tbl-wrapper" style="overflow-x: auto">
+              <table id="table">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% articles.slice().reverse().forEach(function(article, i){ %>
+                  <tr>
+                    <td><%= i + 1 %></td>
+                    <td>
+                      <a href="/articles?category=<%= article.category %>"
+                        ><%= article.title %></a
+                      >
+                    </td>
+                    <td><%= article.category %></td>
+                    <td class="article-desc"><%= article.description %></td>
+                    <td>
+                      <form
+                        class="pet-update-form"
+                        action="/admin/articles/edit/<%= article._id %>"
+                        method="get"
+                      >
+                        <button class="btn-update" type="submit" value="Update">
+                          Update
+                        </button>
+                      </form>
+                    </td>
+                    <td>
+                      <form
+                        class="pet-delete-form"
+                        onclick=" return confirm('Are you sure you want to delete?')"
+                        action="/admin/articles/<%= article._id %>?_method=DELETE"
+                        method="post"
+                      >
+                        <button class="btn-delete" type="submit" value="delete">
+                          Delete
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('./partials/script.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs', {title: "Pet Adoption | Edit Username",
+    token }) %>
+  </head>
+
+  <body>
+    <header><%- include('./partials/header.ejs') %></header>
+    <section class="auth-sec">
+      <div class="l-inner">
+        <h2>Change Username</h2>
+        <%- include('./partials/messages.ejs') %>
+        <form action="/users/<%= user._id  %>?_method=PUT" method="post">
+          <input
+            type="text"
+            name="username"
+            placeholder="<%= user.username  %>"
+            required
+          />
+          <input class="btn" type="Submit" value="Submit" />
+        </form>
+        <div class="form-text">
+          <p><a href="/personal-info">Back</a></p>
+        </div>
+      </div>
+    </section>
+    <%- include('./partials/script.ejs') %>
+  </body>
+</html>
