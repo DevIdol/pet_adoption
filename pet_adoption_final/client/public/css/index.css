@@ -525,6 +525,27 @@ img.cattto {
     padding: 130px 0px;
     background: url(../image/dogs-md.jpg) no-repeat center/cover;
   }
+  
+/* Saved Btn */
+.save-form {
+  position: absolute;
+  top: 1.302vw;
+  right: 1.302vw;
+}
+
+.btn-save {
+
+  padding: 0.521vw;
+  
+
+}
+
+.btn-save i {
+  font-size: 3.125vw;
+
+}
+
+
 }
 
 /*Phone*/
@@ -710,6 +731,28 @@ img.cattto {
   .pet-user-all img {
     border-radius: 1.563vw;
   }
+
+  /*akso added*/
+  
+/* Saved Btn */
+.save-form {
+  position: absolute;
+  top: 1.563vw;
+  right: 1.563vw;
+}
+
+.btn-save {
+  border: none;
+  padding: 0.625vw;
+  
+}
+
+.btn-save i {
+  font-size: 3.75vw;
+  ;
+}
+
+
 }
 
 /* Saved Btn */
