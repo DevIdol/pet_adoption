@@ -1,5 +1,0 @@
-dist
-logs
-node_modules
-yarn.lock
-.env
